@@ -111,8 +111,12 @@
   @media(max-width:760px){.steps{grid-template-columns:1fr;gap:8px}
     .step{border-top:1px solid var(--line);padding:26px 0}.step:first-child{border-top:2px solid var(--accent)}}
 
+  .rating{display:flex;align-items:center;gap:16px;margin:22px 0 4px;flex-wrap:wrap}
+  .rating .score{font-family:var(--serif);font-size:46px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .rating .rstars{color:var(--accent);font-size:19px;letter-spacing:3px}
+  .rating .rcount{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
   .featured{font-family:var(--serif);font-size:clamp(24px,3.2vw,30px);line-height:1.5;
-    max-width:1000px;margin:44px 0 22px;color:var(--ink)}
+    max-width:1000px;margin:34px 0 22px;color:var(--ink)}
   .featured-by{font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:var(--muted);font-weight:500}
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
   .card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:32px;
@@ -139,6 +143,7 @@
   .foot-brand .mark b{color:#fff}
   .foot-brand .mark span{color:#fff}
   .foot-brand p{font-size:14px;color:var(--paper);opacity:.7;line-height:1.6;margin-top:14px}
+  .foot-brand .addr{font-family:var(--mono);font-size:12px;letter-spacing:.03em;line-height:1.7;opacity:.55}
   .foot-col h4{font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--paper);
     opacity:.55;text-transform:uppercase;margin-bottom:14px;font-family:var(--mono)}
   .foot-col a{display:block;font-size:14px;color:var(--paper);opacity:.85;margin-bottom:11px}
@@ -174,7 +179,7 @@
   <div class="wrap hero-c">
     <p class="eyebrow rise d1">Advocacia previdenciária · Carpina/PE · Atende todo o Brasil</p>
     <h1 class="rise d2">Quando o INSS diz não,<br>o seu direito não acaba ali.</h1>
-    <p class="rise d3">Sou Eduardo Rodrigues, advogado, e atuo com Direito Previdenciário há 13 anos. Ajudo trabalhadores negados pelo INSS e mães de crianças autistas a conquistar o benefício que já é seu — sem juridiquês, e falando direto comigo.</p>
+    <p class="rise d3">Sou Eduardo Rodrigues, advogado, e atuo com Direito Previdenciário há 13 anos. Ajudo trabalhadores negados pelo INSS e mães de crianças autistas a conquistar o benefício que já é seu, falando direto comigo.</p>
     <div class="cta-row rise d4">
       <a class="link-arrow" href="#como">Como eu trabalho&nbsp;&nbsp;→</a>
       <a class="link-arrow" href="#contato">Onde me encontrar&nbsp;&nbsp;→</a>
@@ -248,6 +253,11 @@
 <section id="depoimentos" class="pad" style="border-top:1px solid var(--line)">
   <div class="wrap">
     <p class="eyebrow">Quem já passou por isso</p>
+    <div class="rating">
+      <span class="score">5,0</span>
+      <span class="rstars">★★★★★</span>
+      <span class="rcount">189 avaliações no Google</span>
+    </div>
     <p class="featured">“Agradeço ao Dr. Eduardo por todo o empenho, o carinho e o profissionalismo na causa do meu filho, Samuel. Nos acolheu com respeito e cuidado — um profissional competente, humano e de total confiança. Recomendo de olhos fechados.”</p>
     <div class="featured-by">Mãe do Samuel · causa autista · avaliação no Google, 5 estrelas</div>
     <div class="cards">
@@ -280,7 +290,8 @@
     <div class="foot-top">
       <div class="foot-brand">
         <div class="mark"><img src="img/logo-er-white.png" alt="Eduardo Rodrigues Advocacia"><span>Eduardo Rodrigues</span></div>
-        <p>Advocacia previdenciária · Carpina/PE.<br>Atende todo o Brasil, 100% online.</p>
+        <p>Advocacia previdenciária. Atende todo o Brasil, 100% online — e presencialmente em Carpina/PE.</p>
+        <p class="addr">R. Djalma Dutra, 123 — São João<br>Carpina/PE · CEP 55813-000</p>
       </div>
       <div class="foot-col">
         <h4>Atuação</h4>
