@@ -58,6 +58,12 @@
   .hero p{font-size:19px;color:var(--muted);max-width:620px;line-height:1.65}
   .cta-row{display:flex;align-items:center;gap:24px;margin-top:38px;flex-wrap:wrap}
 
+  .officeband{position:relative;width:100%;height:clamp(300px,40vw,460px);overflow:hidden;background:var(--ink)}
+  .officeband img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+  .officeband .cap{position:absolute;left:0;right:0;bottom:0;padding:64px 0 24px;
+    background:linear-gradient(to top,rgba(15,29,52,.78),rgba(15,29,52,0))}
+  .officeband .cap .wrap{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:.92;display:flex;align-items:center;gap:12px}
+  .officeband .cap .wrap::before{content:"";width:24px;height:1px;background:#fff;opacity:.6;display:inline-block}
   .fatos{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .fatos-in{display:flex;justify-content:space-between;gap:28px;padding:44px 0}
   .stat{flex:1}
@@ -175,6 +181,11 @@
     </div>
   </div>
 </header>
+
+<section class="officeband">
+  <img src="img/escritorio.jpg" alt="Escritório de Eduardo Rodrigues em Carpina, Pernambuco">
+  <div class="cap"><div class="wrap">O escritório · Carpina, Pernambuco</div></div>
+</section>
 
 <div class="fatos">
   <div class="wrap fatos-in">
