@@ -37,14 +37,21 @@
 <meta name="twitter:description" content="A negativa do INSS não encerra o caso. Dá pra contestar na Justiça e pedir os atrasados. Análise gratuita pelo WhatsApp.">
 <meta name="twitter:image" content="https://adveduardorodrigues.com.br/bpc-autista-negado/assets/og-image.jpg">
 
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/hero-card.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-card.webp"
+      imagesrcset="assets/hero-card-620.webp 620w, assets/hero-card.webp 900w"
+      imagesizes="(max-width:780px) 92vw, 460px" fetchpriority="high">
 <link rel="preload" as="image" href="assets/logo.webp">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Inter variavel: 1 arquivo cobre os pesos 400-900, em vez de 7 estaticos.
+     media="print" + onload tira a folha do caminho critico de renderizacao. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap"></noscript>
 
 <script type="application/ld+json">
 {
@@ -566,6 +573,20 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
   .fab{padding:13px;right:14px;bottom:16px}
   .fab svg{width:25px;height:25px}
   .mini-grid{gap:10px}
+
+  /* Custo de GPU em celular barato. Dois orbs com blur(70px), backdrop-filter em
+     quatro elementos e blur animado no reveal travam o scroll em aparelho fraco.
+     Nada disso e visivel o bastante no mobile pra valer o preco. */
+  .orb{filter:blur(44px);animation:none}
+  .orb.a{width:210px;height:210px}
+  .orb.b{width:180px;height:180px}
+  .hero::before{display:none}
+  .hero-card{backdrop-filter:none}
+  .what-badge{backdrop-filter:none;background:rgba(15,29,52,.78)}
+  .glass{backdrop-filter:none;background:rgba(15,29,52,.84)}
+  .reveal{filter:none;transition:opacity .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{filter:none}
+  .btn.pulse{animation:none}
 }
 @media (max-width:420px){
   .value-row{flex-direction:column;gap:4px}
@@ -643,7 +664,9 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
 
           <!-- TROCAR POR assets/hero-card.webp definitiva (900x900) — foto atual veio da página de referência -->
           <div class="hero-photo">
-            <img src="assets/hero-card.webp" alt="Criança com Transtorno do Espectro Autista — BPC/LOAS negado pelo INSS" width="900" height="900" loading="eager" decoding="async" fetchpriority="high">
+            <img src="assets/hero-card.webp"
+                 srcset="assets/hero-card-620.webp 620w, assets/hero-card.webp 900w"
+                 sizes="(max-width:780px) 92vw, 460px" alt="Criança com Transtorno do Espectro Autista — BPC/LOAS negado pelo INSS" width="900" height="900" loading="eager" decoding="async" fetchpriority="high">
           </div>
 
           <h3>Quanto é o BPC?</h3>
@@ -679,7 +702,9 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
       <div class="what-visual has-photo reveal">
         <!-- TROCAR POR assets/conceito.webp definitiva: mãe e criança autista em casa ou em terapia -->
         <div class="what-photo">
-          <img src="assets/conceito.webp" alt="Família de criança autista reunindo documentos para o BPC/LOAS do INSS" width="1280" height="853" loading="lazy" decoding="async">
+          <img src="assets/conceito.webp"
+               srcset="assets/conceito-700.webp 700w, assets/conceito.webp 1280w"
+               sizes="(max-width:920px) 92vw, 560px" alt="Família de criança autista reunindo documentos para o BPC/LOAS do INSS" width="1280" height="853" loading="lazy" decoding="async">
           <span class="what-badge">1 salário mínimo, todo mês</span>
         </div>
         <p>O BPC paga mensalmente à pessoa com deficiência de família de baixa renda. Não é aposentadoria e não exige nenhuma contribuição.</p>
@@ -795,7 +820,9 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
     <div class="why">
       <!-- TROCAR POR assets/escritorio.webp definitiva: interior ou fachada do escritório, luz quente -->
       <div class="why-photo reveal">
-        <img src="assets/escritorio.webp" alt="Escritório de Eduardo Rodrigues Advocacia, especializado em BPC/LOAS para autismo" width="900" height="661" loading="lazy" decoding="async">
+        <img src="assets/escritorio.webp"
+             srcset="assets/escritorio-560.webp 560w, assets/escritorio.webp 900w"
+             sizes="(max-width:780px) 92vw, 480px" alt="Escritório de Eduardo Rodrigues Advocacia, especializado em BPC/LOAS para autismo" width="900" height="661" loading="lazy" decoding="async">
         <div class="glass">
           <b>Eduardo Rodrigues Advocacia</b>
           <span>Carpina/PE · atendimento em todo o Brasil.</span>
@@ -840,7 +867,9 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
     <div class="about">
       <!-- TROCAR POR assets/profissional.webp definitiva: retrato vertical do advogado, traje formal -->
       <div class="about-photo reveal">
-        <img src="assets/profissional.webp" alt="Eduardo Rodrigues, advogado especialista em BPC/LOAS para autismo e benefícios do INSS" width="900" height="1350" loading="lazy" decoding="async">
+        <img src="assets/profissional.webp"
+             srcset="assets/profissional-560.webp 560w, assets/profissional.webp 900w"
+             sizes="(max-width:780px) 360px, 520px" alt="Eduardo Rodrigues, advogado especialista em BPC/LOAS para autismo e benefícios do INSS" width="900" height="1350" loading="lazy" decoding="async">
         <div class="glass">
           <b>Eduardo Rodrigues Advocacia</b>
           <span>OAB/PE 64.717 · Carpina/PE</span>
