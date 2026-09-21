@@ -46,7 +46,8 @@
 <link rel="preload" as="image" href="../assets/hero-card.webp"
       imagesrcset="../assets/hero-card-620.webp 620w, ../assets/hero-card.webp 900w"
       imagesizes="(max-width:780px) 92vw, 460px" fetchpriority="high">
-<link rel="preload" as="image" href="../assets/logo.webp">
+<!-- o header some abaixo de 781px, entao no celular a logo nao entra no preload -->
+<link rel="preload" as="image" href="../assets/logo.webp" media="(min-width:781px)">
 <!-- Inter variavel: 1 arquivo cobre os pesos 400-900, em vez de 7 estaticos.
      media="print" + onload tira a folha do caminho critico de renderizacao. -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap">
@@ -654,7 +655,7 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
 <header id="header">
   <div class="container">
     <a href="#topo" class="brand" aria-label="Eduardo Rodrigues Advocacia">
-      <img src="../assets/logo.webp" alt="Eduardo Rodrigues Advocacia — advocacia previdenciária em Carpina/PE" width="537" height="200">
+      <img src="../assets/logo.webp" alt="Eduardo Rodrigues Advocacia — advocacia previdenciária em Carpina/PE" width="322" height="120">
     </a>
     <a class="btn btn-wpp" data-wpp>Falar com especialista</a>
   </div>
@@ -979,7 +980,7 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
   <div class="container">
     <div class="foot-grid">
       <div>
-        <img src="../assets/logo.webp" alt="Eduardo Rodrigues Advocacia" width="537" height="200" loading="lazy" decoding="async">
+        <img src="../assets/logo.webp" alt="Eduardo Rodrigues Advocacia" width="322" height="120" loading="lazy" decoding="async">
         <p>Advocacia previdenciária especializada em BPC/LOAS e benefícios do INSS. Atendimento humanizado em todo o Brasil.</p>
       </div>
       <div>
