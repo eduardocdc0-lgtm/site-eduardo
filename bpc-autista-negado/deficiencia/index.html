@@ -49,7 +49,7 @@
 <!-- o header some abaixo de 781px, entao no celular a logo nao entra no preload -->
 <!-- Inter variavel: 1 arquivo cobre os pesos 400-900, em vez de 7 estaticos.
      media="print" + onload tira a folha do caminho critico de renderizacao. -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500&family=Instrument+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap"></noscript>
@@ -724,6 +724,28 @@ header .brand img,header.scrolled .brand img{height:30px;width:auto}
   .pf-sheet,.pf-note{animation:none;opacity:1}
   .pf-ring path{animation:none;stroke-dashoffset:0}
 }
+
+/* v2: menos enfeite, cara de escritorio de verdade */
+.pf{--pf-display:var(--pf-body);--pf-paper:#F7F5F1;--pf-paper-2:#FFFFFF}
+.pf::before{display:none}
+.pf-kicker{color:var(--pf-soft);font-weight:600;letter-spacing:.08em}
+.pf-kicker::before{display:none}
+.pf-h1{font-weight:700;letter-spacing:-.025em;line-height:1.12;font-variation-settings:normal}
+.pf-h1 .q{font-style:normal;font-weight:700;color:var(--pf-red);background:none;animation:none;padding:0}
+.pf-sheet{transform:none;animation:none;padding:0;border:1px solid #E3E0DA;border-radius:12px;overflow:hidden;box-shadow:0 24px 50px -30px rgba(19,33,58,.45)}
+.pf-sheet img{border-radius:0}
+.pf-cap{font-size:.86rem}
+.pf-why{border-top:1px solid #ECE8E1}
+.pf-why .pf-h2{font-weight:700;letter-spacing:-.02em}
+.pf-lei{font-style:normal;font-size:1.08rem;border-left-width:3px}
+.pf-n{font-weight:700;font-size:2.4rem;font-variation-settings:normal}
+.pf-item h3{font-weight:700;font-size:1.25rem}
+.pf-fix{background:#F7F5F1;box-shadow:none;border:1px solid #ECE8E1}
+.pf-close p{font-weight:600;font-size:1.25rem}
+.pf-close p em{font-family:var(--pf-body);font-style:normal;font-size:inherit;color:var(--pf-ink);text-decoration:underline;text-decoration-color:#0B8B3F;text-underline-offset:4px}
+header .brand{font-family:var(--pf-body);font-weight:700}
+.pf-top{font-family:var(--pf-body);font-weight:700}
+@media (max-width:780px){.pf-h1{font-size:clamp(1.55rem,7vw,1.9rem)}.pf-sheet{padding:0}}
 </style>
 </head>
 
@@ -749,7 +771,7 @@ header .brand img,header.scrolled .brand img{height:30px;width:auto}
 
     <div class="pf-grid">
       <div class="pf-text">
-        <span class="pf-kicker">BPC/LOAS · autismo · negado na perícia</span>
+        <span class="pf-kicker">BPC/LOAS para autismo</span>
         <h1 class="pf-h1">O INSS disse que seu filho autista <span class="q">“não atende ao critério de deficiência”</span>?</h1>
 
         <p class="pf-sub">Essa frase é o resultado de uma perícia, <b>não a verdade sobre o seu filho</b>. Muitas vezes o laudo mostrou o diagnóstico, mas não mostrou o que o autismo impede no dia a dia. Isso pode ser corrigido com o laudo certo e, se precisar, com ação judicial.</p>
@@ -771,23 +793,15 @@ header .brand img,header.scrolled .brand img{height:30px;width:auto}
 
       <figure class="pf-carta">
         <div class="pf-sheet">
-          <span class="pf-tape l" aria-hidden="true"></span>
-          <span class="pf-tape r" aria-hidden="true"></span>
           <div style="position:relative">
             <img src="../assets/carta-deficiencia.webp"
                  srcset="../assets/carta-deficiencia-620.webp 620w, ../assets/carta-deficiencia.webp 927w"
                  sizes="(max-width:780px) 88vw, 450px"
                  alt="Carta do INSS no Meu INSS negando o BPC: não atende ao critério de deficiência para acesso ao BPC-LOAS"
                  width="927" height="997" loading="eager" decoding="async" fetchpriority="high">
-            <svg class="pf-ring" viewBox="0 0 927 997" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M120 646C330 616 700 618 814 650C872 668 866 754 802 778C620 808 250 802 94 780C38 770 42 670 132 644C212 624 302 626 362 632"/>
-            </svg>
           </div>
         </div>
-        <figcaption class="pf-note">isso não é a palavra final
-          <svg viewBox="0 0 100 50" aria-hidden="true"><path d="M4 6C30 40 62 46 92 28M79 20L93 28L83 40"/></svg>
-        </figcaption>
-        <p class="pf-cap">Carta real do Meu INSS · dados pessoais removidos</p>
+        <p class="pf-cap">É essa a tela que aparece no Meu INSS. Nome e número do benefício removidos.</p>
       </figure>
     </div>
   </div>
