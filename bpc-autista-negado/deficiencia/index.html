@@ -47,9 +47,9 @@
       imagesrcset="../assets/carta-deficiencia-620.webp 620w, ../assets/carta-deficiencia.webp 927w"
       imagesizes="(max-width:780px) 92vw, 460px" fetchpriority="high">
 <!-- o header some abaixo de 781px, entao no celular a logo nao entra no preload -->
-<link rel="preload" as="image" href="../assets/logo.webp" media="(min-width:781px)">
 <!-- Inter variavel: 1 arquivo cobre os pesos 400-900, em vez de 7 estaticos.
      media="print" + onload tira a folha do caminho critico de renderizacao. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500&family=Instrument+Sans:wght@400..700&display=swap">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap"></noscript>
@@ -611,6 +611,119 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
   .orb,.btn.pulse,.fab{animation:none}
   .btn::after{display:none}
 }
+/* ============ PAPEL — 1a e 2a dobra (pf-) ============ */
+:root{
+  --pf-paper:#F4EEE3; --pf-paper-2:#EAE1D0; --pf-ink:#13213A; --pf-soft:#5A5C60;
+  --pf-pen:#1F4F92; --pf-marker:#FFD84D; --pf-red:#C62828; --pf-line:#DCD2BF;
+  --pf-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --pf-body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pf-hand:'Caveat','Bradley Hand',cursive;
+}
+
+/* header claro sobre o papel */
+header,header.scrolled{background:rgba(244,238,227,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(19,33,58,.08)}
+header .brand{display:flex;align-items:center;gap:10px;font-family:var(--pf-display);font-weight:600;font-size:1.12rem;color:var(--pf-ink)}
+header .brand img,header.scrolled .brand img{height:30px;width:auto}
+
+.pf{position:relative;overflow:hidden;background:var(--pf-paper);color:var(--pf-ink);font-family:var(--pf-body)}
+.pf::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.pf .container{position:relative;z-index:1}
+
+.pf-top{display:none}
+.pf-kicker{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pf-red)}
+.pf-kicker::before{content:"";width:22px;height:2px;background:currentColor}
+
+/* ---------- 1a dobra ---------- */
+.pf-hero{padding:128px 0 84px}
+.pf-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+.pf-h1{font-family:var(--pf-display);font-weight:600;font-size:clamp(2.1rem,4.1vw,3.35rem);line-height:1.08;letter-spacing:-.02em;margin:18px 0 22px;text-wrap:balance;font-variation-settings:"opsz" 110}
+.pf-h1 .q{position:relative;white-space:normal;font-style:italic;font-weight:500;
+  background:linear-gradient(transparent 58%,var(--pf-marker) 58%,var(--pf-marker) 92%,transparent 92%);
+  background-size:0% 100%;background-repeat:no-repeat;animation:pf-mark 1s .55s cubic-bezier(.6,.1,.2,1) forwards;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .08em}
+@keyframes pf-mark{to{background-size:100% 100%}}
+.pf-sub{font-size:1.12rem;line-height:1.65;color:var(--pf-soft);max-width:540px}
+.pf-sub b{color:var(--pf-ink);font-weight:600}
+.pf-cta{margin-top:30px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.pf .btn-wpp{font-family:var(--pf-body);font-size:1.05rem;padding:18px 30px;border-radius:14px;box-shadow:0 18px 34px -16px rgba(11,139,63,.8)}
+.pf-micro{font-size:.84rem;color:var(--pf-soft)}
+.pf-trust{display:flex;align-items:center;gap:14px;margin-top:30px;padding-top:24px;border-top:1px dashed var(--pf-line);max-width:540px}
+.pf-trust img{width:54px;height:54px;border-radius:50%;object-fit:cover;object-position:center 18%;border:2px solid #fff;box-shadow:0 6px 16px -8px rgba(19,33,58,.5);flex:none}
+.pf-trust b{display:block;font-size:.98rem}
+.pf-trust span{display:block;font-size:.84rem;color:var(--pf-soft)}
+.pf-trust .st{color:#D99A00;letter-spacing:1px}
+
+/* a carta, colada com fita */
+.pf-carta{position:relative;justify-self:center;width:min(100%,470px)}
+.pf-sheet{position:relative;background:#fff;padding:12px;border-radius:6px;transform:rotate(1.6deg);
+  box-shadow:0 1px 0 rgba(19,33,58,.06),0 34px 60px -30px rgba(40,28,10,.55),0 12px 22px -14px rgba(40,28,10,.35);
+  animation:pf-drop .9s cubic-bezier(.2,.9,.25,1.15) both}
+@keyframes pf-drop{from{opacity:0;transform:translateY(-26px) rotate(-5deg)}to{opacity:1;transform:rotate(1.6deg)}}
+.pf-sheet img{display:block;width:100%;height:auto;border-radius:3px}
+.pf-tape{position:absolute;width:112px;height:30px;background:rgba(255,232,160,.72);top:-13px;z-index:2;
+  box-shadow:0 1px 2px rgba(0,0,0,.08);-webkit-mask:linear-gradient(90deg,transparent 0 3px,#000 3px calc(100% - 3px),transparent calc(100% - 3px))}
+.pf-tape.l{left:-18px;transform:rotate(-24deg)}
+.pf-tape.r{right:-18px;transform:rotate(21deg)}
+.pf-ring{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.pf-ring path{fill:none;stroke:var(--pf-pen);stroke-width:5;stroke-linecap:round;stroke-dasharray:1900;stroke-dashoffset:1900;animation:pf-draw 1.1s 1.1s ease-out forwards}
+@keyframes pf-draw{to{stroke-dashoffset:0}}
+.pf-note{position:absolute;left:-168px;top:57%;width:178px;font-family:var(--pf-hand);font-weight:600;font-size:1.72rem;line-height:1.05;color:var(--pf-pen);transform:rotate(-5deg);
+  opacity:0;animation:pf-fade .6s 1.9s forwards}
+.pf-note svg{display:block;width:96px;height:48px;margin:4px 0 0 64px;overflow:visible}
+.pf-note svg path{fill:none;stroke:var(--pf-pen);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+@keyframes pf-fade{to{opacity:1}}
+.pf-cap{text-align:center;font-size:.8rem;color:var(--pf-soft);margin-top:16px;letter-spacing:.02em}
+
+/* ---------- 2a dobra ---------- */
+.pf-why{background:var(--pf-paper-2);padding:96px 0 100px;border-top:1px solid var(--pf-line)}
+.pf-why .pf-h2{font-family:var(--pf-display);font-weight:600;font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.14;letter-spacing:-.015em;max-width:780px;margin:16px 0 0;text-wrap:balance}
+.pf-lei{margin:34px 0 0;max-width:760px;padding:4px 0 4px 22px;border-left:3px solid var(--pf-red);font-family:var(--pf-display);font-style:italic;font-size:1.22rem;line-height:1.5}
+.pf-lei cite{display:block;margin-top:6px;font-family:var(--pf-body);font-style:normal;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pf-soft)}
+.pf-list{margin-top:54px;border-top:1px solid var(--pf-ink)}
+.pf-item{display:grid;grid-template-columns:90px 1fr 1fr;gap:34px;padding:34px 0;border-bottom:1px solid var(--pf-line);align-items:start}
+.pf-n{font-family:var(--pf-display);font-weight:500;font-size:3.4rem;line-height:.9;color:var(--pf-red);font-variation-settings:"opsz" 144}
+.pf-item h3{font-family:var(--pf-display);font-weight:600;font-size:1.45rem;line-height:1.2;margin-bottom:10px;letter-spacing:-.01em}
+.pf-item p{font-size:1.02rem;line-height:1.62;color:var(--pf-soft)}
+.pf-fix{background:#fff;border-radius:12px;padding:20px 22px;box-shadow:0 14px 30px -24px rgba(40,28,10,.6)}
+.pf-fix small{display:block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0B8B3F;margin-bottom:6px}
+.pf-fix p{color:var(--pf-ink)}
+.pf-close{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:46px;flex-wrap:wrap}
+.pf-close p{font-family:var(--pf-display);font-size:1.4rem;line-height:1.35;max-width:560px}
+.pf-close p em{font-family:var(--pf-hand);font-style:normal;font-size:1.9rem;color:var(--pf-pen)}
+
+/* ---------- celular ---------- */
+@media (max-width:980px){
+  .pf-grid{grid-template-columns:1fr;gap:0}
+  .pf-text{display:contents}
+  .pf-kicker{order:1}.pf-h1{order:2}.pf-carta{order:3}.pf-cta{order:4}.pf-sub{order:5}.pf-trust{order:6}
+  .pf-note{position:static;width:auto;text-align:center;transform:rotate(-2deg);margin:14px auto 0;font-size:1.55rem}
+  .pf-note svg{display:none}
+}
+@media (max-width:780px){
+  .pf-top{display:flex;align-items:center;gap:9px;padding:14px 0 0;font-family:var(--pf-display);font-weight:600;font-size:1.02rem}
+  .pf-top img{height:24px;width:auto}
+  .pf-hero{padding:0 0 44px}
+  .pf-grid{padding-top:18px}
+  .pf-kicker{font-size:.66rem;letter-spacing:.16em}
+  .pf-h1{font-size:clamp(1.62rem,7.4vw,2rem);margin:10px 0 20px}
+  .pf-carta{width:88%}
+  .pf-sheet{padding:8px}
+  .pf-tape{width:78px;height:24px;top:-10px}
+  .pf-cta{margin-top:20px;align-items:stretch}
+  .pf .btn-wpp{width:100%;padding:16px 18px;font-size:1rem}
+  .pf-micro{text-align:center}
+  .pf-sub{margin-top:22px;font-size:1.02rem}
+  .pf-why{padding:60px 0 64px}
+  .pf-item{grid-template-columns:1fr;gap:12px;padding:28px 0}
+  .pf-n{font-size:2.6rem}
+  .pf-close{flex-direction:column;align-items:stretch}
+}
+@media (prefers-reduced-motion:reduce){
+  .pf-h1 .q{animation:none;background-size:100% 100%}
+  .pf-sheet,.pf-note{animation:none;opacity:1}
+  .pf-ring path{animation:none;stroke-dashoffset:0}
+}
 </style>
 </head>
 
@@ -623,126 +736,94 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
 <header id="header">
   <div class="container">
     <a href="#topo" class="brand" aria-label="Eduardo Rodrigues Advocacia">
-      <img src="../assets/logo.webp" alt="Eduardo Rodrigues Advocacia — advocacia previdenciária em Carpina/PE" width="322" height="120">
+      <img src="../../img/logo-er.png" alt="" width="32" height="40"><span>Eduardo Rodrigues</span>
     </a>
     <a class="btn btn-wpp" data-wpp>Falar com especialista</a>
   </div>
 </header>
 
-<!-- 5.2 HERO -->
-<section class="hero" id="topo">
-  <div class="orb a" aria-hidden="true"></div>
-  <div class="orb b" aria-hidden="true"></div>
+<!-- 5.2 HERO — 1a dobra: palavra-chave no titulo + a carta da negativa (regra do Pierre) -->
+<section class="pf pf-hero" id="topo">
   <div class="container">
-    <div class="hero-grid">
+    <div class="pf-top"><img src="../../img/logo-er.png" alt="" width="32" height="40">Eduardo Rodrigues <span style="font-family:var(--pf-body);font-weight:500;font-size:.78rem;color:var(--pf-soft)">· OAB/PE 64.717</span></div>
 
-      <div class="hero-text">
-        <span class="eyebrow reveal">BPC/LOAS · Negado por deficiência</span>
-        <h1 class="reveal d1">
-          O INSS disse que seu filho <span class="gold-text">não atende ao critério de deficiência?</span>
-          <span class="big">Esse resultado <span class="gold-text">pode mudar</span>.</span>
-        </h1>
-        <p class="lead reveal d2">“Não atende ao critério de deficiência” é o resultado de uma perícia ou de uma avaliação social — não é a palavra final sobre o direito do seu filho. Um laudo mais completo, com os impedimentos do dia a dia bem descritos, muda esse resultado na maioria dos casos. <b>A análise do seu caso é gratuita.</b></p>
+    <div class="pf-grid">
+      <div class="pf-text">
+        <span class="pf-kicker">BPC/LOAS · autismo · negado na perícia</span>
+        <h1 class="pf-h1">O INSS disse que seu filho autista <span class="q">“não atende ao critério de deficiência”</span>?</h1>
 
-        <div class="hero-callout reveal d3">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 12c-1.4-2.2-2.6-3.3-4.2-3.3A3.5 3.5 0 004.3 12a3.5 3.5 0 003.5 3.3c1.6 0 2.8-1.1 4.2-3.3z"/>
-            <path d="M12 12c1.4 2.2 2.6 3.3 4.2 3.3A3.5 3.5 0 0019.7 12a3.5 3.5 0 00-3.5-3.3c-1.6 0-2.8 1.1-4.2 3.3z"/>
-          </svg>
-          <p>A lei reconhece o autismo <b>como deficiência</b> para todos os efeitos legais. O que a perícia avalia não é o diagnóstico, mas os <b>impedimentos de longo prazo</b> — e é aí que a maioria dos laudos peca.</p>
+        <p class="pf-sub">Essa frase é o resultado de uma perícia, <b>não a verdade sobre o seu filho</b>. Muitas vezes o laudo mostrou o diagnóstico, mas não mostrou o que o autismo impede no dia a dia. Isso pode ser corrigido com o laudo certo e, se precisar, com ação judicial.</p>
+
+        <div class="pf-cta">
+          <a class="btn btn-wpp" data-wpp>Mandar a foto da minha carta</a>
+          <span class="pf-micro">Análise gratuita, direto no WhatsApp</span>
         </div>
 
-        <div class="reasons reveal d3">
-          <span>Por que a perícia nega a deficiência</span>
-          <ul>
-            <li>Laudo só com o CID, sem descrever impedimentos</li>
-            <li>Perícia breve, sem aprofundar no caso</li>
-            <li>Relatório da escola e das terapias ausente</li>
-            <li>Nível 1 (leve) tratado como se não contasse</li>
-            <li>Impedimento de longo prazo não caracterizado</li>
-          </ul>
-        </div>
 
-        <div class="cta-row reveal d4">
-          <a class="btn btn-wpp pulse" data-wpp>Quero contestar essa perícia</a>
-          <a class="btn btn-ghost" href="#o-que-e">Entender o critério</a>
+        <div class="pf-trust">
+          <img src="../assets/profissional-560.webp" alt="Dr. Eduardo Rodrigues" width="54" height="54" loading="eager" decoding="async">
+          <div>
+            <b>Quem lê a sua carta: Dr. Eduardo Rodrigues</b>
+            <span>OAB/PE 64.717 · 13 anos no previdenciário · <span class="st">★★★★★</span> 5,0 no Google (189 avaliações)</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-card-wrap reveal d2">
-        <div class="hero-card" id="heroCard">
-          <span class="ribbon">A carta que você recebeu</span>
-
-          <!-- 1a dobra = a carta da negativa (regra do Pierre): print real do Meu INSS, sem nome e sem NB -->
-          <div class="hero-photo carta">
+      <figure class="pf-carta">
+        <div class="pf-sheet">
+          <span class="pf-tape l" aria-hidden="true"></span>
+          <span class="pf-tape r" aria-hidden="true"></span>
+          <div style="position:relative">
             <img src="../assets/carta-deficiencia.webp"
                  srcset="../assets/carta-deficiencia-620.webp 620w, ../assets/carta-deficiencia.webp 927w"
-                 sizes="(max-width:780px) 92vw, 460px" alt="Carta do INSS negando o BPC: não atende ao critério de deficiência para acesso ao BPC-LOAS" width="927" height="997" loading="eager" decoding="async" fetchpriority="high">
+                 sizes="(max-width:780px) 88vw, 450px"
+                 alt="Carta do INSS no Meu INSS negando o BPC: não atende ao critério de deficiência para acesso ao BPC-LOAS"
+                 width="927" height="997" loading="eager" decoding="async" fetchpriority="high">
+            <svg class="pf-ring" viewBox="0 0 927 997" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M120 646C330 616 700 618 814 650C872 668 866 754 802 778C620 808 250 802 94 780C38 770 42 670 132 644C212 624 302 626 362 632"/>
+            </svg>
           </div>
-          <p class="carta-cap">Recebeu essa resposta do INSS?</p>
-
-          <h3>O que pesa na perícia?</h3>
-          <div class="value-row">
-            <span class="big-num gold-text">2<i>anos, no mínimo</i></span>
-            <span class="beside">é o impedimento de<br><b>longo prazo</b> que a lei exige.</span>
-          </div>
-          <p class="sub">Não é só o CID no papel: a perícia olha o que o autismo impede na escola, em casa e na convivência.</p>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.3l2.4 2.4 4.6-4.9"/></svg>Nível 1 (leve) também pode ser reconhecido</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.3l2.4 2.4 4.6-4.9"/></svg>Novo laudo pode reverter o resultado</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.3l2.4 2.4 4.6-4.9"/></svg>Vale para criança, adolescente e adulto</li>
-          </ul>
         </div>
-      </div>
-
-    </div>
-
-    <div class="facts reveal d2">
-      <div><b class="gold-text">CID F84</b><span>o diagnóstico não decide sozinho</span></div>
-      <div><b class="gold-text">2 anos</b><span>é o impedimento de longo prazo que a lei exige</span></div>
-      <div><b class="gold-text">Nível 1, 2 ou 3</b><span>todos podem ter direito, se bem documentados</span></div>
-      <div><b class="gold-text">Nova perícia</b><span>ou ação judicial revertem o resultado</span></div>
+        <figcaption class="pf-note">isso não é a palavra final
+          <svg viewBox="0 0 100 50" aria-hidden="true"><path d="M4 6C30 40 62 46 92 28M79 20L93 28L83 40"/></svg>
+        </figcaption>
+        <p class="pf-cap">Carta real do Meu INSS · dados pessoais removidos</p>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- 5.3 O QUE É -->
-<section class="block light" id="o-que-e">
+<!-- 5.3 — 2a dobra: por que a pericia escreveu isso -->
+<section class="pf pf-why" id="o-que-e">
   <div class="container">
-    <div class="split">
+    <span class="pf-kicker">Por que a perícia escreveu isso</span>
+    <h2 class="pf-h2">Três motivos que fazem o INSS não enxergar a deficiência, e o que resolve cada um.</h2>
 
-      <div class="what-visual has-photo reveal">
-        <!-- TROCAR POR ../assets/conceito.webp definitiva: mãe e criança autista em casa ou em terapia -->
-        <div class="what-photo">
-          <img src="../assets/conceito.webp"
-               srcset="../assets/conceito-700.webp 700w, ../assets/conceito.webp 1280w"
-               sizes="(max-width:920px) 92vw, 560px" alt="Família de criança autista reunindo documentos para o BPC/LOAS do INSS" width="1280" height="853" loading="lazy" decoding="async">
-          <span class="what-badge">1 salário mínimo, todo mês</span>
-        </div>
-        <p>O BPC paga mensalmente à pessoa com deficiência de família de baixa renda. Não é aposentadoria e não exige nenhuma contribuição.</p>
-        <div class="mini-grid">
-          <div class="mini"><b>1 salário</b><span>mínimo por mês</span></div>
-          <div class="mini"><b>Sem contribuir</b><span>é benefício assistencial</span></div>
-          <div class="mini"><b>CadÚnico</b><span>obrigatório e atualizado</span></div>
-          <div class="mini"><b>Atrasados</b><span>desde a data do pedido</span></div>
-        </div>
+    <blockquote class="pf-lei">“A pessoa com transtorno do espectro autista é considerada pessoa com deficiência, para todos os efeitos legais.”
+      <cite>Lei 12.764/2012, art. 1º, § 2º</cite>
+    </blockquote>
+
+    <div class="pf-list">
+      <div class="pf-item">
+        <div class="pf-n">1</div>
+        <div><h3>O laudo só tinha o CID</h3><p>O F84 prova o diagnóstico. Mas a lei pede o impedimento de longo prazo: o que a criança não consegue fazer na escola, em casa e com outras pessoas.</p></div>
+        <div class="pf-fix"><small>O que resolve</small><p>Relatório médico que descreve o dia a dia da criança, e não só o código.</p></div>
       </div>
-
-      <div class="prose reveal d2">
-        <span class="eyebrow">Entenda</span>
-        <h2>O que é o <span class="gold-text">BPC para autismo?</span></h2>
-        <p>O BPC (Benefício de Prestação Continuada), previsto na LOAS, é o pagamento de <b>um salário mínimo por mês</b> à pessoa com deficiência que vive em família sem condições de prover o próprio sustento. O Transtorno do Espectro Autista (CID F84) é reconhecido <b>por lei</b> como deficiência, para todos os efeitos legais.</p>
-        <p>Não é aposentadoria: <b>não exige nenhuma contribuição ao INSS</b>, não tem 13º salário e não gera pensão por morte. O que o INSS analisa é o impedimento de longo prazo da criança e a renda da família.</p>
-        <ul class="pill-list">
-          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span>O nível 1, 2 ou 3 escrito no laudo <b>não decide sozinho</b> o resultado: o que pesa são os impedimentos do dia a dia.</span></li>
-          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span>Gastos comprovados com terapias, medicamentos e fraldas podem <b>entrar no cálculo</b> da renda familiar.</span></li>
-          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span>A negativa do INSS é uma decisão administrativa. Ela <b>pode ser contestada</b> na Justiça.</span></li>
-        </ul>
-        <div class="cta-row">
-          <a class="btn btn-wpp" data-wpp>Quero entender por que fui negado</a>
-        </div>
+      <div class="pf-item">
+        <div class="pf-n">2</div>
+        <div><h3>A perícia foi rápida demais</h3><p>Uma conversa curta não mostra a crise, a rotina de terapias, a seletividade alimentar ou a dificuldade na escola.</p></div>
+        <div class="pf-fix"><small>O que resolve</small><p>Relatórios da escola e das terapias (fono, TO, psicologia) que o perito não chegou a ver.</p></div>
       </div>
+      <div class="pf-item">
+        <div class="pf-n">3</div>
+        <div><h3>O nível 1 foi tratado como “leve demais”</h3><p>O nível escrito no laudo não decide sozinho. O que pesa são as barreiras que o autismo cria na vida da criança.</p></div>
+        <div class="pf-fix"><small>O que resolve</small><p>Prova dessas barreiras e, se o INSS mantiver a negativa, uma nova perícia na Justiça.</p></div>
+      </div>
+    </div>
 
+    <div class="pf-close">
+      <p>Pra começar, só precisa da <em>foto da carta</em> e do laudo que você tiver.</p>
+      <a class="btn btn-wpp" data-wpp>Mandar a foto da minha carta</a>
     </div>
   </div>
 </section>
