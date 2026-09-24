@@ -43,8 +43,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="../assets/hero-card.webp"
-      imagesrcset="../assets/hero-card-620.webp 620w, ../assets/hero-card.webp 900w"
+<link rel="preload" as="image" href="../assets/carta-deficiencia.webp"
+      imagesrcset="../assets/carta-deficiencia-620.webp 620w, ../assets/carta-deficiencia.webp 927w"
       imagesizes="(max-width:780px) 92vw, 460px" fetchpriority="high">
 <!-- o header some abaixo de 781px, entao no celular a logo nao entra no preload -->
 <link rel="preload" as="image" href="../assets/logo.webp" media="(min-width:781px)">
@@ -335,6 +335,16 @@ header .btn{display:none;padding:13px 24px;font-size:.9rem}
 .hero-card ul{margin-top:18px;display:grid;gap:12px}
 .hero-card ul li{display:flex;gap:11px;align-items:center;font-size:.92rem;color:#d7d7de}
 .hero-card ul li svg{width:20px;height:20px;color:var(--gold-300);flex:none}
+
+/* carta da negativa no lugar da foto */
+.hero-photo.carta{background:#fff;margin-bottom:14px}
+.hero-photo.carta img{aspect-ratio:auto;object-fit:contain}
+.hero-card:hover .hero-photo.carta img{transform:none}
+.carta-cap{font-weight:800;font-size:1.05rem;text-align:center;color:var(--text);margin-bottom:16px}
+@media (max-width:780px){
+  .hero-photo.carta img{aspect-ratio:auto;max-height:62vh;object-fit:cover;object-position:top}
+  .carta-cap{margin:12px 0 0;font-size:1rem}
+}
 
 /* faixa de fatos — fecha a dobra 1 com os numeros que importam */
 .facts{
@@ -661,14 +671,15 @@ footer{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.07);pad
 
       <div class="hero-card-wrap reveal d2">
         <div class="hero-card" id="heroCard">
-          <span class="ribbon">Análise gratuita</span>
+          <span class="ribbon">A carta que você recebeu</span>
 
-          <!-- TROCAR POR ../assets/hero-card.webp definitiva (900x900) — foto atual veio da página de referência -->
-          <div class="hero-photo">
-            <img src="../assets/hero-card.webp"
-                 srcset="../assets/hero-card-620.webp 620w, ../assets/hero-card.webp 900w"
-                 sizes="(max-width:780px) 92vw, 460px" alt="Criança com Transtorno do Espectro Autista — BPC/LOAS negado pelo INSS" width="900" height="900" loading="eager" decoding="async" fetchpriority="high">
+          <!-- 1a dobra = a carta da negativa (regra do Pierre): print real do Meu INSS, sem nome e sem NB -->
+          <div class="hero-photo carta">
+            <img src="../assets/carta-deficiencia.webp"
+                 srcset="../assets/carta-deficiencia-620.webp 620w, ../assets/carta-deficiencia.webp 927w"
+                 sizes="(max-width:780px) 92vw, 460px" alt="Carta do INSS negando o BPC: não atende ao critério de deficiência para acesso ao BPC-LOAS" width="927" height="997" loading="eager" decoding="async" fetchpriority="high">
           </div>
+          <p class="carta-cap">Recebeu essa resposta do INSS?</p>
 
           <h3>O que pesa na perícia?</h3>
           <div class="value-row">
