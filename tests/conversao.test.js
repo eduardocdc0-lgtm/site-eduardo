@@ -17,9 +17,9 @@ const CONFIG = "gtag('config', 'AW-16981875984')";
 
 // ---------- unit: função pura ----------
 test("ehContato reconhece WhatsApp e telefone e ignora o resto", () => {
-  assert.equal(conv.ehContato("https://wa.me/5581984084525?text=oi"), true);
+  assert.equal(conv.ehContato("https://wa.me/5581988553190?text=oi"), true);
   assert.equal(conv.ehContato("https://api.whatsapp.com/send?phone=55"), true);
-  assert.equal(conv.ehContato("tel:+5581984084525"), true);
+  assert.equal(conv.ehContato("tel:+5581988553190"), true);
   assert.equal(conv.ehContato("https://adveduardorodrigues.com.br/"), false);
   assert.equal(conv.ehContato("#faq"), false);
   assert.equal(conv.ehContato(""), false);
@@ -42,7 +42,7 @@ test("clique num link data-wpp hidratado com wa.me dispara gtag com o send_to ce
   const doc = docFalso();
   const chamadas = [];
   conv.instala(doc, () => (...a) => chamadas.push(a));
-  const a = el("A", { href: "https://wa.me/5581984084525?text=oi" });
+  const a = el("A", { href: "https://wa.me/5581988553190?text=oi" });
   doc.clicar(a);
   assert.equal(chamadas.length, 1);
   assert.deepEqual(chamadas[0], ["event", "conversion", { send_to: conv.SEND_TO, value: 1.0, currency: "BRL" }]);
@@ -53,7 +53,7 @@ test("clique no ícone dentro do botão sobe até o <a> e conta uma vez só", ()
   const doc = docFalso();
   const chamadas = [];
   conv.instala(doc, () => (...a) => chamadas.push(a));
-  const a = el("A", { href: "tel:+5581984084525" });
+  const a = el("A", { href: "tel:+5581988553190" });
   const svg = el("svg", {}, a);
   const pathEl = el("path", {}, svg);
   doc.clicar(pathEl);
