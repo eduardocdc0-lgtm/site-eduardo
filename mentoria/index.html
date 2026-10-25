@@ -340,6 +340,9 @@
   .form-lista label:not(.opcao):not(.aceite) { grid-template-columns: auto 1fr; column-gap: 6px; justify-content: start; }
   .form-lista label:not(.opcao):not(.aceite) > input { grid-column: 1 / -1; }
   .form-lista .opcional { align-self: end; }
+
+  footer a { color: var(--suave); text-decoration: none; border-bottom: 1px solid var(--linha-forte); }
+  footer a:hover { color: var(--texto); }
 </style>
 </head>
 <body>
@@ -501,7 +504,7 @@
     </div>
   </section>
   </main>
-  <footer>Eduardo Rodrigues · OAB/PE 64.717</footer>
+  <footer>Eduardo Rodrigues · OAB/PE 64.717 · <a href="mailto:mentoria@adveduardorodrigues.com.br">mentoria@adveduardorodrigues.com.br</a></footer>
 <script>
   document.documentElement.classList.add('js')
   const alvos = document.querySelectorAll('.bloco > *, .prova-principal, .galeria, .fim')
