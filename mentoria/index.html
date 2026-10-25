@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mentoria Eduardo Rodrigues</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --fundo: #111; --cartao: #1a1614; --linha: rgba(255,255,255,.12); --texto: #fff; --suave: rgba(255,255,255,.72); --fraco: rgba(255,255,255,.5); --acento: #E8875F; }
+  body { background: var(--fundo); font-family: Inter, sans-serif; color: var(--texto); }
+  a { color: inherit; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+  .marca { font-weight: 600; letter-spacing: .12em; font-size: 15px; white-space: nowrap; }
+  .entrar { background: #fff; color: #111; border-radius: 999px; padding: 10px 18px; font-size: 14px; font-weight: 500; text-decoration: none; white-space: nowrap; }
+  .serif { font-family: "Playfair Display", serif; font-weight: 500; }
+  .botao { display: inline-block; background: #fff; color: #111; border-radius: 999px; padding: 16px 28px; font-weight: 500; text-decoration: none; }
+
+  .hero { position: relative; margin: 0 16px; height: calc(100vh - 90px); min-height: 600px; border-radius: 16px; overflow: hidden; background: var(--cartao); }
+  .hero img { position: absolute; left: 36%; top: 0; width: 64%; height: 100%; object-fit: cover; object-position: center bottom; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--cartao) 0%, var(--cartao) 36%, rgba(26,22,20,.6) 42%, rgba(26,22,20,0) 52%); }
+  .hero .texto { position: absolute; left: 48px; bottom: 56px; max-width: 540px; z-index: 1; }
+  .hero h1 { font-size: clamp(34px, 4.2vw, 58px); line-height: 1.08; }
+  .hero p { margin-top: 18px; font-size: 18px; line-height: 1.5; color: var(--suave); }
+  .hero .quem-sou { font-size: 15px; color: var(--fraco); margin-top: 14px; }
+  .hero .botao { margin-top: 28px; }
+  .sob-botao { margin-top: 14px; font-size: 13px; color: var(--fraco); max-width: 420px; }
+
+  .bloco { margin: 104px 16px 0; }
+  .bloco > h2 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.12; max-width: 820px; }
+  .texto-corrido { margin-top: 24px; max-width: 680px; }
+  .texto-corrido p { font-size: 19px; line-height: 1.65; color: var(--suave); margin-top: 18px; }
+  .texto-corrido p:first-child { margin-top: 0; }
+
+  .dois { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
+  .cartao { border: 1px solid var(--linha); border-radius: 16px; padding: 28px; }
+  .cartao h3 { font-family: "Playfair Display", serif; font-weight: 500; font-size: 26px; line-height: 1.2; }
+  .cartao p { margin-top: 12px; font-size: 17px; line-height: 1.55; color: var(--suave); }
+  .print { margin: 0; border: 1px solid var(--linha); border-radius: 16px; overflow: hidden; background: #f5f6f8; }
+  .print img { width: 100%; display: block; }
+  .print figcaption { padding: 12px 16px; font-size: 13px; color: var(--fraco); background: var(--fundo); }
+  .dois .print img { aspect-ratio: 16 / 9; object-fit: cover; }
+
+  .erros { margin-top: 32px; max-width: 820px; }
+  .erro { display: grid; grid-template-columns: 56px 1fr; gap: 8px; padding: 28px 0; border-top: 1px solid var(--linha); }
+  .erro span { font-family: "Playfair Display", serif; font-size: 28px; color: var(--acento); line-height: 1; }
+  .erro p { font-size: 18px; line-height: 1.6; color: var(--suave); }
+  .erro p b { color: var(--texto); font-weight: 500; }
+  .nota { margin-top: 20px; font-size: 16px; color: var(--fraco); max-width: 680px; line-height: 1.6; }
+
+  .numeros { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }
+  .numeros div { border: 1px solid var(--linha); border-radius: 16px; padding: 24px 28px; }
+  .numeros b { display: block; font-family: "Playfair Display", serif; font-weight: 500; font-size: clamp(36px, 4vw, 56px); line-height: 1; }
+  .numeros span { display: block; margin-top: 8px; font-size: 15px; color: var(--suave); }
+  .numeros small { display: block; margin-top: 10px; font-size: 12px; line-height: 1.5; color: var(--fraco); }
+  .print.painel { margin-top: 12px; background: #1b222c; }
+
+  .modulos { margin-top: 32px; max-width: 820px; }
+  .modulo { display: grid; grid-template-columns: 56px 1fr; gap: 8px; padding: 26px 0; border-top: 1px solid var(--linha); }
+  .modulo span { font-family: "Playfair Display", serif; font-size: 22px; color: var(--acento); }
+  .modulo h3 { font-size: 20px; font-weight: 500; }
+  .modulo p { margin-top: 8px; font-size: 17px; line-height: 1.6; color: var(--suave); }
+  .cta-meio { margin-top: 32px; }
+
+  .lado li { list-style: none; padding: 12px 0; border-top: 1px solid var(--linha); font-size: 17px; line-height: 1.5; color: var(--suave); }
+  .lado li:first-child { border-top: 0; }
+  .lado h3 { font-family: Inter, sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 14px; }
+  .lado.nao h3 { color: var(--fraco); }
+
+  .quem { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px; align-items: start; }
+  .quem .foto { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--cartao); }
+  .quem .foto img { width: 100%; height: 100%; object-fit: cover; object-position: 60% center; display: block; }
+  .quem .texto-corrido { margin-top: 0; }
+
+  .video { position: relative; aspect-ratio: 16 / 9; max-height: 82vh; width: 100%; margin-top: 32px; border-radius: 16px; overflow: hidden; background: var(--cartao); }
+  .video img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
+  .video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(17,17,17,.75) 0%, rgba(17,17,17,0) 55%); }
+  .video .legenda { position: absolute; left: 32px; bottom: 28px; z-index: 1; max-width: 560px; }
+  .video .legenda span { font-size: 13px; color: rgba(255,255,255,.65); }
+  .video .legenda strong { display: block; margin-top: 6px; font-family: "Playfair Display", serif; font-weight: 500; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.2; }
+  .play { position: absolute; right: 28px; bottom: 28px; z-index: 1; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.14); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 12px 20px; font-size: 14px; font-weight: 500; }
+  .play i { width: 0; height: 0; border-left: 10px solid #fff; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+
+  .duvidas { margin-top: 24px; max-width: 760px; }
+  .duvidas details { border-top: 1px solid var(--linha); padding: 22px 0; }
+  .duvidas summary { cursor: pointer; font-size: 19px; list-style: none; }
+  .duvidas summary::-webkit-details-marker { display: none; }
+  .duvidas p { margin-top: 12px; font-size: 17px; line-height: 1.6; color: var(--suave); }
+
+  .fim { margin: 104px 16px 0; border-radius: 16px; background: var(--cartao); padding: 64px 48px; }
+  .fim h2 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.12; max-width: 720px; }
+  .fim p { margin-top: 16px; font-size: 18px; line-height: 1.6; color: var(--suave); max-width: 600px; }
+  .fim .botao { margin-top: 28px; }
+  footer { margin: 32px 16px 40px; font-size: 13px; color: var(--fraco); }
+
+  @media (max-width: 700px) {
+    header { padding: 16px 20px; }
+    .marca { font-size: 13px; }
+    .entrar { padding: 8px 14px; font-size: 13px; }
+    .hero { min-height: 760px; }
+    .hero img { left: 0; width: 100%; height: 40%; object-position: 30% center; }
+    .hero::after { background: linear-gradient(0deg, var(--cartao) 0%, var(--cartao) 60%, rgba(26,22,20,0) 70%); }
+    .hero .texto { left: 20px; right: 20px; bottom: 28px; }
+    .hero p { font-size: 16px; }
+    .bloco { margin-top: 80px; }
+    .dois, .numeros, .quem { grid-template-columns: 1fr; }
+    .quem { gap: 24px; }
+    .erro, .modulo { grid-template-columns: 40px 1fr; }
+    .video { aspect-ratio: 4 / 5; }
+    .video img { object-position: 78% center; }
+    .video .legenda { left: 20px; right: 20px; bottom: 84px; }
+    .play { left: 20px; right: auto; bottom: 24px; }
+    .fim { padding: 40px 24px; }
+  }
+  .caminho { margin-top: 32px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .etapa { border: 1px solid var(--linha); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .etapa > span { font-family: "Playfair Display", serif; font-size: 32px; color: var(--acento); line-height: 1; }
+  .etapa em { font-style: normal; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--fraco); }
+  .etapa h3 { margin-top: 6px; font-family: "Playfair Display", serif; font-weight: 500; font-size: 22px; line-height: 1.2; }
+  .etapa p { margin-top: 10px; font-size: 15px; line-height: 1.55; color: var(--suave); }
+  .prints-prova { display: grid; grid-template-columns: 1.7fr 1fr; gap: 12px; margin-top: 16px; }
+  .prints-prova .print img { height: 160px; object-fit: contain; }
+  .prints-prova .print:last-child { background: #f7f6f3; }
+  @media (max-width: 1000px) { .caminho { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) { .caminho, .prints-prova { grid-template-columns: 1fr; } }
+
+  html { scroll-behavior: smooth; }
+  body { max-width: 1600px; margin-inline: auto; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--acento); outline-offset: 6px; }
+  .hero { min-height: 700px; max-height: 940px; }
+  .hero .texto { max-width: 620px; }
+  .hero::after { background: linear-gradient(90deg, var(--cartao) 0%, rgba(26,22,20,.97) 32%, rgba(26,22,20,.72) 50%, rgba(26,22,20,.12) 72%, transparent 100%); }
+  .hero h1 { font-size: clamp(36px, 4vw, 60px); max-width: 600px; }
+  .hero .quem-sou { color: var(--suave); }
+  .hero .sob-botao { color: var(--suave); line-height: 1.5; }
+  .bloco { margin-inline: clamp(24px, 5vw, 80px); }
+  .texto-corrido p { text-align: justify; hyphens: auto; }
+  .numeros { grid-template-columns: repeat(4, 1fr); }
+  .numeros b { color: var(--acento); }
+  .numeros small, .nota { color: var(--suave); }
+  .dois .print img { aspect-ratio: auto; object-fit: contain; }
+  .prova-principal { margin: 0 16px; padding: 32px; border-bottom: 1px solid var(--linha); display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .prova-principal b { display: block; font-size: 24px; font-weight: 500; }
+  .prova-principal span { display: block; margin-top: 6px; font-size: 14px; color: var(--suave); line-height: 1.5; }
+  .frentes { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 32px; }
+  .frentes .cartao h3 { font-size: 30px; }
+  .frentes .cartao { padding: 32px; }
+  .duvidas summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .duvidas summary::after { content: '+'; color: var(--acento); }
+  .duvidas details[open] summary::after { content: '−'; }
+  .video { max-width: 1000px; }
+  .pendente { font-size: 14px !important; color: var(--suave); }
+  @media(max-width:1000px) { .numeros { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:700px) {
+    header { gap: 12px; padding-inline: 20px; }
+    .marca { letter-spacing: .04em; font-size: 12px; }
+    .entrar { font-size: 12px; padding: 10px 12px; }
+    .hero { height:auto; min-height:0; max-height:none; }
+    .hero img { position:relative; display:block; height:240px; width:100%; object-position:center 35%; }
+    .hero::after { display:none; }
+    .hero .texto { position:relative; left:auto; right:auto; bottom:auto; padding:28px 24px 36px; }
+    .hero h1 { font-size:34px; }
+    .prova-principal { grid-template-columns:1fr; padding:28px 12px; gap:20px; }
+    .prova-principal b { font-size:22px; }
+    .frentes { grid-template-columns:1fr; }
+    .frentes .cartao { padding:24px; }
+    .numeros { grid-template-columns:1fr 1fr; }
+    .numeros div { padding:22px 16px; }
+    .numeros b { font-size:36px; }
+    .bloco { margin-top:72px; }
+    .quem .texto-corrido { margin-top:0; }
+    .prints-prova .print img { height:auto; }
+    .botao { font-size:15px; padding:16px 22px; }
+  }
+  @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+
+  /* camada visual azul (25/10): só cor, foto e espaço, o texto não muda */
+  :root { --fundo: #050b1a; --cartao: #0b1630; --linha: rgba(120,160,255,.16); --suave: rgba(226,234,255,.76); --fraco: rgba(200,214,245,.55); --acento: #3B82F6; --azul-claro: #60A5FA; }
+  body { background: radial-gradient(1200px 600px at 80% -10%, rgba(59,130,246,.18), transparent 60%), var(--fundo); }
+  header { position: sticky; top: 0; z-index: 10; background: rgba(5,11,26,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
+  .botao, .entrar { background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 60%, #2563EB 100%); color: #fff; box-shadow: 0 10px 30px rgba(37,99,235,.35); }
+  .botao:hover, .entrar:hover { filter: brightness(1.08); }
+  .hero { margin-top: 12px; border: 1px solid var(--linha); }
+  .hero::after { background: linear-gradient(90deg, var(--cartao) 0%, var(--cartao) 36%, rgba(11,22,48,.6) 44%, rgba(11,22,48,0) 56%), linear-gradient(0deg, rgba(5,11,26,.5), transparent 40%); }
+  .hero h1 { letter-spacing: -.01em; }
+  .hero img, .video img, .quem .foto img { filter: saturate(.55) hue-rotate(-12deg) brightness(.92); }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(120deg, rgba(30,64,175,.0) 30%, rgba(30,64,175,.35) 100%); mix-blend-mode: multiply; pointer-events: none; }
+  .hero .texto { z-index: 2; }
+  .prova-principal { margin-top: 16px; border: 1px solid var(--linha); border-radius: 16px; background: linear-gradient(180deg, rgba(59,130,246,.10), rgba(59,130,246,.02)); }
+  .prova-principal b { font-family: "Playfair Display", serif; font-size: 30px; color: #fff; }
+  .numeros div, .cartao { background: rgba(59,130,246,.05); }
+  .numeros b { background: linear-gradient(180deg, #fff 30%, var(--azul-claro)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .frentes .cartao h3 { color: #fff; }
+  .frentes .cartao { border-top: 2px solid var(--acento); }
+  .print figcaption { background: var(--cartao); }
+  .fim { background: radial-gradient(800px 400px at 0% 0%, rgba(59,130,246,.28), transparent 60%), var(--cartao); border: 1px solid var(--linha); }
+  .galeria { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 12px; margin-top: 16px; }
+  .galeria img { width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border-radius: 16px; border: 1px solid var(--linha); }
+  .galeria img:nth-child(2) { aspect-ratio: auto; }
+  @media (max-width: 700px) { .galeria { grid-template-columns: 1fr 1fr; } .galeria img:nth-child(2) { grid-column: 1 / -1; order: -1; aspect-ratio: 4 / 3; } }
+
+  /* planta do escritório (frontend-design, 25/10): grade de projeto, marcas de canto, numeração em mono */
+  :root { --mono: "JetBrains Mono", ui-monospace, monospace; --grade: rgba(96,165,250,.07); }
+  body { font-family: "Schibsted Grotesk", sans-serif; -webkit-font-smoothing: antialiased; }
+  body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image: linear-gradient(var(--grade) 1px, transparent 1px), linear-gradient(90deg, var(--grade) 1px, transparent 1px);
+    background-size: 48px 48px; mask-image: radial-gradient(ellipse at 50% 20%, #000 30%, transparent 85%); -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 30%, transparent 85%); }
+  body::after { content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: .06; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .marca { font-family: var(--mono); font-weight: 500; letter-spacing: .2em; }
+  .marca::before { content: "ER"; display: inline-grid; place-items: center; width: 28px; height: 28px; margin-right: 12px; border: 1px solid var(--acento); color: var(--azul-claro); font-size: 11px; letter-spacing: .05em; vertical-align: middle; }
+  .hero h1, .bloco > h2, .fim h2 { font-weight: 600; letter-spacing: -.015em; }
+  .hero h1 { font-size: clamp(36px, 4.6vw, 64px); }
+  main { counter-reset: secao; }
+  .bloco { counter-increment: secao; position: relative; padding-top: 28px; border-top: 1px solid var(--linha); }
+  .bloco::before { content: counter(secao, decimal-leading-zero) " /"; position: absolute; top: -11px; left: 0; padding-right: 12px; background: var(--fundo); font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--azul-claro); }
+  .bloco::after { content: ""; position: absolute; top: -4px; right: 0; width: 7px; height: 7px; border: 1px solid var(--acento); transform: rotate(45deg); background: var(--fundo); }
+  .hero, .print, .galeria img, .video, .quem .foto { position: relative; }
+  .hero { box-shadow: 0 0 0 1px rgba(96,165,250,.08), 0 40px 120px -40px rgba(37,99,235,.45); }
+  .cantos { position: absolute; inset: 10px; pointer-events: none; z-index: 3;
+    background:
+      linear-gradient(var(--azul-claro),var(--azul-claro)) top left/18px 1px no-repeat, linear-gradient(var(--azul-claro),var(--azul-claro)) top left/1px 18px no-repeat,
+      linear-gradient(var(--azul-claro),var(--azul-claro)) top right/18px 1px no-repeat, linear-gradient(var(--azul-claro),var(--azul-claro)) top right/1px 18px no-repeat,
+      linear-gradient(var(--azul-claro),var(--azul-claro)) bottom left/18px 1px no-repeat, linear-gradient(var(--azul-claro),var(--azul-claro)) bottom left/1px 18px no-repeat,
+      linear-gradient(var(--azul-claro),var(--azul-claro)) bottom right/18px 1px no-repeat, linear-gradient(var(--azul-claro),var(--azul-claro)) bottom right/1px 18px no-repeat; opacity: .8; }
+  .prova-principal { position: relative; overflow: hidden; }
+  .prova-principal > div { position: relative; padding-left: 18px; border-left: 1px solid var(--linha); }
+  .prova-principal > div:first-child { border-left: 0; padding-left: 0; }
+  .numeros div, .cartao, .frentes .cartao { transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s, box-shadow .35s; }
+  .numeros div:hover, .cartao:hover { transform: translateY(-4px); border-color: rgba(96,165,250,.45); box-shadow: 0 24px 60px -30px rgba(37,99,235,.7); }
+  .modulo span, .numeros span, .print figcaption, .sob-botao, .nota { font-family: var(--mono); letter-spacing: .02em; }
+  .modulo span { font-size: 13px; color: var(--azul-claro); padding-top: 6px; }
+  .print figcaption, .sob-botao { font-size: 12px; }
+  .galeria { grid-template-columns: 1fr 1.3fr 1fr; align-items: end; }
+  .galeria img:nth-child(1) { transform: translateY(28px); }
+  .galeria img:nth-child(3) { transform: translateY(-20px); }
+  .galeria img { transition: filter .4s; filter: saturate(.85); }
+  .galeria img:hover { filter: saturate(1.05); }
+  .botao { position: relative; overflow: hidden; }
+  .botao::after { content: ""; position: absolute; inset: 0; transform: translateX(-120%); background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); }
+  .botao:hover::after { transform: translateX(120%); transition: transform .8s ease; }
+  .fim { position: relative; overflow: hidden; }
+  .fim::after { content: "40%"; position: absolute; right: -10px; bottom: -60px; font-family: "Playfair Display", serif; font-style: italic; font-size: clamp(160px, 22vw, 320px); line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(96,165,250,.28); pointer-events: none; }
+  /* entrada */
+  @keyframes subir { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .hero .texto > * { animation: subir .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .texto > *:nth-child(1) { animation-delay: .05s } .hero .texto > *:nth-child(2) { animation-delay: .15s } .hero .texto > *:nth-child(3) { animation-delay: .25s } .hero .texto > *:nth-child(4) { animation-delay: .35s } .hero .texto > *:nth-child(5) { animation-delay: .45s }
+  .hero img { animation: aparecer 1.4s ease both; } @keyframes aparecer { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
+  .js .revela { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .js .revela.visto { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .js .revela { opacity: 1; transform: none; } }
+  @media (max-width: 700px) {
+    .prova-principal > div { border-left: 0; padding-left: 0; border-top: 1px solid var(--linha); padding-top: 16px; }
+    .prova-principal > div:first-child { border-top: 0; padding-top: 0; }
+    .galeria img:nth-child(1), .galeria img:nth-child(3) { transform: none; }
+    .fim::after { font-size: 150px; bottom: -30px; }
+    .marca { letter-spacing: .1em; font-size: 12px; }
+    .marca::before { width: 24px; height: 24px; margin-right: 8px; }
+    header { gap: 10px; }
+  }
+
+  /* fotos do ensaio de 26/03/2026 */
+  .hero img, .video img { filter: saturate(.55) hue-rotate(-12deg) brightness(.92); }
+  .quem .foto img { filter: none; object-position: 40% 20%; }
+  .lado-a-lado { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 48px; align-items: center; margin-top: 24px; }
+  .lado-a-lado .texto-corrido { margin-top: 0; }
+  .retrato { position: relative; margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--linha); aspect-ratio: 4 / 5; box-shadow: 0 30px 80px -40px rgba(37,99,235,.6); }
+  .retrato img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; display: block; }
+  .fim.com-foto { padding-right: min(42%, 520px); min-height: 520px; }
+  .fim.com-foto::after { display: none; }
+  .fim-foto { position: absolute; right: 0; bottom: 0; height: 100%; width: 44%; object-fit: cover; object-position: 60% 20%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%); mask-image: linear-gradient(90deg, transparent 0%, #000 35%); }
+  .fim.com-foto > :not(.fim-foto) { position: relative; z-index: 1; }
+  @media (max-width: 860px) {
+    .lado-a-lado { grid-template-columns: 1fr; gap: 24px; }
+    .retrato { max-width: 420px; }
+    .fim.com-foto { padding-right: 24px; padding-top: 0; min-height: 0; }
+    .fim-foto { position: relative; width: calc(100% + 48px); height: 360px; margin: 0 -24px 28px; display: block; -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 40%); mask-image: linear-gradient(0deg, transparent 0%, #000 40%); }
+  }
+</style>
+</head>
+<body>
+  <header><span class="marca">EDUARDO RODRIGUES</span><a class="entrar" href="#lista">Conhecer a mentoria</a></header>
+  <main>
+  <section class="hero" aria-labelledby="titulo"><span class="cantos" aria-hidden="true"></span>
+    <img src="img/foto5.png" alt="Eduardo Rodrigues durante uma entrevista" fetchpriority="high">
+    <div class="texto">
+      <h1 class="serif" id="titulo">Do anúncio ao contrato. Do contrato à rotina do escritório.</h1>
+      <p>Aprenda a conectar marketing, tráfego pago, vendas e automação no seu escritório de advocacia.</p>
+      <p class="quem-sou">Sou Eduardo Rodrigues, advogado previdenciarista do interior de Pernambuco.</p>
+      <a class="botao" href="#lista">Quero saber da mentoria</a>
+      <div class="sob-botao">Receba a proposta da primeira turma, com conteúdo, formato, data e valor.</div>
+    </div>
+  </section>
+  <div class="prova-principal" aria-label="Minha experiência">
+    <div><b>Mais de 400 contratos</b><span>fechados em quatro meses, em um sistema que eu mesmo montei</span></div>
+    <div><b>Mais de 1.500 clientes</b><span>cadastrados no meu sistema de gestão processual</span></div>
+    <div><b>Mais de 500 horas</b><span>usando o Claude Code para desenvolver minhas ferramentas</span></div>
+  </div>
+  <section class="bloco">
+    <h2 class="serif">O anúncio trouxe o cliente. O que acontece depois?</h2>
+    <div class="texto-corrido">
+      <p>Ele chama no WhatsApp. Faz perguntas. Manda documentos. Talvez precise de um retorno antes de decidir contratar. Depois da assinatura, começam outras responsabilidades: acompanhar o caso, informar o cliente e cobrar os honorários.</p>
+      <p>Na mentoria, vou mostrar como trabalho esse caminho no meu escritório. Como faço a comunicação e os anúncios, organizo o comercial e uso automação para apoiar a equipe.</p>
+    </div>
+  </section>
+  <section class="bloco">
+    <h2 class="serif">Quatro frentes que precisam funcionar juntas.</h2>
+    <div class="frentes">
+      <article class="cartao"><h3>Marketing</h3><p>Como penso a comunicação do escritório e apresento meu trabalho ao público que quero atender. O que quero que a pessoa entenda antes de iniciar uma conversa.</p></article>
+      <article class="cartao"><h3>Tráfego pago</h3><p>Como preparo, acompanho e ajusto meus anúncios. Quais informações observo para entender o que está chegando ao comercial.</p></article>
+      <article class="cartao"><h3>Vendas</h3><p>Como organizo atendimento, retornos e acompanhamento até a contratação. Onde a IA participa e quando a conversa passa para a equipe.</p></article>
+      <article class="cartao"><h3>Automação</h3><p>Como uso ferramentas para apoiar cobrança, acompanhamento de processos e avisos. Quais regras precisam existir antes de uma ação acontecer sozinha.</p></article>
+    </div>
+  </section>
+  <section class="bloco">
+    <h2 class="serif">Dois anos de advocacia. Uma operação construída na prática.</h2>
+    <div class="texto-corrido"><p>Fechei mais de 400 contratos em quatro meses, em um sistema que eu mesmo montei. Hoje, meu sistema de gestão processual reúne mais de 1.500 clientes cadastrados. É dessa rotina que vêm os exemplos que vou trabalhar na mentoria.</p></div>
+    <div class="numeros">
+      <div><b>400+</b><span>contratos fechados em quatro meses, em um sistema que eu mesmo montei</span></div>
+      <div><b>1.500+</b><span>clientes cadastrados no sistema de gestão processual</span></div>
+      <div><b>2 anos</b><span>de advocacia</span></div>
+      <div><b>R$ 77 mi</b><span>em valor da causa cadastrado no sistema</span></div>
+    </div>
+    <p class="nota">São registros da minha operação. Clientes cadastrados não equivalem ao número de contratos desse período. O valor da causa é a soma cadastrada nos processos, não faturamento ou honorários recebidos.</p>
+    <div class="prints-prova">
+      <figure class="print"><img src="img/print-clientes.png" alt="Painel de clientes e processos do escritório" loading="lazy"><figcaption>Recorte de 01/10/2024 a 25/10/2026: 1.362 clientes novos e 1.072 processos novos.</figcaption></figure>
+      <figure class="print"><img src="img/print-causa.png" alt="Soma do valor da causa: R$ 77.005.546,56" loading="lazy"><figcaption>Valor da causa, conforme o painel do sistema.</figcaption></figure>
+    </div>
+<div class="galeria" aria-label="Fotos do escritório">
+<img src="img/escritorio-porta.webp" alt="Porta do escritório Eduardo Rodrigues Advogado" loading="lazy">
+<img src="img/escritorio-minha-sala.webp" alt="Sala de Eduardo Rodrigues no escritório" loading="lazy">
+<img src="img/escritorio-equipe.webp" alt="Estações de trabalho da equipe" loading="lazy">
+</div>
+  </section>
+  <section class="bloco">
+    <h2 class="serif">Eu também construí as ferramentas que uso.</h2>
+    <div class="lado-a-lado">
+    <div class="texto-corrido">
+      <p>Já são mais de 500 horas usando o Claude Code para desenvolver e ajustar meu CRM e meu sistema de gestão de processos.</p>
+      <p>O CRM organiza o atendimento e o comercial. O sistema de gestão reúne o acompanhamento dos casos e o trabalho dos setores. Na mentoria, vou mostrar como uso essas ferramentas e como transformo uma necessidade do escritório em um pedido para a IA desenvolver.</p>
+    </div>
+    <figure class="retrato"><span class="cantos" aria-hidden="true"></span><img src="img/ensaio-tablet.webp" alt="Eduardo Rodrigues com um tablet" loading="lazy"></figure>
+    </div>
+    <div class="dois">
+      <figure class="print"><img src="img/print-entrada-sem-nomes.png" alt="Sistema de atendimento com acesso aos setores, sem nomes da equipe" loading="lazy"><figcaption>O sistema que construí para organizar o trabalho da equipe.</figcaption></figure>
+      <figure class="print"><img src="img/print-login.png" alt="Entrada do Deferi Lex, meu sistema de gestão processual" loading="lazy"><figcaption>Deferi Lex, meu sistema de gestão de processos.</figcaption></figure>
+    </div>
+    <p class="nota">Os sistemas são exemplos práticos da mentoria. Acesso a software não está incluído nesta apresentação.</p>
+  </section>
+  <section class="bloco">
+    <h2 class="serif">Você vai entender as decisões por trás de cada ferramenta.</h2>
+    <div class="modulos">
+      <div class="modulo"><span>01</span><div><h3>Por onde começar no seu escritório</h3><p>Como olhar para uma rotina, identificar o que precisa melhorar e definir uma primeira aplicação.</p></div></div>
+      <div class="modulo"><span>02</span><div><h3>Como acompanho o caminho até a contratação</h3><p>O que observo no anúncio, no atendimento e nos retornos para entender o trabalho do comercial.</p></div></div>
+      <div class="modulo"><span>03</span><div><h3>Como aplico IA e automação</h3><p>Exemplos do atendimento e da gestão, com as regras e conferências que uso antes de colocar uma ferramenta na rotina.</p></div></div>
+      <div class="modulo"><span>04</span><div><h3>Como desenvolvo com o Claude Code</h3><p>Como explico o que preciso, testo o resultado e peço ajustes. Você vai conhecer o processo de construção dos meus sistemas.</p></div></div>
+    </div>
+    <a class="botao cta-meio" href="#lista">Quero conhecer a proposta</a>
+  </section>
+  <section class="bloco">
+    <h2 class="serif">Para advogados que querem trabalhar essas frentes no próprio escritório.</h2>
+    <div class="texto-corrido">
+      <p>Você pode já anunciar e querer melhorar o atendimento. Pode ter uma equipe e procurar uma forma de organizar o acompanhamento dos clientes. Ou querer entender como usar IA para desenvolver uma ferramenta que ainda faz falta.</p>
+      <p>Os exemplos partem do meu escritório previdenciário, com aplicações de marketing, vendas e automação que podem ser adaptadas a outras áreas da advocacia. A proposta completa vai detalhar o conteúdo e os conhecimentos necessários para você avaliar se a mentoria faz sentido para o seu momento.</p>
+    </div>
+  </section>
+  <section class="bloco">
+    <h2 class="serif">Quem vai estar com você.</h2>
+    <div class="quem">
+      <div class="foto"><span class="cantos" aria-hidden="true"></span><img src="img/ensaio-sentado-blazer.webp" alt="Eduardo Rodrigues" loading="lazy"></div>
+      <div class="texto-corrido">
+        <p>Sou Eduardo Rodrigues, advogado previdenciarista e dono de escritório do interior de Pernambuco.</p>
+        <p>Em dois anos de advocacia, trabalhei marketing, tráfego pago e vendas enquanto desenvolvia com IA as ferramentas que uso na operação.</p>
+        <p>Na mentoria, vou compartilhar essa experiência com exemplos do meu escritório. Desde as escolhas de comunicação e atendimento até o desenvolvimento dos sistemas e os ajustes que faço no dia a dia.</p>
+      </div>
+    </div>
+    <figure class="video"><span class="cantos" aria-hidden="true"></span>
+      <img src="img/estudio.webp" alt="Eduardo Rodrigues em entrevista no Visão Empreender" loading="lazy">
+      <figcaption class="legenda"><span>Entrevista no Visão Empreender, com João Guerra</span><strong>Uma conversa sobre automação e produtividade na advocacia.</strong></figcaption>
+    </figure>
+  </section>
+  <section class="bloco">
+    <h2 class="serif">Antes de entrar na lista.</h2>
+    <div class="duvidas">
+      <details><summary>É só para quem atua no previdenciário?</summary><p>Não. A mentoria é para advogados de diferentes áreas. Os exemplos vêm do meu escritório previdenciário e serão usados para explicar como penso marketing, tráfego pago, vendas e automação. A aplicação precisa considerar a rotina de cada escritório.</p></details>
+      <details><summary>A mentoria é só sobre inteligência artificial?</summary><p>Não. A proposta reúne marketing, tráfego pago, vendas e automação. A IA entra nas aplicações e nos sistemas que uso como exemplos.</p></details>
+      <details><summary>Preciso saber programar?</summary><p>A parte de desenvolvimento vai mostrar como uso o Claude Code para pedir, testar e ajustar ferramentas. O programa completo vai explicar o ponto de partida necessário para acompanhar.</p></details>
+      <details><summary>Vou receber seu CRM e seu sistema de gestão?</summary><p>Os sistemas entram como exemplos da minha experiência. Esta apresentação não inclui licença ou acesso a eles. As entregas da mentoria serão informadas na proposta.</p></details>
+      <details><summary>Já faço anúncios. O que vou encontrar?</summary><p>Além do tráfego, vou tratar do atendimento, dos retornos e da contratação, mostrando como acompanho esse caminho no meu escritório.</p></details>
+      <details><summary>Como será a mentoria?</summary><p>Formato, calendário, acompanhamento e materiais serão detalhados antes da inscrição. Entrar na lista é uma forma de receber a proposta para decidir se quer participar.</p></details>
+      <details><summary>Quando começa e quanto custa?</summary><p>Data e valor ainda serão divulgados. A condição anunciada para a primeira turma é de 40% de desconto. A proposta vai apresentar o preço e as condições antes da inscrição.</p></details>
+    </div>
+  </section>
+  <section class="fim com-foto" id="lista"><img class="fim-foto" src="img/ensaio-banco.webp" alt="Eduardo Rodrigues" loading="lazy">
+    <h2 class="serif">Conheça a proposta da primeira turma.</h2>
+    <p>Receba o conteúdo, o formato, a data e o valor da mentoria para decidir se quer participar.</p>
+    <p>A primeira turma terá 40% de desconto, com as condições detalhadas na abertura das inscrições.</p>
+    <p class="pendente">A lista de interesse será disponibilizada aqui em breve.</p>
+  </section>
+  </main>
+  <footer>Eduardo Rodrigues · OAB/PE 64.717 · Interior de Pernambuco</footer>
+<script>
+  document.documentElement.classList.add('js')
+  const alvos = document.querySelectorAll('.bloco > *, .prova-principal, .galeria, .fim')
+  alvos.forEach(el => el.classList.add('revela'))
+  const olho = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); olho.unobserve(e.target) } }), { rootMargin: '0px 0px -8% 0px' })
+  alvos.forEach(el => olho.observe(el))
+</script>
+</body>
+</html>
