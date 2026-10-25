@@ -126,7 +126,7 @@
   @media (max-width: 700px) { .caminho, .prints-prova { grid-template-columns: 1fr; } }
 
   html { scroll-behavior: smooth; }
-  body { max-width: 1600px; margin-inline: auto; }
+  body { max-width: none; }
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--acento); outline-offset: 6px; }
   .hero { min-height: 700px; max-height: 940px; }
   .hero .texto { max-width: 620px; }
@@ -280,22 +280,6 @@
     .fim-foto { position: relative; width: calc(100% + 48px); height: 360px; margin: 0 -24px 28px; display: block; -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 40%); mask-image: linear-gradient(0deg, transparent 0%, #000 40%); }
   }
 
-  /* largura (25/10): título à esquerda parado, conteúdo à direita, visuais na largura toda */
-  @media (min-width: 1100px) {
-    .bloco { display: grid; grid-template-columns: minmax(300px, 5fr) 7fr; column-gap: clamp(48px, 6vw, 112px); align-items: start; }
-    .bloco > h2 { grid-column: 1; font-size: clamp(34px, 3vw, 48px); }
-    .bloco > * { grid-column: 2; }
-    .bloco > .frentes, .bloco > .numeros, .bloco > .prints-prova, .bloco > .galeria, .bloco > .video, .bloco > .dois, .bloco > .quem, .bloco > .nota, .bloco > .cta-meio { grid-column: 1 / -1; }
-    .bloco > .texto-corrido, .bloco > .modulos, .bloco > .duvidas, .bloco > .lado-a-lado { margin-top: 6px; max-width: none; }
-    .texto-corrido { max-width: 760px; }
-    .modulos { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
-    .modulo { grid-template-columns: 44px 1fr; }
-    .modulo:nth-child(2) { border-top: 1px solid var(--linha); }
-    .bloco > .cta-meio { justify-self: start; }
-    .lado-a-lado { grid-template-columns: minmax(0,1fr) 280px; gap: 40px; }
-    .bloco > .nota { max-width: 760px; }
-    .video { max-width: none; }
-  }
 
 
   /* correções P1 (25/10) */
@@ -304,10 +288,6 @@
   .prints-prova .print img { padding: 16px 0; }
   .print-unico { margin-top: 32px; background: #f5f6f8; max-width: 820px; }
   .print-unico figcaption { margin-top: auto; }
-  @media (min-width: 701px) {
-    .hero { height: 600px; min-height: 0; max-height: none; }
-    .hero img { left: auto; right: 0; width: min(64%, 800px); }
-  }
   .form-lista { margin-top: 28px; max-width: 520px; display: grid; gap: 18px; }
   .form-lista label { display: grid; gap: 6px; font-size: 15px; color: var(--suave); }
   .form-lista input:not([type=radio]):not([type=checkbox]) { background: rgba(255,255,255,.06); border: 1px solid var(--linha); border-radius: 10px; padding: 14px 16px; font: inherit; font-size: 16px; color: var(--texto); }
