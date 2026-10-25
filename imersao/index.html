@@ -477,13 +477,13 @@
       <details><summary>Preciso saber programar?</summary><p>A parte de desenvolvimento vai mostrar como uso o Claude Code para pedir, testar e ajustar ferramentas. O programa completo vai explicar o ponto de partida necessário para acompanhar.</p></details>
       <details><summary>Vou receber seu CRM e seu sistema de gestão?</summary><p>Os sistemas entram como exemplos da minha experiência. Esta apresentação não inclui licença ou acesso a eles. As entregas da mentoria serão informadas na proposta.</p></details>
       <details><summary>Já faço anúncios. O que vou encontrar?</summary><p>Além do tráfego, vou tratar do atendimento, dos retornos e da contratação, mostrando como acompanho esse caminho no meu escritório.</p></details>
-      <details><summary>Como funciona a imersão?</summary><p>Duas noites seguidas, 24 e 25 de novembro, online e ao vivo, das 20h às 21h, com a gravação liberada pra quem participou. Custa R$ 47. Você deixa seu contato aqui e eu te mando o link de pagamento pelo WhatsApp.</p></details>
+      <details><summary>Como funciona a imersão?</summary><p>Duas noites seguidas, 24 e 25 de novembro, online e ao vivo, das 20h às 21h, com a gravação liberada pra quem participou. Custa R$ 47. Você deixa seu contato aqui e já paga na hora, no Pix ou no cartão.</p></details>
       <details><summary>E a mentoria, quando começa e quanto custa?</summary><p>A mentoria abre no fim da segunda noite da imersão, com formato, calendário e valor. Quem entrar ali abate os R$ 47 da imersão e tem a condição da primeira turma, com 40% de desconto.</p></details>
     </div>
   </section>
   <section class="fim com-foto" id="lista"><img class="fim-foto" src="img/ensaio-oculos.webp" alt="Eduardo Rodrigues" loading="lazy">
     <h2 class="serif">Garanta sua vaga na imersão.</h2>
-    <p>24 e 25 de novembro, das 20h às 21h, online e ao vivo, por R$ 47. Deixa seu contato que eu te mando o link de pagamento pelo WhatsApp.</p>
+    <p>24 e 25 de novembro, das 20h às 21h, online e ao vivo, por R$ 47. Deixa seu contato e paga na hora, no Pix ou no cartão.</p>
     <p>Quem entrar na mentoria durante a imersão abate os R$ 47 e tem a condição da primeira turma, com 40% de desconto.</p>
     <form id="form-lista" class="form-lista" novalidate>
       <label>Seu nome<input name="nome" autocomplete="name" required></label>
@@ -512,8 +512,9 @@
       <p class="aviso" role="status" aria-live="polite"></p>
     </form>
     <div class="feito" hidden>
-      <h3 class="serif">Vaga reservada.</h3>
-      <p>Te mando o link de pagamento pelo WhatsApp. A imersão é 24 e 25 de novembro, às 20h.</p>
+      <h3 class="serif">Falta só o pagamento.</h3>
+      <p>R$ 47, no Pix ou no cartão. Assim que cair, eu te mando o link da sala do Zoom pelo WhatsApp. A imersão é 24 e 25 de novembro, às 20h.</p>
+      <a class="botao pagar" target="_blank" rel="noopener">Pagar R$ 47</a>
     </div>
   </section>
   </main>
@@ -527,7 +528,17 @@
 </script>
 <script>
   const DESTINO_LISTA = 'https://crm-production-0006.up.railway.app/api/mentoria/lista'
+  // Link de pagamento do Asaas (R$ 47, Pix e cartão).
+  const LINK_PAGAMENTO = 'https://www.asaas.com/000/c/k36iihl6a2ueqwkj'
   const formLista = document.getElementById('form-lista')
+  const feito = formLista.nextElementSibling
+  feito.querySelector('.pagar').href = LINK_PAGAMENTO
+  // Pagamento não depende da lista: se o envio falhar, a pessoa ainda consegue pagar.
+  function mostraPagamento() {
+    formLista.hidden = true
+    feito.hidden = false
+    feito.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
   formLista.addEventListener('submit', async e => {
     e.preventDefault()
     const d = Object.fromEntries(new FormData(formLista))
@@ -549,12 +560,15 @@
       const r = await fetch(DESTINO_LISTA, { method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, whatsapp: fone, email: d.email || '', area: d.area, anuncia: d.anuncia, equipe: d.equipe, aceite: true, site: d.site || '', origem: 'site-mentoria' }) })
       const j = await r.json().catch(() => ({}))
-      if (!r.ok) throw new Error(j.error || 'Não consegui registrar agora. Tente de novo em instantes.')
-      formLista.hidden = true
-      formLista.nextElementSibling.hidden = false
+      // Só erro de preenchimento volta pro formulário. Qualquer outra falha segue pro pagamento.
+      if ((r.status === 400 || r.status === 422) && j.error) {
+        aviso.textContent = j.error
+        botao.disabled = false
+        return
+      }
+      mostraPagamento()
     } catch (err) {
-      aviso.textContent = err.message
-      botao.disabled = false
+      mostraPagamento()
     }
   })
 </script>
