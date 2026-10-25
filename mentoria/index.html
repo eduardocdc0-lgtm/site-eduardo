@@ -334,6 +334,13 @@
   .marca { font-family: "Playfair Display", serif; font-weight: 500; font-size: 20px; letter-spacing: 0; text-transform: none; color: #fff; }
   .marca .logo { height: 28px; width: auto; margin-right: 12px; display: block; }
   @media (max-width: 700px) { .marca { font-size: 17px; letter-spacing: 0; } .marca .logo { height: 24px; margin-right: 10px; } }
+
+  /* vídeo da entrevista (25/10): a foto vira o player, o YouTube só carrega no clique */
+  .video .play { border: 1px solid rgba(255,255,255,.25); color: #fff; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer; z-index: 4; }
+  .video .play:hover { background: rgba(255,255,255,.24); }
+  .video .play:focus-visible { outline: 2px solid var(--azul-claro); outline-offset: 3px; }
+  .video { cursor: pointer; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 5; }
 </style>
 </head>
 <body>
@@ -429,9 +436,10 @@
         <p>Na mentoria, vou compartilhar essa experiência com exemplos do meu escritório. Desde as escolhas de comunicação e atendimento até o desenvolvimento dos sistemas e os ajustes que faço no dia a dia.</p>
       </div>
     </div>
-    <figure class="video"><span class="cantos" aria-hidden="true"></span>
+    <figure class="video" data-video="HY4MyoM7K-4" data-inicio="384"><span class="cantos" aria-hidden="true"></span>
       <img src="img/estudio.webp" alt="Eduardo Rodrigues em entrevista no Visão Empreender" loading="lazy">
       <figcaption class="legenda"><span>Entrevista no Visão Empreender, com João Guerra</span><strong>Uma conversa sobre automação e produtividade na advocacia.</strong></figcaption>
+      <button class="play" type="button" aria-label="Assistir a entrevista no Visão Empreender"><i></i>Assistir</button>
     </figure>
   </section>
   <section class="bloco">
@@ -521,6 +529,18 @@
       aviso.textContent = err.message
       botao.disabled = false
     }
+  })
+</script>
+<script>
+  const fig = document.querySelector('.video[data-video]')
+  if (fig) fig.addEventListener('click', () => {
+    if (fig.querySelector('iframe')) return
+    const f = document.createElement('iframe')
+    f.src = `https://www.youtube-nocookie.com/embed/${fig.dataset.video}?start=${fig.dataset.inicio}&autoplay=1&rel=0`
+    f.title = 'Entrevista no Visão Empreender'
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'
+    f.allowFullscreen = true
+    fig.appendChild(f)
   })
 </script>
 </body>
