@@ -2,16 +2,16 @@
 <html lang="pt-br">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eduardo Rodrigues — Advocacia Previdenciária | Carpina/PE</title>
-<meta name="description" content="Advogado previdenciário há treze anos, em Carpina/PE. Atuo em benefícios do INSS, aposentadorias e no BPC/LOAS para pessoas autistas. Atendo todo o Brasil.">
-<!-- headings em Roboto Slab (stand-in da Adelle, paga/Adobe Fonts); sans do sistema + SF Mono -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eduardo Rodrigues Advocacia | Previdenciário em Carpina/PE e no Nordeste</title>
+<meta name="description" content="Escritório previdenciário em Carpina/PE, com atuação forte no Nordeste. Auxílio-acidente, salário-maternidade, BPC/LOAS e auxílio-doença. Comece pelo WhatsApp, de qualquer cidade do Nordeste.">
+<meta name="theme-color" content="#0B0B0B">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preload" as="image" href="img/eduardo-retrato.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<meta name="theme-color" content="#0F1D34">
-<link rel="icon" type="image/png" href="img/favicon.png">
-<!-- Google tag (gtag.js) — conversão do Google Ads; o evento dispara em /js/conversao.js no clique do WhatsApp -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js): conversão do Google Ads; o evento dispara em /js/conversao.js no clique do WhatsApp -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16981875984"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -21,350 +21,317 @@
 </script>
 <script defer src="/js/conversao.js"></script>
 <style>
+  /* 30/10/2026, pedido do Eduardo: site na marca do Instagram e da bio (preto e branco, Poppins),
+     ênfase em Carpina e no Nordeste, um botão só de WhatsApp, leve pra celular simples. */
   :root{
-    --paper:#F1F5FC; --white:#FFFFFF; --ink:#0F1D34; --muted:#5E6B7E;
-    --accent:#1F4F92; --line:#DCE4F0;
-    --serif:"Roboto Slab","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
-    --wrap:1200px;
+    --preto:#0B0B0B; --branco:#FFFFFF; --cinza:#8C8C8C; --cinza-claro:#EFEFEF;
+    --cinza-escuro:#3A3A3A; --cinza-no-branco:#666666; --linha:#2A2A2A; --linha-clara:#DDDDDD;
+    --wrap:1040px;
     color-scheme:light;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-    font-feature-settings:"kern" 1,"liga" 1;line-height:1.5;overflow-x:hidden}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--branco);color:var(--preto);font-family:'Poppins',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--preto);color:var(--branco)}
+  .preto ::selection{background:var(--branco);color:var(--preto)}
   a{color:inherit;text-decoration:none}
-  h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
-  .eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:12px}
-  .eyebrow::before{content:"";width:24px;height:1px;background:currentColor;opacity:.6;display:inline-block;flex:0 0 auto}
-  .serif{font-family:var(--serif)}
+  img{display:block;max-width:100%;height:auto}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-weight:800;line-height:1.15;text-wrap:balance}
+  h2{font-size:clamp(26px,4.4vw,38px);text-transform:uppercase;letter-spacing:.01em}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza-no-branco);margin-bottom:14px}
+  .preto{background:var(--preto);color:var(--branco)}
+  .preto .eyebrow{color:var(--cinza)}
+  .nw{white-space:nowrap}
+  section{padding:64px 0}
+  @media(min-width:760px){section{padding:96px 0}}
 
-  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;
-    font-family:var(--sans);font-weight:600;font-size:15px;padding:14px 26px;transition:.25s;cursor:pointer;border:0}
-  .btn-dark{background:var(--ink);color:#fff}
-  .btn-dark:hover{background:var(--accent)}
-  .btn-light{background:#fff;color:var(--ink)}
-  .btn-light:hover{background:var(--paper)}
-  .link-arrow{font-weight:500;font-size:15px;transition:.25s}
-  .link-arrow:hover{color:var(--accent)}
+  .botao{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:14px 22px;
+    border:2px solid var(--branco);font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:15px;line-height:1.2;
+    transition:background .15s ease,color .15s ease}
+  .botao svg{width:22px;height:22px;flex:0 0 auto}
+  .botao.cheio{background:var(--branco);color:var(--preto)}
+  .botao.escuro{background:var(--preto);color:var(--branco);border-color:var(--preto)}
+  .botao:active{transform:translateY(1px)}
+  @media(hover:hover){
+    .botao.cheio:hover{background:var(--cinza-claro);border-color:var(--cinza-claro)}
+    .botao.escuro:hover{background:var(--cinza-escuro);border-color:var(--cinza-escuro)}
+  }
+  :focus-visible{outline:2px solid currentColor;outline-offset:4px}
+  .link{font-weight:700;border-bottom:2px solid currentColor;padding-bottom:1px}
 
-  nav{position:sticky;top:0;z-index:20;background:rgba(241,245,252,.82);
-    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
-  .mark{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-size:19px;color:var(--ink)}
-  .mark img{height:28px;width:auto;display:block}
-  .nav-links{display:flex;align-items:center;gap:34px}
-  .nav-links a{font-size:15px;color:var(--muted);font-weight:500}
-  .nav-links a:hover{color:var(--ink)}
-  .nav-cta{font-size:14px;padding:10px 18px}
-  @media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+  /* topo */
+  .topo{position:sticky;top:0;z-index:20;background:var(--preto);color:var(--branco);border-bottom:1px solid var(--linha)}
+  .topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .marca{display:flex;align-items:center;gap:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:14px}
+  .marca img{height:26px;width:auto}
+  .topo .botao{min-height:40px;padding:8px 16px;font-size:13px}
+  @media(max-width:719px){.topo .botao{display:none}}
 
-  .hero{position:relative;overflow:hidden;padding:112px 0 96px}
-  .ghost{position:absolute;right:-40px;bottom:-70px;font-family:var(--serif);font-weight:400;font-style:italic;
-    font-size:clamp(180px,26vw,360px);line-height:1;color:var(--accent);opacity:.05;
-    pointer-events:none;user-select:none;letter-spacing:-.03em}
-  .hero-c{position:relative;max-width:860px}
-  .hero h1{font-weight:400;font-size:clamp(40px,6vw,66px);line-height:1.06;margin:26px 0 28px;text-wrap:balance}
-  .hero p{font-size:19px;color:var(--muted);max-width:620px;line-height:1.65}
-  .cta-row{display:flex;align-items:center;gap:24px;margin-top:38px;flex-wrap:wrap}
+  /* primeira dobra */
+  .dobra{padding:48px 0 56px}
+  .dobra .wrap{display:grid;gap:32px}
+  .dobra h1{font-size:clamp(32px,8.6vw,60px);text-transform:uppercase;letter-spacing:.01em;margin-top:12px}
+  .dobra .sub{margin-top:18px;font-size:17px;color:var(--cinza-claro);max-width:34em}
+  .dobra .acao{margin-top:28px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+  .dobra .botao{width:100%}
+  .prova{margin-top:28px;padding-top:22px;border-top:1px solid var(--linha);display:grid;gap:10px;font-size:14px;color:var(--cinza-claro)}
+  .prova b{color:var(--branco);font-weight:700}
+  .foto-dobra{border:2px solid var(--branco);overflow:hidden;aspect-ratio:4/5;background:var(--cinza-escuro)}
+  .foto-dobra img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
+  @media(min-width:760px){
+    .dobra{padding:80px 0 88px}
+    .dobra .wrap{grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:center}
+    .dobra .botao{width:auto;min-width:320px}
+  }
 
-  .officeband{position:relative;width:100%;height:clamp(300px,40vw,460px);overflow:hidden;background:var(--ink)}
-  .officeband img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
-  .officeband .cap{position:absolute;left:0;right:0;bottom:0;padding:64px 0 24px;
-    background:linear-gradient(to top,rgba(15,29,52,.78),rgba(15,29,52,0))}
-  .officeband .cap .wrap{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:.92;display:flex;align-items:center;gap:12px}
-  .officeband .cap .wrap::before{content:"";width:24px;height:1px;background:#fff;opacity:.6;display:inline-block}
-  .fatos{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .fatos-in{display:flex;justify-content:space-between;gap:28px;padding:44px 0}
-  .stat{flex:1}
-  .stat .n{font-family:var(--serif);font-size:38px;letter-spacing:-.02em}
-  .stat .l{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
-  .stat + .stat{border-left:1px solid var(--line);padding-left:28px}
-  @media(max-width:760px){.fatos-in{flex-wrap:wrap;gap:32px 24px}.stat{flex:1 1 40%}
-    .stat+.stat{border-left:0;padding-left:0}}
+  /* casos */
+  .casos{display:grid;gap:14px;margin-top:36px}
+  .caso{border:2px solid var(--preto);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+  .caso h3{font-size:19px;text-transform:uppercase;letter-spacing:.01em}
+  .caso p{color:var(--cinza-escuro);font-size:15px}
+  .caso .tipo{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza-no-branco)}
+  .caso a{margin-top:6px;align-self:flex-start;font-weight:700;font-size:14px;border-bottom:2px solid var(--preto);padding:10px 0 2px;cursor:pointer}
+  .outros{margin-top:22px;font-size:15px;color:var(--cinza-escuro)}
+  @media(min-width:760px){.casos{grid-template-columns:1fr 1fr;gap:20px}}
 
-  section.pad{padding:104px 0}
-  .head-lead{font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.2;max-width:820px;margin-top:16px}
+  /* nordeste */
+  .nordeste .wrap{display:grid;gap:36px}
+  .nordeste p{font-size:17px;color:var(--cinza-claro);max-width:34em;margin-top:16px}
+  .estados{margin-top:26px;padding-top:18px;border-top:1px solid var(--linha);font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--branco);line-height:2}
+  .foto-nordeste{border:2px solid var(--branco);overflow:hidden;aspect-ratio:3/4;background:var(--cinza-escuro)}
+  .foto-nordeste img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+  @media(min-width:760px){.nordeste .wrap{grid-template-columns:minmax(0,1fr) 340px;gap:72px;align-items:center}}
 
-  .row{display:grid;grid-template-columns:96px 1fr;gap:40px;align-items:start;
-    padding:34px 0;border-top:1px solid var(--line)}
-  .row:last-child{border-bottom:1px solid var(--line)}
-  .row .num{font-family:var(--serif);font-weight:400;font-size:30px;color:var(--accent);letter-spacing:-.02em}
-  .row h3{font-size:25px;margin-bottom:9px}
-  .row p{font-size:16px;color:var(--muted);max-width:640px;line-height:1.6}
-  .row .act{text-align:right;font-size:14px;font-weight:500;white-space:nowrap}
-  .row .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;font-weight:600;
-    letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-  .row .tag::before{content:"";width:16px;height:1px;background:currentColor;opacity:.7}
-  .row.focus .num{font-weight:500}
-  .list{margin-top:56px}
-  @media(max-width:760px){.row{grid-template-columns:56px 1fr;gap:8px 20px}
-    .row .act{grid-column:2;text-align:left;margin-top:4px}}
+  /* como funciona */
+  .passos{counter-reset:passo;list-style:none;margin-top:36px;display:grid;gap:22px}
+  .passos li{counter-increment:passo;position:relative;padding-left:52px;font-size:16px}
+  .passos li b{display:block;font-weight:800;text-transform:uppercase;font-size:17px;margin-bottom:4px}
+  .passos li::before{content:counter(passo);position:absolute;left:0;top:2px;width:34px;height:34px;border:2px solid var(--preto);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+  @media(min-width:760px){.passos{grid-template-columns:1fr 1fr;gap:32px 48px}}
 
-  .autista{position:relative;overflow:hidden;background:var(--ink);color:#fff;padding:104px 0}
-  .autista .ghost{color:#fff;opacity:.045;right:0;bottom:-40px}
-  .autista .in{position:relative;max-width:860px}
-  .autista .eyebrow{color:#fff;opacity:.62}
-  .autista h2{font-weight:400;font-size:clamp(30px,4.4vw,44px);line-height:1.25;color:#fff;margin:22px 0 24px;text-wrap:balance}
-  .autista p{font-size:18px;color:var(--paper);opacity:.85;max-width:640px;line-height:1.7;margin-bottom:36px}
+  /* dúvidas */
+  .duvidas{margin-top:28px;border-top:2px solid var(--preto);padding-top:6px}
+  .duvidas details{border-bottom:1px solid var(--linha-clara)}
+  .duvidas summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;font-weight:700;font-size:17px;position:relative;min-height:56px}
+  .duvidas summary::-webkit-details-marker{display:none}
+  .duvidas summary::after{content:"+";position:absolute;right:4px;top:14px;font-size:26px;font-weight:400;line-height:1}
+  .duvidas details[open] summary::after{content:"–"}
+  .duvidas .r{padding:0 0 20px;color:var(--cinza-escuro);font-size:15px;max-width:40em}
 
-  .advo{display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:center}
-  .portrait{aspect-ratio:420/480;background:var(--ink);border-radius:6px;overflow:hidden}
-  .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
-  .advo h2{font-size:clamp(34px,4.4vw,46px);margin:16px 0 10px}
-  .advo .meta{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);font-weight:500;margin-bottom:28px}
-  .advo p{font-size:18px;color:var(--ink);opacity:.9;max-width:640px;line-height:1.72;margin-bottom:18px}
-  .sign{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--accent);margin-top:14px}
-  @media(max-width:820px){.advo{grid-template-columns:1fr;gap:36px}.portrait{max-width:360px}}
+  /* prova social */
+  .nota{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .nota .n{font-size:56px;font-weight:800;line-height:1}
+  .nota .estrelas{font-size:22px;letter-spacing:2px}
+  .nota .q{font-size:14px;color:var(--cinza-no-branco);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .nota-link{display:inline-block;margin-top:14px;font-size:14px}
+  .depo{display:grid;gap:16px;margin-top:36px}
+  .depo blockquote{border:2px solid var(--preto);padding:22px 20px;font-size:15px;display:flex;flex-direction:column;gap:14px}
+  .depo blockquote p{flex:1}
+  .depo cite{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-no-branco)}
+  @media(min-width:760px){.depo{grid-template-columns:repeat(3,1fr);gap:20px}}
 
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:52px}
-  .step{border-top:2px solid var(--accent);padding-top:26px}
-  .step .n{font-family:var(--serif);font-weight:400;font-size:26px;color:var(--accent)}
-  .step h3{font-size:23px;margin:16px 0 10px;line-height:1.25}
-  .step p{font-size:16px;color:var(--muted);line-height:1.6}
-  @media(max-width:760px){.steps{grid-template-columns:1fr;gap:8px}
-    .step{border-top:1px solid var(--line);padding:26px 0}.step:first-child{border-top:2px solid var(--accent)}}
+  /* escritório */
+  .escritorio .wrap{display:grid;gap:28px}
+  .foto-esc{border:2px solid var(--branco);overflow:hidden;aspect-ratio:16/10;background:var(--cinza-escuro)}
+  .foto-esc img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+  .escritorio p{color:var(--cinza-claro);font-size:16px;margin-top:14px;max-width:32em}
+  .escritorio .end{margin-top:18px;font-weight:700;font-size:17px;line-height:1.5;color:var(--branco)}
+  @media(min-width:760px){.escritorio .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}}
 
-  .rating{display:flex;align-items:center;gap:16px;margin:22px 0 4px;flex-wrap:wrap}
-  .rating .score{font-family:var(--serif);font-size:46px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
-  .rating .rstars{color:var(--accent);font-size:19px;letter-spacing:3px}
-  .rating .rcount{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-  .featured{font-family:var(--serif);font-size:clamp(24px,3.2vw,30px);line-height:1.5;
-    max-width:1000px;margin:34px 0 22px;color:var(--ink)}
-  .featured-by{font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:var(--muted);font-weight:500}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:32px;
-    display:flex;flex-direction:column;gap:16px}
-  .stars{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--accent)}
-  .card q{font-size:16px;color:var(--ink);opacity:.88;line-height:1.62;quotes:none;flex:1}
-  .card .who{font-size:13px;color:var(--muted);font-weight:500}
-  @media(max-width:820px){.cards{grid-template-columns:1fr}}
+  /* contato */
+  .contato .cx{border:2px solid var(--preto);padding:28px 22px;display:grid;gap:24px}
+  .contato p{color:var(--cinza-escuro);font-size:16px;margin-top:12px;max-width:34em}
+  .contato .botao{margin-top:22px;width:100%}
+  .contato .tel{margin-top:14px;font-size:14px;color:var(--cinza-escuro)}
+  .foto-contato{overflow:hidden;aspect-ratio:3/4;background:var(--cinza-claro);max-width:220px}
+  .foto-contato img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+  @media(min-width:760px){
+    .contato .cx{grid-template-columns:minmax(0,1fr) 220px;padding:44px 48px;align-items:center}
+    .contato .botao{width:auto}
+  }
 
-  .contato{display:flex;justify-content:center}
-  .carta{background:#fff;border:1px solid var(--line);border-radius:10px;
-    max-width:880px;width:100%;padding:64px 72px}
-  .carta h2{font-weight:400;font-size:clamp(30px,4vw,38px);line-height:1.22;margin:20px 0 24px;max-width:720px}
-  .carta p{font-size:18px;color:var(--ink);opacity:.9;line-height:1.72}
-  .carta .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;
-    margin-top:40px;flex-wrap:wrap}
-  .carta .who .sign{margin:0}
-  .carta .who .oab{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);font-weight:500;margin-top:4px}
-  @media(max-width:600px){.carta{padding:44px 32px}}
+  footer{padding:40px 0 110px;border-top:1px solid var(--linha);font-size:13px;color:var(--cinza);line-height:1.7}
+  footer b{color:var(--branco);font-weight:700}
+  footer .cols{display:grid;gap:22px}
+  footer a{border-bottom:1px solid var(--linha)}
+  footer .aviso{margin-top:26px;padding-top:18px;border-top:1px solid var(--linha);font-size:12px;max-width:46em}
+  @media(min-width:760px){footer{padding-bottom:48px}footer .cols{grid-template-columns:1fr 1fr 1fr}}
 
-  footer{background:var(--ink);color:#fff;padding:64px 0 40px}
-  .foot-top{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap}
-  .foot-brand{max-width:320px}
-  .foot-brand .mark b{color:#fff}
-  .foot-brand .mark span{color:#fff}
-  .foot-brand p{font-size:14px;color:var(--paper);opacity:.7;line-height:1.6;margin-top:14px}
-  .foot-brand .addr{font-family:var(--mono);font-size:12px;letter-spacing:.03em;line-height:1.7;opacity:.55}
-  .foot-col h4{font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--paper);
-    opacity:.55;text-transform:uppercase;margin-bottom:14px;font-family:var(--mono)}
-  .foot-col a{display:block;font-size:14px;color:var(--paper);opacity:.85;margin-bottom:11px}
-  .foot-col a:hover{opacity:1}
-  .foot-hr{border:0;border-top:1px solid rgba(255,255,255,.12);margin:40px 0 24px}
-  .foot-bot{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;flex-wrap:wrap}
-  .foot-bot .disc{font-size:12px;color:var(--paper);opacity:.55;line-height:1.58;max-width:640px}
-  .foot-bot .cc{font-size:12px;color:var(--paper);opacity:.55}
-
-  .rise{opacity:0;transform:translateY(16px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
-  .rise.d1{animation-delay:.05s}.rise.d2{animation-delay:.14s}.rise.d3{animation-delay:.24s}.rise.d4{animation-delay:.34s}
-  @keyframes rise{to{opacity:1;transform:none}}
-  @media(prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none}}
-  /* ——— talento final: textura de ensaio, micro-interações, reveal ——— */
-  html{-webkit-text-size-adjust:100%}
-  ::selection{background:var(--accent);color:#fff}
-  body::after{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.045;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-  .hero h1{letter-spacing:-.02em}
-  .ghost{-webkit-mask-image:linear-gradient(to left,#000,transparent 72%);mask-image:linear-gradient(to left,#000,transparent 72%)}
-  .nav-links a:not(.nav-cta){position:relative}
-  .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;
-    background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .32s cubic-bezier(.2,.7,.2,1)}
-  .nav-links a:not(.nav-cta):hover::after{transform:scaleX(1)}
-  .link-arrow .arw{display:inline-block;margin-left:10px;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
-  .link-arrow:hover .arw{transform:translateX(7px)}
-  .btn-dark{box-shadow:0 1px 2px rgba(15,29,52,.10)}
-  .btn-dark:hover{transform:translateY(-1px);box-shadow:0 14px 30px -10px rgba(31,79,146,.55)}
-  .row.focus{background:linear-gradient(100deg,rgba(31,79,146,.05),rgba(31,79,146,0) 52%)}
-  .card{transition:transform .32s cubic-bezier(.2,.7,.2,1),border-color .32s,box-shadow .32s}
-  .card:hover{transform:translateY(-3px);border-color:#C3D2EA;box-shadow:0 20px 44px -26px rgba(15,29,52,.4)}
-  .js .reveal{opacity:0;transform:translateY(22px);
-    transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
-  .js .reveal.in{opacity:1;transform:none}
-  @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1!important;transform:none!important;transition:none}}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  /* barra fixa no celular: o botão de WhatsApp nunca some */
+  .barra{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--preto);padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    border-top:1px solid var(--linha)}
+  .barra .botao{width:100%;min-height:52px}
+  @media(min-width:720px){.barra{display:none}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap nav-in">
-    <a class="mark" href="#top"><img src="img/logo-er.png" alt="Eduardo Rodrigues Advocacia"><span>Eduardo Rodrigues</span></a>
-    <div class="nav-links">
-      <a href="#atuacao">Atuação</a>
-      <a href="#autista">Causa autista</a>
-      <a href="#advogado">O advogado</a>
-      <a href="#contato">Contato</a>
-    </div>
-  </div>
-</nav>
-
-<header id="top" class="hero">
-  <div class="ghost" aria-hidden="true">justiça</div>
-  <div class="wrap hero-c">
-    <p class="eyebrow rise d1">Advocacia previdenciária · Carpina/PE · Atende todo o Brasil</p>
-    <h1 class="rise d2">Quem cuida do seu<br>caso sou eu.</h1>
-    <p class="rise d3">Sou Eduardo Rodrigues. Atuo em Direito Previdenciário há treze anos, de Carpina para todo o Brasil: benefícios do INSS, aposentadorias e o BPC/LOAS para pessoas autistas — a área a que mais me dedico hoje.</p>
-    <div class="cta-row rise d4">
-      <a class="link-arrow" href="#como">Como eu trabalho<span class="arw">→</span></a>
-      <a class="link-arrow" href="#contato">Onde me encontrar<span class="arw">→</span></a>
-    </div>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#topo"><img src="img/logo-er-white.png" alt="" width="26" height="33"><span>Eduardo Rodrigues</span></a>
+    <a class="botao cheio" href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20escrit%C3%B3rio.">WhatsApp</a>
   </div>
 </header>
 
-<section class="officeband">
-  <img src="img/escritorio.jpg" alt="Escritório de Eduardo Rodrigues em Carpina, Pernambuco">
-  <div class="cap"><div class="wrap">O escritório · Carpina, Pernambuco</div></div>
-</section>
-
-<div class="fatos">
-  <div class="wrap fatos-in">
-    <div class="stat"><div class="n">13</div><div class="l">anos dedicados ao<br>Direito Previdenciário</div></div>
-    <div class="stat"><div class="n">+2 mil</div><div class="l">processos acompanhados<br>ao lado de segurados do INSS</div></div>
-    <div class="stat"><div class="n">OAB/PE</div><div class="l">64.717 — inscrição<br>ativa e regular</div></div>
-    <div class="stat"><div class="n">Brasil</div><div class="l">atendimento 100%<br>online, de Carpina/PE</div></div>
-  </div>
-</div>
-
-<section id="atuacao" class="pad">
+<section id="topo" class="dobra preto">
   <div class="wrap">
-    <p class="eyebrow">Atuação</p>
-    <h2 class="head-lead serif">Onde eu concentro o meu trabalho.</h2>
-    <div class="list">
-      <div class="row focus"><div class="num">01</div><div><span class="tag">Foco do escritório</span><h3>Auxílio-acidente</h3><p>A indenização mensal devida a quem ficou com uma sequela permanente após um acidente — paga junto com o salário, até a aposentadoria.</p></div></div>
-      <div class="row focus"><div class="num">02</div><div><span class="tag">Foco do escritório</span><h3>BPC/LOAS — causa autista</h3><p>Um salário mínimo à pessoa com deficiência ou ao idoso de baixa renda. Minha atuação de referência é no BPC da criança e do adulto autistas — do requerimento à Justiça.</p></div></div>
-      <div class="row"><div class="num">03</div><div><h3>Benefícios por incapacidade</h3><p>Auxílio por incapacidade temporária e aposentadoria por incapacidade permanente, quando a doença afasta do trabalho e o INSS nega, cessa ou não prorroga o benefício.</p></div></div>
-      <div class="row"><div class="num">04</div><div><h3>Aposentadorias</h3><p>Por idade, tempo de contribuição, rural, por incapacidade ou da pessoa com deficiência — cada uma com um caminho próprio.</p></div></div>
-      <div class="row"><div class="num">05</div><div><h3>Revisões e atrasados</h3><p>Correção de benefícios pagos a menor e recuperação de parcelas que o INSS deixou de quitar no passado.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="autista" class="autista">
-  <div class="ghost" aria-hidden="true">cuidar</div>
-  <div class="wrap in">
-    <p class="eyebrow">Causa autista</p>
-    <h2 class="serif">O direito da pessoa autista ao BPC/LOAS, conduzido com o cuidado que ele pede.</h2>
-    <p>Conheço de perto o peso dos laudos, das negativas e das filas quando o assunto é o seu filho. Cuido de toda a parte jurídica do BPC/LOAS para crianças e adultos autistas, do requerimento no INSS à ação na Justiça, e explico cada etapa em linguagem simples. É a área a que mais me dedico hoje.</p>
-  </div>
-</section>
-
-<section id="advogado" class="pad">
-  <div class="wrap advo">
-    <div class="portrait"><img src="img/eduardo.jpg" alt="Eduardo Rodrigues, advogado previdenciário, em seu escritório em Carpina/PE"></div>
     <div>
-      <p class="eyebrow">O advogado</p>
-      <h2 class="serif">Eduardo Rodrigues</h2>
-      <div class="meta">OAB/PE 64.717 · Carpina, Pernambuco · atende todo o Brasil</div>
-      <p>Atuo com Direito Previdenciário há 13 anos e, nesse tempo, já acompanhei mais de dois mil processos de gente que o INSS tinha tratado como caso perdido. Escolhi essa área por um motivo simples: é onde o Direito muda de verdade a vida de quem quase não tem a quem recorrer.</p>
-      <p>Com o tempo, a causa das crianças autistas virou o centro do meu trabalho — e é por isso que tanta mãe me encontra. Aqui, quem vai te responder sou eu.</p>
-      <div class="sign">Eduardo Rodrigues</div>
+      <h1>Do Nordeste, pro povo do Nordeste.</h1>
+      <p class="sub">Escritório de advocacia previdenciária em Carpina, na Zona da Mata de Pernambuco. A gente cuida do INSS de quem trabalha no Nordeste inteiro e explica o seu direito antes de você decidir qualquer coisa.</p>
+      <div class="acao">
+        <a class="botao cheio" href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20escrit%C3%B3rio.">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
+          Falar com o escritório
+        </a>
+        <a class="link" href="#como">Como funciona</a>
+      </div>
+      <div class="prova">
+        <span><b>OAB/PE 64.717</b> · Eduardo Henrique Mara Rodrigues</span>
+        <span><b>Rua Djalma Dutra, 123</b> · Carpina/PE</span>
+        <span><b>Nota 5,0 no Google</b> · 188 avaliações</span>
+      </div>
     </div>
+    <div class="foto-dobra"><img src="img/eduardo-retrato.webp" alt="Eduardo Rodrigues, advogado previdenciário" width="880" height="1320" fetchpriority="high"></div>
   </div>
 </section>
 
-<section id="como" class="pad" style="border-top:1px solid var(--line)">
+<section id="casos">
   <div class="wrap">
-    <p class="eyebrow">Como eu trabalho</p>
-    <h2 class="head-lead serif">Do jeito que eu gostaria de ser tratado.</h2>
-    <div class="steps">
-      <div class="step"><div class="n">01</div><h3 class="serif">Você fala com o meu escritório</h3><p>A minha equipe atende, organiza os seus documentos e eu acompanho o seu caso.</p></div>
-      <div class="step"><div class="n">02</div><h3 class="serif">Eu te digo a verdade</h3><p>Analiso os seus documentos e digo com honestidade se há caminho, e qual é — inclusive quando a resposta é não.</p></div>
-      <div class="step"><div class="n">03</div><h3 class="serif">Acompanho até o fim</h3><p>Do pedido no INSS à Justiça, quando precisa, você fica sabendo de cada etapa.</p></div>
+    <p class="eyebrow">Seu caso é um desses?</p>
+    <h2>A gente cuida de quatro coisas no INSS.</h2>
+    <div class="casos">
+      <article class="caso">
+        <span class="tipo">Auxílio-acidente</span>
+        <h3>Caiu de moto, botou placa e voltou a trabalhar?</h3>
+        <p>Quem ficou com sequela de acidente pode ter um valor todo mês, pago junto com o salário. Vale pra acidente de moto, de trabalho, queda e até em casa.</p>
+        <a href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Meu%20caso%20%C3%A9%20de%20acidente.">Falar sobre o meu acidente</a>
+      </article>
+      <article class="caso">
+        <span class="tipo">Salário-maternidade</span>
+        <h3>Teve bebê e trabalhou de carteira ou na roça?</h3>
+        <p>O salário-maternidade é da mãe que contribuiu, trabalhou de carteira ou na agricultura. Em muitos casos ainda dá pra pedir depois que o bebê nasceu.</p>
+        <a href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Meu%20caso%20%C3%A9%20de%20sal%C3%A1rio-maternidade.">Falar sobre o meu caso</a>
+      </article>
+      <article class="caso">
+        <span class="tipo">BPC/LOAS</span>
+        <h3>O INSS negou o BPC do seu filho autista?</h3>
+        <p>Negativa do INSS muitas vezes vem de laudo só com o CID ou de conta de renda errada. A gente cuida do BPC da criança e do adulto autistas, e do idoso de baixa renda.</p>
+        <a href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Meu%20caso%20%C3%A9%20de%20BPC.">Falar sobre o BPC</a>
+      </article>
+      <article class="caso">
+        <span class="tipo">Auxílio-doença</span>
+        <h3>Tá encostado e o INSS cortou o benefício?</h3>
+        <p>Quando a doença afasta do trabalho e o INSS nega, corta ou não prorroga, dá pra procurar a Justiça. O mesmo vale pra aposentadoria por incapacidade.</p>
+        <a href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Meu%20caso%20%C3%A9%20de%20aux%C3%ADlio-doen%C3%A7a.">Falar sobre o meu benefício</a>
+      </article>
+    </div>
+    <p class="outros">O escritório também cuida de aposentadoria por idade, rural e por incapacidade. Se o seu caso não está aí em cima, chama no WhatsApp mesmo assim.</p>
+  </div>
+</section>
+
+<section id="nordeste" class="nordeste preto">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Nordeste</p>
+      <h2>A gente conhece o INSS de quem trabalha por aqui.</h2>
+      <p>Muita gente daqui trabalhou a vida toda sem saber o que o INSS deve a ela. Chega no escritório o cortador de cana que machucou a mão na usina e a mãe que corre atrás do BPC do filho.</p>
+      <p>O escritório é daqui e trabalha pra essa gente. Você começa pelo WhatsApp, de qualquer cidade do Nordeste, manda os documentos por foto e acompanha o caso pelo celular. Se preferir vir, a porta é na Rua Djalma Dutra, em Carpina.</p>
+      <p class="estados">PE · PB · RN · AL · SE · BA · CE · PI · MA</p>
+    </div>
+    <div class="foto-nordeste"><img src="img/eduardo-trabalhando.webp" alt="Eduardo Rodrigues, advogado, de blazer azul e braços cruzados" width="760" height="1140" loading="lazy"></div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <p class="eyebrow">Como funciona</p>
+    <h2>Não precisa vir no escritório pra começar.</h2>
+    <ol class="passos">
+      <li><b>Você chama no WhatsApp</b>Conta o que aconteceu, com as suas palavras. Quem atende é a equipe do escritório, de domingo a domingo.</li>
+      <li><b>Manda por foto o que tiver</b>Laudo, exame, carta do INSS, carteira de trabalho. Foto de celular serve. A equipe diz como tirar.</li>
+      <li><b>O escritório explica o seu caso</b>Antes de qualquer decisão, você entende se tem caminho e qual é. Inclusive quando a resposta é não.</li>
+      <li><b>Precisando de algo presencial, a gente marca</b>Contrato e documentos vão pelo celular. Quando precisar vir, marca no seu horário.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="duvidas" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Antes de chamar</p>
+    <h2>O que mais perguntam.</h2>
+    <div class="duvidas">
+      <details><summary>Preciso ir no escritório?</summary><p class="r">Não. A conversa, os documentos e o contrato vão pelo WhatsApp. Quem mora longe, em outro estado do Nordeste, faz tudo pelo celular.</p></details>
+      <details><summary>Cobra pra olhar o meu caso?</summary><p class="r">A primeira conversa é pra entender o que aconteceu. Como funciona o honorário a equipe explica no WhatsApp, antes de qualquer assinatura. Nada é cobrado sem você saber antes.</p></details>
+      <details><summary>Como sei que não é golpe?</summary><p class="r">O escritório tem endereço na Rua Djalma Dutra, 123, em Carpina, e o advogado é o Eduardo Henrique Mara Rodrigues, OAB/PE 64.717, que você confere no site da OAB-PE. As avaliações no Google são de cliente real. O escritório nunca pede senha por mensagem.</p></details>
+      <details><summary>O INSS já negou. Acabou?</summary><p class="r">Não. A negativa do INSS é o que abre o caminho pra ação judicial. Na Justiça, quem examina o seu caso é outro perito, nomeado pelo juiz.</p></details>
+      <details><summary>Demora muito?</summary><p class="r">O INSS demora mesmo, e a Justiça também tem o tempo dela. Ninguém sério promete prazo. O que dá pra dizer é que quanto antes o pedido entra, mais cedo o tempo começa a contar.</p></details>
     </div>
   </div>
 </section>
 
-<section id="depoimentos" class="pad" style="border-top:1px solid var(--line)">
+<section id="depoimentos" style="padding-top:0">
   <div class="wrap">
     <p class="eyebrow">Quem já passou por isso</p>
-    <div class="rating">
-      <span class="score">5,0</span>
-      <span class="rstars">★★★★★</span>
-      <span class="rcount">189 avaliações no Google</span>
+    <div class="nota">
+      <span class="n">5,0</span>
+      <span class="estrelas" aria-hidden="true">★★★★★</span>
+      <span class="q">188 avaliações no Google</span>
     </div>
-    <p class="featured">“Agradeço ao Dr. Eduardo por todo o empenho, o carinho e o profissionalismo na causa do meu filho, Samuel. Nos acolheu com respeito e cuidado — um profissional competente, humano e de total confiança. Recomendo de olhos fechados.”</p>
-    <div class="featured-by">Mãe do Samuel · causa autista · avaliação no Google, 5 estrelas</div>
-    <div class="cards">
-      <div class="card"><div class="stars">★★★★★ · Google</div><q>No começo fiquei receosa por morar longe e o escritório ser de Carpina. Mas o Dr. Eduardo e a equipe estiveram sempre prontos, no WhatsApp e na ligação, tirando todas as dúvidas.</q><div class="who">Cliente atendida à distância</div></div>
-      <div class="card"><div class="stars">★★★★★ · Google</div><q>Um profissional de competência e serenidade. Atencioso e tranquilo para tirar todas as dúvidas, de grande responsabilidade e dedicação com os clientes.</q><div class="who">Cliente do escritório</div></div>
-      <div class="card"><div class="stars">★★★★★ · Google</div><q>Antes foram muitas lutas e muito “não”. No tempo certo, a pessoa certa aparece. Ao Dr. Eduardo e à equipe, muito obrigada pelo trabalho.</q><div class="who">Cliente previdenciário</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="contato" class="pad contato" style="border-top:1px solid var(--line)">
-  <div class="wrap contato">
-    <div class="carta">
-      <p class="eyebrow">Fale comigo</p>
-      <h2 class="serif">Se você quiser conversar, eu estou por aqui.</h2>
-      <p>Me conte com calma o que aconteceu com o seu benefício. Eu leio, penso no seu caso e respondo com sinceridade — inclusive quando é para dizer que ainda não é hora de entrar com nada. Quem vai te atender sou eu.</p>
-      <div class="foot">
-        <div class="who">
-          <div class="sign">Eduardo Rodrigues</div>
-          <div class="oab">Advogado · OAB/PE 64.717</div>
-        </div>
-        <a class="btn btn-dark" href="https://wa.me/5581988553190?text=Ol%C3%A1%2C%20Dr.%20Eduardo.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20o%20meu%20caso.">Conversar comigo no WhatsApp</a>
-      </div>
+    <a class="link nota-link" href="https://www.google.com/search?q=Eduardo+Rodrigues+Advogado+Carpina" target="_blank" rel="noopener">Ver as avaliações no Google</a>
+    <div class="depo">
+      <blockquote><p>“Agradeço ao Dr. Eduardo por todo o empenho, o carinho e o profissionalismo na causa do meu filho. Nos acolheu com respeito e cuidado. Recomendo de olhos fechados.”</p><cite>Mãe de criança autista</cite></blockquote>
+      <blockquote><p>“No começo fiquei receosa por morar longe e o escritório ser de Carpina. Mas o Dr. Eduardo e a equipe estiveram sempre prontos, no WhatsApp e na ligação, tirando todas as dúvidas.”</p><cite>Cliente atendida à distância</cite></blockquote>
+      <blockquote><p>“Antes foram muitas lutas e muito não. No tempo certo, a pessoa certa aparece. Ao Dr. Eduardo e à equipe, muito obrigada pelo trabalho.”</p><cite>Cliente do escritório</cite></blockquote>
     </div>
   </div>
 </section>
 
-<footer>
+<section id="escritorio" class="escritorio preto">
   <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="mark"><img src="img/logo-er-white.png" alt="Eduardo Rodrigues Advocacia"><span>Eduardo Rodrigues</span></div>
-        <p>Advocacia previdenciária. Atende todo o Brasil, 100% online — e presencialmente em Carpina/PE.</p>
-        <p class="addr">R. Djalma Dutra, 123 — São João<br>Carpina/PE · CEP 55813-000</p>
-      </div>
-      <div class="foot-col">
-        <h4>Atuação</h4>
-        <a href="#atuacao">Benefícios por incapacidade</a>
-        <a href="#atuacao">BPC / LOAS</a>
-        <a href="#atuacao">Aposentadorias</a>
-        <a href="#atuacao">Auxílio-acidente</a>
-      </div>
-      <div class="foot-col">
-        <h4>O escritório</h4>
-        <a href="#advogado">O advogado</a>
-        <a href="#como">Como funciona</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#contato">Falar comigo</a>
-      </div>
+    <div class="foto-esc"><img src="img/escritorio.webp" alt="Recepção do escritório Eduardo Rodrigues Advocacia, em Carpina" width="1200" height="965" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">O escritório</p>
+      <h2>Fica na Rua Djalma Dutra, em Carpina.</h2>
+      <p>Quem quiser conhecer o escritório é bem-vindo. Avisa antes no WhatsApp pra alguém estar esperando você.</p>
+      <p class="end">Rua Djalma Dutra, 123, São João<br>Carpina/PE, CEP 55813-000</p>
+      <p><a class="link" href="https://www.google.com/maps/search/?api=1&query=Rua+Djalma+Dutra+123+Carpina+PE" target="_blank" rel="noopener">Ver no mapa</a></p>
     </div>
-    <hr class="foot-hr">
-    <div class="foot-bot">
-      <p class="disc">Conteúdo meramente informativo, conforme o Provimento 205/2021 da OAB. Não constitui oferta, captação de clientela nem promessa de resultado — cada caso é analisado individualmente.</p>
-      <p class="cc">© 2026 Eduardo Rodrigues Advocacia</p>
+  </div>
+</section>
+
+<section id="contato" class="contato">
+  <div class="wrap">
+    <div class="cx">
+      <div>
+        <p class="eyebrow">Fale com o escritório</p>
+        <h2>Conta o que aconteceu com o seu benefício.</h2>
+        <p>A equipe lê, eu olho o seu caso e a gente responde com sinceridade, inclusive quando é pra dizer que ainda não é hora de entrar com nada.</p>
+        <a class="botao escuro" href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20escrit%C3%B3rio.">Falar com o escritório no WhatsApp</a>
+        <p class="tel">WhatsApp do escritório: <span class="nw">(81) 99930-4526</span></p>
+      </div>
+      <div class="foto-contato"><img src="img/eduardo-whatsapp.webp" alt="Eduardo Rodrigues com o tablet na mão, lendo um caso" width="640" height="960" loading="lazy"></div>
     </div>
+  </div>
+</section>
+
+<footer class="preto">
+  <div class="wrap">
+    <div class="cols">
+      <div><b>Eduardo Rodrigues Advocacia</b><br>Eduardo Henrique Mara Rodrigues<br>OAB/PE 64.717</div>
+      <div><b>Endereço</b><br>Rua Djalma Dutra, 123, São João<br>Carpina/PE, CEP 55813-000</div>
+      <div><b>Atendimento</b><br>Pelo WhatsApp, em todo o Nordeste<br>Presencial em Carpina, com hora marcada</div>
+    </div>
+    <p class="aviso">Conteúdo informativo, conforme o Provimento 205/2021 da OAB. Não é oferta, captação de clientela nem promessa de resultado. Cada caso é analisado individualmente. <a href="/privacidade/">Política de privacidade</a></p>
   </div>
 </footer>
 
-<script>
-(function(){
-  if(!('IntersectionObserver' in window)) return;
-  var d=document; d.documentElement.classList.add('js');
-  var plan=[['.fatos-in .stat',1],['#atuacao > .wrap > .eyebrow',0],['#atuacao > .wrap > .head-lead',0],['#atuacao .row',1],['.autista .in',0],['.advo > div',1],['#como > .wrap > .eyebrow',0],['#como > .wrap > .head-lead',0],['#como .step',1],['#depoimentos > .wrap > .eyebrow',0],['#depoimentos .rating',0],['#depoimentos .featured',0],['#depoimentos .featured-by',0],['#depoimentos .card',1],['#contato .carta',0]];
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
-  plan.forEach(function(p){
-    [].slice.call(d.querySelectorAll(p[0])).forEach(function(el,i){ el.classList.add('reveal'); if(p[1]) el.style.transitionDelay=(i*0.08)+'s'; io.observe(el); });
-  });
-})();
-</script>
+<div class="barra">
+  <a class="botao cheio" href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20escrit%C3%B3rio.">Falar com o escritório no WhatsApp</a>
+</div>
+
 </body>
 </html>
