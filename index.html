@@ -6,6 +6,13 @@
 <title>Eduardo Rodrigues Advocacia | Previdenciário em Carpina/PE e no Nordeste</title>
 <meta name="description" content="Escritório previdenciário em Carpina/PE, com atuação forte no Nordeste. Auxílio-acidente, salário-maternidade, BPC/LOAS e auxílio-doença. Comece pelo WhatsApp, de qualquer cidade do Nordeste.">
 <meta name="theme-color" content="#0B0B0B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eduardo Rodrigues Advocacia, previdenciário em Carpina">
+<meta property="og:description" content="Advocacia previdenciária em Carpina, pro Nordeste inteiro. Comece pelo WhatsApp.">
+<meta property="og:image" content="https://adveduardorodrigues.com.br/img/escritorio.jpg">
+<meta property="og:url" content="https://adveduardorodrigues.com.br/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" as="image" href="img/eduardo-retrato.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +48,7 @@
   img{display:block;max-width:100%;height:auto}
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
   h1,h2,h3{font-weight:600;line-height:1.2;text-wrap:balance}
-  h2{font-size:clamp(23px,3.4vw,30px);letter-spacing:-.01em}
+  h2{font-size:clamp(24px,3.4vw,32px);letter-spacing:-.015em}
   .eyebrow{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-no-branco);margin-bottom:14px}
   .preto{background:var(--preto);color:var(--branco)}
   .preto .eyebrow{color:var(--cinza)}
@@ -61,7 +68,7 @@
     .botao.escuro:hover{background:var(--cinza-escuro);border-color:var(--cinza-escuro)}
   }
   :focus-visible{outline:2px solid currentColor;outline-offset:4px}
-  .link{font-weight:500;border-bottom:1px solid currentColor;padding-bottom:1px}
+  .link{display:inline-flex;align-items:center;min-height:44px;font-weight:500;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 
   /* topo */
   .topo{position:sticky;top:0;z-index:20;background:var(--preto);color:var(--branco);border-bottom:1px solid var(--linha)}
@@ -74,7 +81,7 @@
   /* primeira dobra */
   .dobra{padding:48px 0 56px}
   .dobra .wrap{display:grid;gap:32px}
-  .dobra h1{font-size:clamp(28px,5vw,42px);letter-spacing:-.015em;margin-top:12px;max-width:14em}
+  .dobra h1{font-size:clamp(32px,4.4vw,48px);letter-spacing:-.02em;max-width:14em}
   .dobra .sub{margin-top:18px;font-size:17px;color:var(--cinza-claro);max-width:34em}
   .dobra .acao{margin-top:28px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
   .dobra .botao{width:100%}
@@ -82,6 +89,14 @@
   .prova b{color:var(--branco);font-weight:500}
   .foto-dobra{border:1px solid var(--linha);overflow:hidden;aspect-ratio:4/5;background:var(--cinza-escuro)}
   .foto-dobra img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
+  @media(max-width:759px){
+    .dobra{padding:20px 0 40px}
+    .dobra .wrap{gap:22px}
+    .foto-dobra{order:-1;aspect-ratio:4/3;max-height:38vh;width:100%}
+    .foto-dobra img{object-position:center 22%}
+    .dobra .sub{font-size:16px;margin-top:14px}
+    .dobra .acao{margin-top:22px}
+  }
   @media(min-width:760px){
     .dobra{padding:80px 0 88px}
     .dobra .wrap{grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:center}
@@ -91,10 +106,12 @@
   /* casos */
   .casos{display:grid;gap:14px;margin-top:36px}
   .caso{border:1px solid var(--linha-clara);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
-  .caso h3{font-size:19px}
+  .caso h3{font-size:18px;font-weight:500}
   .caso p{color:var(--cinza-escuro);font-size:15px}
   .caso .tipo{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-no-branco)}
-  .caso a{margin-top:6px;align-self:flex-start;font-weight:500;font-size:14px;border-bottom:1px solid var(--preto);padding:10px 0 2px;cursor:pointer}
+  .caso a{margin-top:auto;align-self:stretch;display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:0 16px;border:1px solid var(--preto);font-weight:500;font-size:15px;cursor:pointer;transition:background .15s,color .15s}
+  .caso a::after{content:"";width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
+  @media(hover:hover){.caso a:hover{background:var(--preto);color:var(--branco)}}
   .outros{margin-top:22px;font-size:15px;color:var(--cinza-escuro)}
   @media(min-width:760px){.casos{grid-template-columns:1fr 1fr;gap:20px}}
 
@@ -109,7 +126,7 @@
   /* como funciona */
   .passos{counter-reset:passo;list-style:none;margin-top:36px;display:grid;gap:22px}
   .passos li{counter-increment:passo;position:relative;padding-left:52px;font-size:16px}
-  .passos li b{display:block;font-weight:600;font-size:17px;margin-bottom:4px}
+  .passos li b{display:block;font-weight:500;font-size:17px;margin-bottom:4px}
   .passos li::before{content:counter(passo);position:absolute;left:0;top:2px;width:34px;height:34px;border:1px solid var(--preto);
     display:flex;align-items:center;justify-content:center;font-weight:500;font-size:15px}
   @media(min-width:760px){.passos{grid-template-columns:1fr 1fr;gap:32px 48px}}
@@ -128,7 +145,7 @@
   .nota .n{font-size:44px;font-weight:600;line-height:1}
   .nota .estrelas{font-size:22px;letter-spacing:2px}
   .nota .q{font-size:14px;color:var(--cinza-no-branco)}
-  .nota-link{display:inline-block;margin-top:14px;font-size:14px}
+  .nota-link{margin-top:6px;font-size:15px}
   .depo{display:grid;gap:16px;margin-top:36px}
   .depo blockquote{border:1px solid var(--linha-clara);padding:22px 20px;font-size:15px;display:flex;flex-direction:column;gap:14px}
   .depo blockquote p{flex:1}
@@ -148,6 +165,7 @@
   .contato p{color:var(--cinza-escuro);font-size:16px;margin-top:12px;max-width:34em}
   .contato .botao{margin-top:22px;width:100%}
   .contato .tel{margin-top:14px;font-size:14px;color:var(--cinza-escuro)}
+  .foto-contato{justify-self:center}
   .foto-contato{overflow:hidden;aspect-ratio:3/4;background:var(--cinza-claro);max-width:220px}
   .foto-contato img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
   @media(min-width:760px){
@@ -166,6 +184,8 @@
   .barra{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--preto);padding:10px 16px calc(10px + env(safe-area-inset-bottom));
     border-top:1px solid var(--linha)}
   .barra .botao{width:100%;min-height:52px}
+  .barra{transition:transform .2s ease}
+  .barra.escondida{transform:translateY(110%)}
   @media(min-width:720px){.barra{display:none}}
 </style>
 </head>
@@ -202,7 +222,6 @@
 
 <section id="casos">
   <div class="wrap">
-    <p class="eyebrow">Seu caso é um desses?</p>
     <h2>A gente cuida de quatro coisas no INSS.</h2>
     <div class="casos">
       <article class="caso">
@@ -237,7 +256,6 @@
 <section id="nordeste" class="nordeste preto">
   <div class="wrap">
     <div>
-      <p class="eyebrow">Nordeste</p>
       <h2>A gente conhece o INSS de quem trabalha por aqui.</h2>
       <p>Muita gente daqui trabalhou a vida toda sem saber o que o INSS deve a ela. Chega no escritório o cortador de cana que machucou a mão na usina e a mãe que corre atrás do BPC do filho.</p>
       <p>O escritório é daqui e trabalha pra essa gente. Você começa pelo WhatsApp, de qualquer cidade do Nordeste, manda os documentos por foto e acompanha o caso pelo celular. Se preferir vir, a porta é na Rua Djalma Dutra, em Carpina.</p>
@@ -249,7 +267,6 @@
 
 <section id="como">
   <div class="wrap">
-    <p class="eyebrow">Como funciona</p>
     <h2>Não precisa vir no escritório pra começar.</h2>
     <ol class="passos">
       <li><b>Você chama no WhatsApp</b>Conta o que aconteceu, com as suas palavras. Quem atende é a equipe do escritório, de domingo a domingo.</li>
@@ -262,12 +279,11 @@
 
 <section id="duvidas" style="padding-top:0">
   <div class="wrap">
-    <p class="eyebrow">Antes de chamar</p>
     <h2>O que mais perguntam.</h2>
     <div class="duvidas">
+      <details open><summary>Como sei que não é golpe?</summary><p class="r">O escritório tem endereço na Rua Djalma Dutra, 123, em Carpina, e o advogado é o Eduardo Henrique Mara Rodrigues, OAB/PE 64.717, que você confere no <a class="link" href="https://cna.oab.org.br/" target="_blank" rel="noopener">cadastro nacional da OAB</a>. As avaliações no Google são de cliente real. O escritório nunca pede senha por mensagem.</p></details>
       <details><summary>Preciso ir no escritório?</summary><p class="r">Não. A conversa, os documentos e o contrato vão pelo WhatsApp. Quem mora longe, em outro estado do Nordeste, faz tudo pelo celular.</p></details>
       <details><summary>Cobra pra olhar o meu caso?</summary><p class="r">A primeira conversa é pra entender o que aconteceu. Como funciona o honorário a equipe explica no WhatsApp, antes de qualquer assinatura. Nada é cobrado sem você saber antes.</p></details>
-      <details><summary>Como sei que não é golpe?</summary><p class="r">O escritório tem endereço na Rua Djalma Dutra, 123, em Carpina, e o advogado é o Eduardo Henrique Mara Rodrigues, OAB/PE 64.717, que você confere no site da OAB-PE. As avaliações no Google são de cliente real. O escritório nunca pede senha por mensagem.</p></details>
       <details><summary>O INSS já negou. Acabou?</summary><p class="r">Não. A negativa do INSS é o que abre o caminho pra ação judicial. Na Justiça, quem examina o seu caso é outro perito, nomeado pelo juiz.</p></details>
       <details><summary>Demora muito?</summary><p class="r">O INSS demora mesmo, e a Justiça também tem o tempo dela. Ninguém sério promete prazo. O que dá pra dizer é que quanto antes o pedido entra, mais cedo o tempo começa a contar.</p></details>
     </div>
@@ -276,7 +292,7 @@
 
 <section id="depoimentos" style="padding-top:0">
   <div class="wrap">
-    <p class="eyebrow">Quem já passou por isso</p>
+    <h2>Quem já passou por isso.</h2>
     <div class="nota">
       <span class="n">5,0</span>
       <span class="estrelas" aria-hidden="true">★★★★★</span>
@@ -295,7 +311,6 @@
   <div class="wrap">
     <div class="foto-esc"><img src="img/escritorio.webp" alt="Recepção do escritório Eduardo Rodrigues Advocacia, em Carpina" width="1200" height="965" loading="lazy"></div>
     <div>
-      <p class="eyebrow">O escritório</p>
       <h2>Fica na Rua Djalma Dutra, em Carpina.</h2>
       <p>Quem quiser conhecer o escritório é bem-vindo. Avisa antes no WhatsApp pra alguém estar esperando você.</p>
       <p class="end">Rua Djalma Dutra, 123, São João<br>Carpina/PE, CEP 55813-000</p>
@@ -308,7 +323,6 @@
   <div class="wrap">
     <div class="cx">
       <div>
-        <p class="eyebrow">Fale com o escritório</p>
         <h2>Conta o que aconteceu com o seu benefício.</h2>
         <p>A equipe lê, eu olho o seu caso e a gente responde com sinceridade, inclusive quando é pra dizer que ainda não é hora de entrar com nada.</p>
         <a class="botao escuro" href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20escrit%C3%B3rio.">Falar com o escritório no WhatsApp</a>
@@ -334,5 +348,19 @@
   <a class="botao cheio" href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20escrit%C3%B3rio.">Falar com o escritório no WhatsApp</a>
 </div>
 
+<script>
+  // A barra do celular some enquanto outro botão de WhatsApp já está na tela.
+  (() => {
+    const barra = document.querySelector('.barra')
+    const outros = document.querySelectorAll('.dobra .botao, .contato .botao')
+    if (!barra || !('IntersectionObserver' in window)) return
+    const vistos = new Set()
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => e.isIntersecting ? vistos.add(e.target) : vistos.delete(e.target))
+      barra.classList.toggle('escondida', vistos.size > 0)
+    })
+    outros.forEach(b => io.observe(b))
+  })()
+</script>
 </body>
 </html>
