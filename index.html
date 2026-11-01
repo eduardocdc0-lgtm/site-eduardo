@@ -10,7 +10,7 @@
 <link rel="preload" as="image" href="img/eduardo-retrato.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- Google tag (gtag.js): conversão do Google Ads; o evento dispara em /js/conversao.js no clique do WhatsApp -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16981875984"></script>
 <script>
@@ -22,7 +22,8 @@
 <script defer src="/js/conversao.js"></script>
 <style>
   /* 30/10/2026, pedido do Eduardo: site na marca do Instagram e da bio (preto e branco, Poppins),
-     ênfase em Carpina e no Nordeste, um botão só de WhatsApp, leve pra celular simples. */
+     ênfase em Carpina e no Nordeste, um botão só de WhatsApp, leve pra celular simples.
+     01/11/2026: ele achou o topo chamativo demais. Saiu a caixa alta, o peso 800 e o título gigante. */
   :root{
     --preto:#0B0B0B; --branco:#FFFFFF; --cinza:#8C8C8C; --cinza-claro:#EFEFEF;
     --cinza-escuro:#3A3A3A; --cinza-no-branco:#666666; --linha:#2A2A2A; --linha-clara:#DDDDDD;
@@ -39,9 +40,9 @@
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%;height:auto}
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-  h1,h2,h3{font-weight:800;line-height:1.15;text-wrap:balance}
-  h2{font-size:clamp(26px,4.4vw,38px);text-transform:uppercase;letter-spacing:.01em}
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza-no-branco);margin-bottom:14px}
+  h1,h2,h3{font-weight:600;line-height:1.2;text-wrap:balance}
+  h2{font-size:clamp(23px,3.4vw,30px);letter-spacing:-.01em}
+  .eyebrow{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-no-branco);margin-bottom:14px}
   .preto{background:var(--preto);color:var(--branco)}
   .preto .eyebrow{color:var(--cinza)}
   .nw{white-space:nowrap}
@@ -49,7 +50,7 @@
   @media(min-width:760px){section{padding:96px 0}}
 
   .botao{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:14px 22px;
-    border:2px solid var(--branco);font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:15px;line-height:1.2;
+    border:1px solid var(--branco);font-weight:500;font-size:15px;line-height:1.2;
     transition:background .15s ease,color .15s ease}
   .botao svg{width:22px;height:22px;flex:0 0 auto}
   .botao.cheio{background:var(--branco);color:var(--preto)}
@@ -60,12 +61,12 @@
     .botao.escuro:hover{background:var(--cinza-escuro);border-color:var(--cinza-escuro)}
   }
   :focus-visible{outline:2px solid currentColor;outline-offset:4px}
-  .link{font-weight:700;border-bottom:2px solid currentColor;padding-bottom:1px}
+  .link{font-weight:500;border-bottom:1px solid currentColor;padding-bottom:1px}
 
   /* topo */
   .topo{position:sticky;top:0;z-index:20;background:var(--preto);color:var(--branco);border-bottom:1px solid var(--linha)}
   .topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-  .marca{display:flex;align-items:center;gap:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:14px}
+  .marca{display:flex;align-items:center;gap:10px;font-weight:500;font-size:15px}
   .marca img{height:26px;width:auto}
   .topo .botao{min-height:40px;padding:8px 16px;font-size:13px}
   @media(max-width:719px){.topo .botao{display:none}}
@@ -73,13 +74,13 @@
   /* primeira dobra */
   .dobra{padding:48px 0 56px}
   .dobra .wrap{display:grid;gap:32px}
-  .dobra h1{font-size:clamp(32px,8.6vw,60px);text-transform:uppercase;letter-spacing:.01em;margin-top:12px}
+  .dobra h1{font-size:clamp(28px,5vw,42px);letter-spacing:-.015em;margin-top:12px;max-width:14em}
   .dobra .sub{margin-top:18px;font-size:17px;color:var(--cinza-claro);max-width:34em}
   .dobra .acao{margin-top:28px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
   .dobra .botao{width:100%}
   .prova{margin-top:28px;padding-top:22px;border-top:1px solid var(--linha);display:grid;gap:10px;font-size:14px;color:var(--cinza-claro)}
-  .prova b{color:var(--branco);font-weight:700}
-  .foto-dobra{border:2px solid var(--branco);overflow:hidden;aspect-ratio:4/5;background:var(--cinza-escuro)}
+  .prova b{color:var(--branco);font-weight:500}
+  .foto-dobra{border:1px solid var(--linha);overflow:hidden;aspect-ratio:4/5;background:var(--cinza-escuro)}
   .foto-dobra img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
   @media(min-width:760px){
     .dobra{padding:80px 0 88px}
@@ -89,34 +90,34 @@
 
   /* casos */
   .casos{display:grid;gap:14px;margin-top:36px}
-  .caso{border:2px solid var(--preto);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
-  .caso h3{font-size:19px;text-transform:uppercase;letter-spacing:.01em}
+  .caso{border:1px solid var(--linha-clara);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+  .caso h3{font-size:19px}
   .caso p{color:var(--cinza-escuro);font-size:15px}
-  .caso .tipo{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza-no-branco)}
-  .caso a{margin-top:6px;align-self:flex-start;font-weight:700;font-size:14px;border-bottom:2px solid var(--preto);padding:10px 0 2px;cursor:pointer}
+  .caso .tipo{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-no-branco)}
+  .caso a{margin-top:6px;align-self:flex-start;font-weight:500;font-size:14px;border-bottom:1px solid var(--preto);padding:10px 0 2px;cursor:pointer}
   .outros{margin-top:22px;font-size:15px;color:var(--cinza-escuro)}
   @media(min-width:760px){.casos{grid-template-columns:1fr 1fr;gap:20px}}
 
   /* nordeste */
   .nordeste .wrap{display:grid;gap:36px}
   .nordeste p{font-size:17px;color:var(--cinza-claro);max-width:34em;margin-top:16px}
-  .estados{margin-top:26px;padding-top:18px;border-top:1px solid var(--linha);font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--branco);line-height:2}
-  .foto-nordeste{border:2px solid var(--branco);overflow:hidden;aspect-ratio:3/4;background:var(--cinza-escuro)}
+  .estados{margin-top:26px;padding-top:18px;border-top:1px solid var(--linha);font-size:13px;font-weight:500;letter-spacing:.14em;color:var(--branco);line-height:2}
+  .foto-nordeste{border:1px solid var(--linha);overflow:hidden;aspect-ratio:3/4;background:var(--cinza-escuro)}
   .foto-nordeste img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
   @media(min-width:760px){.nordeste .wrap{grid-template-columns:minmax(0,1fr) 340px;gap:72px;align-items:center}}
 
   /* como funciona */
   .passos{counter-reset:passo;list-style:none;margin-top:36px;display:grid;gap:22px}
   .passos li{counter-increment:passo;position:relative;padding-left:52px;font-size:16px}
-  .passos li b{display:block;font-weight:800;text-transform:uppercase;font-size:17px;margin-bottom:4px}
-  .passos li::before{content:counter(passo);position:absolute;left:0;top:2px;width:34px;height:34px;border:2px solid var(--preto);
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+  .passos li b{display:block;font-weight:600;font-size:17px;margin-bottom:4px}
+  .passos li::before{content:counter(passo);position:absolute;left:0;top:2px;width:34px;height:34px;border:1px solid var(--preto);
+    display:flex;align-items:center;justify-content:center;font-weight:500;font-size:15px}
   @media(min-width:760px){.passos{grid-template-columns:1fr 1fr;gap:32px 48px}}
 
   /* dúvidas */
-  .duvidas{margin-top:28px;border-top:2px solid var(--preto);padding-top:6px}
+  .duvidas{margin-top:28px;border-top:1px solid var(--preto);padding-top:6px}
   .duvidas details{border-bottom:1px solid var(--linha-clara)}
-  .duvidas summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;font-weight:700;font-size:17px;position:relative;min-height:56px}
+  .duvidas summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;font-weight:500;font-size:17px;position:relative;min-height:56px}
   .duvidas summary::-webkit-details-marker{display:none}
   .duvidas summary::after{content:"+";position:absolute;right:4px;top:14px;font-size:26px;font-weight:400;line-height:1}
   .duvidas details[open] summary::after{content:"–"}
@@ -124,26 +125,26 @@
 
   /* prova social */
   .nota{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:8px}
-  .nota .n{font-size:56px;font-weight:800;line-height:1}
+  .nota .n{font-size:44px;font-weight:600;line-height:1}
   .nota .estrelas{font-size:22px;letter-spacing:2px}
-  .nota .q{font-size:14px;color:var(--cinza-no-branco);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .nota .q{font-size:14px;color:var(--cinza-no-branco)}
   .nota-link{display:inline-block;margin-top:14px;font-size:14px}
   .depo{display:grid;gap:16px;margin-top:36px}
-  .depo blockquote{border:2px solid var(--preto);padding:22px 20px;font-size:15px;display:flex;flex-direction:column;gap:14px}
+  .depo blockquote{border:1px solid var(--linha-clara);padding:22px 20px;font-size:15px;display:flex;flex-direction:column;gap:14px}
   .depo blockquote p{flex:1}
-  .depo cite{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-no-branco)}
+  .depo cite{font-style:normal;font-size:13px;color:var(--cinza-no-branco)}
   @media(min-width:760px){.depo{grid-template-columns:repeat(3,1fr);gap:20px}}
 
   /* escritório */
   .escritorio .wrap{display:grid;gap:28px}
-  .foto-esc{border:2px solid var(--branco);overflow:hidden;aspect-ratio:16/10;background:var(--cinza-escuro)}
+  .foto-esc{border:1px solid var(--linha);overflow:hidden;aspect-ratio:16/10;background:var(--cinza-escuro)}
   .foto-esc img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
   .escritorio p{color:var(--cinza-claro);font-size:16px;margin-top:14px;max-width:32em}
-  .escritorio .end{margin-top:18px;font-weight:700;font-size:17px;line-height:1.5;color:var(--branco)}
+  .escritorio .end{margin-top:18px;font-weight:500;font-size:17px;line-height:1.5;color:var(--branco)}
   @media(min-width:760px){.escritorio .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}}
 
   /* contato */
-  .contato .cx{border:2px solid var(--preto);padding:28px 22px;display:grid;gap:24px}
+  .contato .cx{border:1px solid var(--linha-clara);padding:28px 22px;display:grid;gap:24px}
   .contato p{color:var(--cinza-escuro);font-size:16px;margin-top:12px;max-width:34em}
   .contato .botao{margin-top:22px;width:100%}
   .contato .tel{margin-top:14px;font-size:14px;color:var(--cinza-escuro)}
@@ -155,7 +156,7 @@
   }
 
   footer{padding:40px 0 110px;border-top:1px solid var(--linha);font-size:13px;color:var(--cinza);line-height:1.7}
-  footer b{color:var(--branco);font-weight:700}
+  footer b{color:var(--branco);font-weight:500}
   footer .cols{display:grid;gap:22px}
   footer a{border-bottom:1px solid var(--linha)}
   footer .aviso{margin-top:26px;padding-top:18px;border-top:1px solid var(--linha);font-size:12px;max-width:46em}
@@ -180,8 +181,8 @@
 <section id="topo" class="dobra preto">
   <div class="wrap">
     <div>
-      <h1>Do Nordeste, pro povo do Nordeste.</h1>
-      <p class="sub">Escritório de advocacia previdenciária em Carpina, na Zona da Mata de Pernambuco. A gente cuida do INSS de quem trabalha no Nordeste inteiro e explica o seu direito antes de você decidir qualquer coisa.</p>
+      <h1>Advocacia previdenciária em Carpina, pro Nordeste inteiro.</h1>
+      <p class="sub">Escritório de advocacia previdenciária em Carpina, na Zona da Mata de Pernambuco. A gente cuida do INSS de quem trabalha no Nordeste e explica o seu direito antes de você decidir qualquer coisa.</p>
       <div class="acao">
         <a class="botao cheio" href="https://wa.me/5581999304526?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20escrit%C3%B3rio.">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>

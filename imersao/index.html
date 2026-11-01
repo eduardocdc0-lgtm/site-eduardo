@@ -2,489 +2,295 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="../img/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Imersão Eduardo Rodrigues</title>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Duas noites online, ao vivo, vendo o escritório de Eduardo Rodrigues funcionar com IA. 24 e 25 de novembro, das 20h às 21h, por R$ 47.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Imersão Eduardo Rodrigues">
+<meta property="og:description" content="Duas noites online, ao vivo, vendo um escritório de advocacia funcionar com IA. 24 e 25 de novembro, 20h, R$ 47.">
+<meta property="og:image" content="https://adveduardorodrigues.com.br/imersao/img/og.jpg">
+<meta property="og:url" content="https://adveduardorodrigues.com.br/imersao/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="../img/favicon.png">
+<link rel="preload" as="image" href="img/foto5.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 <style>
-  /* Mentoria Eduardo Rodrigues. Uma folha só (frontend-design, 25/10).
-     Direção: planta do escritório. Azul-marinho de projeto técnico, grade fina,
-     marcas de canto nas fotos, numeração de seção em mono, título em serifa. */
-
-  :root {
-    --fundo: #050b1a;
-    --cartao: #0b1630;
-    --cartao-2: #0e1c3d;
-    --linha: rgba(120, 160, 255, .16);
-    --linha-forte: rgba(120, 160, 255, .32);
-    --texto: #ffffff;
-    --suave: rgba(226, 234, 255, .80);
-    --fraco: rgba(200, 214, 245, .58);
-    --acento: #3B82F6;
-    --azul-claro: #60A5FA;
-    --azul-fundo: #1E40AF;
-    --papel: #f5f6f8;
-    --raio: 16px;
-    --serif: "Playfair Display", Georgia, serif;
-    --corpo: "Schibsted Grotesk", system-ui, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-    --largura: 1440px;
-    --lado: clamp(20px, 5vw, 64px);
+  /* Imersão Eduardo Rodrigues. 01/11/2026.
+     Pedido dele: minimalista e elegante, nada de espalhafatoso. A mesma marca do site
+     do escritório (preto e branco, Poppins), mais quieta: fundo branco, filete de 1px,
+     uma palavra em serifa itálica por título, foto real sem tratamento, sem cartão. */
+  :root{
+    --preto:#0B0B0B; --branco:#FFFFFF; --cinza:#5A5A5A; --cinza-claro:#6B6B6B;
+    --filete:#DDDDDD; --fundo-2:#F5F5F3;
+    --wrap:1080px; --lado:clamp(20px,5vw,56px);
+    color-scheme:light;
   }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{background:var(--branco);color:var(--preto);font-family:'Poppins',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--preto);color:var(--branco)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+  :focus-visible{outline:2px solid var(--preto);outline-offset:4px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--lado)}
+  h1,h2,h3{font-weight:500;line-height:1.2;letter-spacing:-.015em;text-wrap:balance}
+  h2{font-size:clamp(26px,3.2vw,36px);max-width:22ch}
+  h3{font-size:19px}
+  em.s{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0;font-size:1.08em}
+  p{max-width:62ch}
+  .suave{color:var(--cinza)}
+  .mini{font-size:15px;color:var(--cinza)}
+  section{padding:88px 0 0}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: radial-gradient(1200px 640px at 85% -10%, rgba(59,130,246,.20), transparent 60%), var(--fundo);
-    color: var(--texto); font-family: var(--corpo); font-size: 17px; line-height: 1.6;
-    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  .botao{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 26px;
+    background:var(--preto);color:var(--branco);font:500 15px/1.2 'Poppins',sans-serif;border:1px solid var(--preto);
+    cursor:pointer;transition:background .15s ease}
+  .botao:hover{background:#2A2A2A}
+  .botao:active{transform:translateY(1px)}
+  .botao[disabled]{opacity:.55;cursor:wait}
+
+  /* topo */
+  .topo{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--filete)}
+  .topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .marca{display:flex;align-items:center;gap:10px;font-weight:500;font-size:15px}
+  .marca img{height:24px;width:auto}
+  .topo .botao{min-height:44px;padding:8px 16px;font-size:14px}
+
+  /* primeira dobra */
+  .dobra{padding:0}
+  .dobra .wrap{display:grid;gap:28px;padding-top:24px;padding-bottom:56px}
+  .foto-dobra{overflow:hidden;background:var(--fundo-2);aspect-ratio:4/3}
+  .foto-dobra img{width:100%;height:100%;object-fit:cover;object-position:62% 40%}
+  .dobra h1{font-size:clamp(32px,4.6vw,56px);line-height:1.1;max-width:16ch}
+  .dobra .sub{margin-top:20px;font-size:18px;max-width:36ch;color:var(--cinza)}
+  .dobra .acao{margin-top:28px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+  .dobra .quando{font-size:15px;color:var(--cinza)}
+  .dobra .quem-sou{margin-top:34px;padding-top:18px;border-top:1px solid var(--filete);font-size:15px;color:var(--cinza);max-width:40ch}
+  @media(max-width:600px){.dobra .botao{width:100%}.dobra .acao{align-items:stretch}}
+  @media(min-width:860px){
+    .dobra .wrap{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:stretch;padding-top:0;padding-bottom:0;min-height:calc(100svh - 65px);max-height:860px}
+    .dobra .texto{order:-1;display:flex;flex-direction:column;justify-content:center;padding:64px 0}
+    .foto-dobra{aspect-ratio:auto;height:100%;min-height:560px}
+    .foto-dobra img{object-position:60% 35%}
   }
-  /* grade de projeto, some nas bordas */
-  body::before {
-    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    background-image: linear-gradient(rgba(96,165,250,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(96,165,250,.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-    -webkit-mask-image: radial-gradient(ellipse at 50% 15%, #000 25%, transparent 80%); mask-image: radial-gradient(ellipse at 50% 15%, #000 25%, transparent 80%);
+  @media(prefers-reduced-motion:no-preference){
+    .dobra .texto>*{animation:subir .7s cubic-bezier(.2,.7,.2,1) both}
+    .dobra .texto>:nth-child(2){animation-delay:.06s}.dobra .texto>:nth-child(3){animation-delay:.12s}.dobra .texto>:nth-child(4){animation-delay:.18s}
   }
-  a { color: inherit; }
-  img { display: block; max-width: 100%; }
-  .serif { font-family: var(--serif); font-weight: 600; letter-spacing: -.015em; }
-  :focus-visible { outline: 2px solid var(--azul-claro); outline-offset: 3px; }
+  @keyframes subir{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-  /* topo fixo */
-  header {
-    position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    padding: 14px var(--lado); background: rgba(5,11,26,.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--linha);
-  }
-  .marca { display: inline-flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 20px; font-weight: 500; white-space: nowrap; }
-  .marca .logo { height: 28px; width: auto; }
+  /* duas noites */
+  .noites{margin-top:40px;display:grid;gap:36px}
+  .noite{padding-top:22px;border-top:1px solid var(--preto)}
+  .noite .dia{font-size:14px;color:var(--cinza);margin-bottom:10px}
+  .noite p{margin-top:10px;color:var(--cinza)}
+  .noite p.dia{margin-top:0}
+  @media(min-width:760px){.noites{grid-template-columns:1fr 1fr;gap:48px}}
+  .mentoria{margin-top:44px;padding:22px 0 0;border-top:1px solid var(--filete);max-width:62ch;color:var(--cinza)}
+  .cta-meio{margin-top:36px}
 
-  /* botão */
-  .botao, .entrar {
-    position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center;
-    border: 0; border-radius: 999px; cursor: pointer; text-decoration: none; white-space: nowrap;
-    background: linear-gradient(135deg, var(--azul-fundo) 0%, var(--acento) 60%, #2563EB 100%); color: #fff;
-    font: 500 16px/1 var(--corpo); padding: 17px 30px; box-shadow: 0 12px 32px -10px rgba(37,99,235,.7);
-    transition: transform .25s ease, filter .25s ease;
-  }
-  .entrar { font-size: 14px; padding: 11px 18px; }
-  .botao::after { content: ""; position: absolute; inset: 0; transform: translateX(-120%); background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.32) 50%, transparent 70%); }
-  .botao:hover, .entrar:hover { filter: brightness(1.08); transform: translateY(-1px); }
-  .botao:hover::after { transform: translateX(120%); transition: transform .8s ease; }
-  .botao[disabled] { opacity: .6; cursor: wait; transform: none; }
+  /* o que roda */
+  .roda .intro{margin-top:18px;color:var(--cinza)}
+  .telas{margin-top:40px;display:grid;gap:40px}
+  .tela{margin:0}
+  .tela .moldura{border:1px solid var(--filete);background:var(--fundo-2);overflow:hidden}
+  .tela img{width:100%}
+  .tela figcaption{margin-top:12px;font-size:15px;color:var(--cinza);max-width:52ch}
+  @media(min-width:760px){.telas{grid-template-columns:1.25fr 1fr;align-items:start}}
+  .registros{margin-top:44px;padding-top:22px;border-top:1px solid var(--filete);display:grid;gap:14px}
+  .registros li{list-style:none;display:grid;grid-template-columns:minmax(190px,auto) 1fr;gap:18px;font-size:16px}
+  .registros b{font-weight:500}
+  .registros span{color:var(--cinza)}
+  .registros .nota{display:block;font-size:14px;color:var(--cinza-claro);max-width:62ch;margin-top:6px}
+  @media(max-width:520px){.registros li{grid-template-columns:1fr;gap:2px}}
 
-  /* marcas de canto, como recorte de planta */
-  .cantos {
-    position: absolute; inset: 12px; z-index: 3; pointer-events: none; opacity: .85;
-    --c: var(--azul-claro);
-    background:
-      linear-gradient(var(--c),var(--c)) top left/20px 1px no-repeat, linear-gradient(var(--c),var(--c)) top left/1px 20px no-repeat,
-      linear-gradient(var(--c),var(--c)) top right/20px 1px no-repeat, linear-gradient(var(--c),var(--c)) top right/1px 20px no-repeat,
-      linear-gradient(var(--c),var(--c)) bottom left/20px 1px no-repeat, linear-gradient(var(--c),var(--c)) bottom left/1px 20px no-repeat,
-      linear-gradient(var(--c),var(--c)) bottom right/20px 1px no-repeat, linear-gradient(var(--c),var(--c)) bottom right/1px 20px no-repeat;
-  }
+  /* quem */
+  .quem .wrap.lado{display:grid;gap:32px}
+  .quem .foto{overflow:hidden;background:var(--fundo-2);aspect-ratio:4/5;max-width:420px}
+  .quem .foto img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+  .quem p{margin-top:16px;color:var(--cinza)}
+  .quem h2+p{margin-top:22px;color:var(--preto)}
+  @media(min-width:860px){.quem .wrap.lado{grid-template-columns:380px minmax(0,1fr);gap:72px;align-items:center}}
 
-  /* primeira dobra, tela inteira */
-  .hero {
-    position: relative; margin: 12px; min-height: 620px; height: calc(100svh - 82px); max-height: 960px;
-    border-radius: var(--raio); overflow: hidden; background: var(--cartao); border: 1px solid var(--linha);
-    box-shadow: 0 40px 120px -40px rgba(37,99,235,.45);
-  }
-  .hero > img { position: absolute; top: 0; right: 0; width: 64%; height: 100%; object-fit: cover; object-position: 40% 70%; filter: saturate(.6) brightness(.92); }
-  .hero::after {
-    content: ""; position: absolute; inset: 0; z-index: 1;
-    background:
-      linear-gradient(90deg, var(--cartao) 0%, var(--cartao) 36%, rgba(11,22,48,.55) 46%, rgba(11,22,48,0) 60%),
-      linear-gradient(0deg, rgba(5,11,26,.55), transparent 40%),
-      linear-gradient(120deg, transparent 40%, rgba(30,64,175,.28) 100%);
-  }
-  .hero .texto { position: absolute; z-index: 2; left: clamp(28px, 4vw, 64px); bottom: clamp(36px, 7vh, 72px); max-width: 640px; }
-  .hero h1 { font-size: clamp(40px, 4.8vw, 72px); line-height: 1.04; }
-  .hero p { margin-top: 20px; font-size: 19px; line-height: 1.5; color: var(--suave); max-width: 560px; }
-  .hero .quem-sou { margin-top: 12px; font-size: 15px; color: var(--fraco); }
-  .hero .botao { margin-top: 30px; }
-  .sob-botao { margin-top: 14px; font-size: 14px; color: var(--fraco); max-width: 420px; }
+  /* entrevista */
+  .video{position:relative;margin:48px 0 0;aspect-ratio:16/9;overflow:hidden;background:var(--fundo-2);cursor:pointer;border:1px solid var(--filete)}
+  .video>img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+  .video .legenda{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;background:linear-gradient(0deg,rgba(11,11,11,.78),rgba(11,11,11,0));color:var(--branco);display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+  .video .legenda span{font-size:14px;max-width:38ch;line-height:1.4}
+  .play{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;background:var(--branco);color:var(--preto);border:0;font:500 14px 'Poppins',sans-serif;cursor:pointer;flex:none}
+  .play i{width:0;height:0;border-left:9px solid var(--preto);border-top:5px solid transparent;border-bottom:5px solid transparent}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  @media(max-width:600px){.video{aspect-ratio:4/5}.video>img{object-position:72% center}.video .legenda{flex-direction:column;align-items:flex-start}}
 
-  /* faixa de prova */
-  .prova-principal {
-    max-width: var(--largura); margin: 28px auto 0; padding: 0 var(--lado);
-    display: grid; grid-template-columns: repeat(3, 1fr);
-  }
-  .prova-principal > div { padding: 22px 28px; border-left: 1px solid var(--linha); }
-  .prova-principal > div:first-child { border-left: 0; padding-left: 0; }
-  .prova-principal b { display: block; font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.15; }
-  .prova-principal span { display: block; margin-top: 8px; font-size: 15px; line-height: 1.5; color: var(--suave); }
+  /* pra quem */
+  .praquem p{margin-top:18px;color:var(--cinza)}
+  .praquem h2+p{color:var(--preto)}
 
-  /* blocos numerados */
-  main { counter-reset: secao; }
-  .bloco {
-    counter-increment: secao; position: relative;
-    max-width: var(--largura); margin: 120px auto 0; padding: 36px var(--lado) 0;
-  }
-  .bloco::before {
-    content: counter(secao, decimal-leading-zero) " /"; position: absolute; top: -10px; left: var(--lado);
-    padding-right: 14px; background: var(--fundo); font-family: var(--mono); font-size: 12px; letter-spacing: .16em; color: var(--azul-claro);
-  }
-  .bloco::after { content: ""; position: absolute; top: 0; left: var(--lado); right: var(--lado); height: 1px; background: var(--linha); z-index: -1; }
-  .bloco > h2 { font-size: clamp(32px, 3.6vw, 52px); line-height: 1.08; max-width: 860px; }
-  .texto-corrido { margin-top: 26px; max-width: 68ch; }
-  .texto-corrido p { font-size: 19px; line-height: 1.7; color: var(--suave); }
-  .texto-corrido p + p { margin-top: 18px; }
-  .nota { margin-top: 22px; max-width: 72ch; font-size: 15px; line-height: 1.6; color: var(--fraco); }
+  /* perguntas */
+  .duvidas{margin-top:28px;border-top:1px solid var(--preto);max-width:760px}
+  .duvidas details{border-bottom:1px solid var(--filete)}
+  .duvidas summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-size:17px;font-weight:500;min-height:56px}
+  .duvidas summary::-webkit-details-marker{display:none}
+  .duvidas summary::after{content:"+";font-weight:400;font-size:22px;line-height:1;color:var(--cinza)}
+  .duvidas details[open] summary::after{content:"–"}
+  .duvidas details p{padding:0 0 22px;color:var(--cinza);max-width:60ch}
 
-  /* cartões */
-  .cartao { border: 1px solid var(--linha); border-radius: var(--raio); background: rgba(59,130,246,.05); transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s, box-shadow .35s; }
-  .cartao:hover { transform: translateY(-4px); border-color: rgba(96,165,250,.45); box-shadow: 0 24px 60px -30px rgba(37,99,235,.7); }
-  .frentes { margin-top: 36px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .frentes .cartao { padding: 34px; border-top: 2px solid var(--acento); }
-  .frentes h3 { font-family: var(--serif); font-weight: 600; font-size: 30px; line-height: 1.15; }
-  .frentes p { margin-top: 12px; font-size: 17px; line-height: 1.6; color: var(--suave); }
+  /* vaga */
+  .vaga{margin-top:88px;background:var(--fundo-2);padding:72px 0 80px}
+  .vaga .wrap{display:grid;gap:40px}
+  .vaga p.sub{margin-top:16px;color:var(--cinza)}
+  @media(min-width:860px){.vaga .wrap{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:80px;align-items:start}}
+  .form-lista{display:grid;gap:20px;max-width:520px}
+  .form-lista label{display:grid;gap:7px;font-size:15px}
+  .form-lista .opcional{color:var(--cinza-claro)}
+  .form-lista input:not([type=radio]):not([type=checkbox]){font:16px 'Poppins',sans-serif;color:var(--preto);padding:14px;background:var(--branco);border:1px solid #BDBDBD;border-radius:0;transition:border-color .15s}
+  .form-lista input:not([type=radio]):not([type=checkbox]):focus{outline:none;border-color:var(--preto)}
+  .form-lista input[aria-invalid=true]{border-color:#B3261E}
+  .form-lista input::placeholder{color:var(--cinza-claro)}
+  .form-lista fieldset{border:0;display:flex;flex-wrap:wrap;gap:10px}
+  .form-lista legend{width:100%;margin-bottom:10px;font-size:15px}
+  .form-lista .opcao{position:relative;display:inline-flex;flex-direction:row;align-items:center;min-height:44px;padding:9px 16px;border:1px solid #BDBDBD;background:var(--branco);font-size:15px;cursor:pointer;transition:border-color .15s,background .15s}
+  .form-lista .opcao:has(input:checked){border-color:var(--preto);background:var(--preto);color:var(--branco)}
+  .form-lista .opcao input[type=radio]{position:absolute;opacity:0;width:1px;height:1px}
+  .form-lista .opcao:has(input:focus-visible){outline:2px solid var(--preto);outline-offset:3px}
+  .form-lista input[type=checkbox]{accent-color:var(--preto);width:17px;height:17px;flex:none}
+  .form-lista .aceite{display:flex;flex-direction:row;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:var(--cinza);cursor:pointer}
+  .form-lista .aceite input{margin-top:3px}
+  .form-lista .botao{justify-self:start;margin-top:4px}
+  .form-lista .aviso{min-height:22px;font-size:15px;color:#B3261E}
+  .isca{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .form-lista[hidden],.feito[hidden]{display:none}
+  .feito h3{font-size:clamp(24px,3vw,32px)}
+  .feito p{margin-top:12px;color:var(--cinza)}
+  .feito .botao{margin-top:22px}
 
-  /* números */
-  .numeros { margin-top: 36px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .numeros > div { padding: 26px 28px; border: 1px solid var(--linha); border-radius: var(--raio); background: rgba(59,130,246,.05); }
-  .numeros b { display: block; font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 4vw, 60px); line-height: 1;
-    background: linear-gradient(180deg, #fff 35%, var(--azul-claro)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .numeros span { display: block; margin-top: 10px; font-size: 15px; line-height: 1.45; color: var(--suave); }
-
-  /* prints em tamanho real */
-  .print { position: relative; margin: 0; border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; background: var(--papel); display: flex; flex-direction: column; }
-  .print img { width: auto; height: auto; max-width: 100%; margin: 0 auto; padding: 18px 0; }
-  .print figcaption { margin-top: auto; padding: 13px 18px; font-size: 14px; line-height: 1.45; color: var(--fraco); background: var(--cartao); }
-  .prints-prova { margin-top: 20px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; }
-  .prints-prova .print:first-child { background: #1b222c; }
-  .print-unico { margin-top: 32px; max-width: 840px; }
-  .print-unico img { padding: 0; }
-
-  /* galeria do escritório, desencontrada */
-  .galeria { margin-top: 20px; display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 16px; align-items: end; }
-  .galeria img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--raio); border: 1px solid var(--linha); filter: saturate(.85); transition: filter .4s; }
-  .galeria img:nth-child(1) { transform: translateY(28px); }
-  .galeria img:nth-child(2) { aspect-ratio: 4 / 5; }
-  .galeria img:nth-child(3) { transform: translateY(-20px); }
-  .galeria img:hover { filter: saturate(1.05); }
-
-  /* texto ao lado do retrato */
-  .lado-a-lado { margin-top: 26px; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 56px; align-items: center; }
-  .lado-a-lado .texto-corrido { margin-top: 0; }
-  .retrato, .quem .foto { position: relative; margin: 0; border-radius: var(--raio); overflow: hidden; border: 1px solid var(--linha); aspect-ratio: 4 / 5; box-shadow: 0 30px 80px -40px rgba(37,99,235,.6); }
-  .retrato img, .quem .foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
-
-  /* módulos */
-  .modulos { margin-top: 30px; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 48px; }
-  .modulo { display: grid; grid-template-columns: 48px 1fr; gap: 8px; padding: 26px 0; border-top: 1px solid var(--linha); }
-  .modulo > span { font-family: var(--mono); font-size: 13px; color: var(--azul-claro); padding-top: 6px; }
-  .modulo h3 { font-size: 20px; font-weight: 500; line-height: 1.3; }
-  .modulo p { margin-top: 8px; font-size: 16px; line-height: 1.6; color: var(--suave); }
-  .cta-meio { margin-top: 36px; }
-
-  /* quem conduz */
-  .quem { margin-top: 32px; display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; }
-  .quem .texto-corrido { margin-top: 0; }
-
-  /* vídeo, só carrega no clique */
-  .video { position: relative; margin: 40px 0 0; aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden; background: var(--cartao); border: 1px solid var(--linha); cursor: pointer; }
-  .video > img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; filter: saturate(.55) brightness(.9); }
-  .video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,11,26,.8) 0%, rgba(5,11,26,0) 55%); }
-  .video .legenda { position: absolute; left: 32px; bottom: 30px; z-index: 2; max-width: 600px; }
-  .video .legenda span { font-size: 14px; color: var(--suave); }
-  .video .legenda strong { display: block; margin-top: 6px; font-family: var(--serif); font-weight: 600; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.2; }
-  .play {
-    position: absolute; right: 30px; bottom: 30px; z-index: 4; display: inline-flex; align-items: center; gap: 10px;
-    padding: 13px 22px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.14);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #fff; font: 500 15px var(--corpo); cursor: pointer;
-  }
-  .play:hover { background: rgba(255,255,255,.24); }
-  .play i { width: 0; height: 0; border-left: 10px solid #fff; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
-  .video iframe { position: absolute; inset: 0; z-index: 5; width: 100%; height: 100%; border: 0; }
-
-  /* dúvidas */
-  .duvidas { margin-top: 26px; max-width: 820px; }
-  .duvidas details { border-top: 1px solid var(--linha); }
-  .duvidas details:last-child { border-bottom: 1px solid var(--linha); }
-  .duvidas summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: 19px; }
-  .duvidas summary::-webkit-details-marker { display: none; }
-  .duvidas summary::after { content: "+"; font-family: var(--mono); color: var(--azul-claro); font-size: 20px; }
-  .duvidas details[open] summary::after { content: "−"; }
-  .duvidas p { padding: 0 0 22px; max-width: 68ch; font-size: 17px; line-height: 1.65; color: var(--suave); }
-
-  /* fechamento com a lista */
-  .fim {
-    position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); column-gap: 48px;
-    max-width: calc(var(--largura) - 2 * var(--lado) + 0px); margin: 130px auto 0; padding: 64px clamp(28px, 4vw, 56px);
-    border-radius: var(--raio); border: 1px solid var(--linha);
-    background: radial-gradient(800px 420px at 0% 0%, rgba(59,130,246,.26), transparent 60%), var(--cartao);
-  }
-  .fim > * { grid-column: 1; position: relative; z-index: 1; }
-  .fim-foto { grid-column: 2 !important; grid-row: 1 / span 20; align-self: stretch; width: calc(100% + clamp(28px, 4vw, 56px)); height: 100%; margin: -64px calc(-1 * clamp(28px, 4vw, 56px)) -64px 0; min-height: 640px; object-fit: cover; object-position: 45% 15%;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%); mask-image: linear-gradient(90deg, transparent 0%, #000 30%); z-index: 0 !important; }
-  .fim h2 { font-size: clamp(32px, 3.4vw, 48px); line-height: 1.08; }
-  .fim > p { margin-top: 16px; font-size: 18px; line-height: 1.6; color: var(--suave); max-width: 52ch; }
-
-  .form-lista { margin-top: 30px; display: grid; gap: 18px; max-width: 520px; }
-  .form-lista label { display: grid; gap: 7px; font-size: 15px; color: var(--suave); }
-  .form-lista .opcional { color: var(--fraco); }
-  .form-lista input:not([type=radio]):not([type=checkbox]) {
-    font: 16px var(--corpo); color: var(--texto); padding: 14px 16px; border-radius: 12px;
-    background: rgba(255,255,255,.06); border: 1px solid var(--linha); transition: border-color .2s, background .2s;
-  }
-  .form-lista input:not([type=radio]):not([type=checkbox]):focus { outline: none; border-color: var(--azul-claro); background: rgba(255,255,255,.09); }
-  .form-lista input::placeholder { color: var(--fraco); }
-  .form-lista fieldset { border: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-  .form-lista legend { width: 100%; margin-bottom: 10px; font-size: 15px; color: var(--suave); }
-  .form-lista .opcao { display: inline-flex; flex-direction: row; align-items: center; gap: 9px; padding: 10px 16px; border: 1px solid var(--linha); border-radius: 999px; font-size: 15px; color: var(--texto); cursor: pointer; transition: border-color .2s, background .2s; }
-  .form-lista .opcao:has(input:checked) { border-color: var(--azul-claro); background: rgba(59,130,246,.18); }
-  .form-lista input[type=radio], .form-lista input[type=checkbox] { accent-color: var(--acento); width: 17px; height: 17px; flex: none; }
-  .form-lista .aceite { display: flex; flex-direction: row; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.5; color: var(--suave); cursor: pointer; }
-  .form-lista .aceite input { margin-top: 2px; }
-  .form-lista .botao { justify-self: start; margin-top: 6px; }
-  .form-lista .aviso { min-height: 22px; font-size: 15px; color: var(--azul-claro); }
-  .isca { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-  .form-lista[hidden], .feito[hidden] { display: none; }
-  .feito { margin-top: 28px; }
-  .feito h3 { font-size: 32px; }
-  .feito p { margin-top: 10px; font-size: 18px; color: var(--suave); }
-
-  footer { max-width: var(--largura); margin: 48px auto 40px; padding: 0 var(--lado); font-size: 14px; color: var(--fraco); }
-
-  /* entrada da página e revelação na rolagem */
-  @keyframes subir { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-  @keyframes aparecer { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
-  .hero .texto > * { animation: subir .9s cubic-bezier(.2,.7,.2,1) both; }
-  .hero .texto > :nth-child(2) { animation-delay: .1s } .hero .texto > :nth-child(3) { animation-delay: .2s }
-  .hero .texto > :nth-child(4) { animation-delay: .3s } .hero .texto > :nth-child(5) { animation-delay: .4s }
-  .hero > img { animation: aparecer 1.4s ease both; }
-  .js .revela { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
-  .js .revela.visto { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .js .revela { opacity: 1; transform: none; }
-  }
-
-  /* tablet */
-  @media (max-width: 1000px) {
-    .numeros { grid-template-columns: repeat(2, 1fr); }
-    .modulos { grid-template-columns: 1fr; }
-    .lado-a-lado { grid-template-columns: 1fr 260px; gap: 32px; }
-    .quem { gap: 32px; }
-  }
-
-  /* celular */
-  @media (max-width: 760px) {
-    body { font-size: 16px; }
-    header { padding: 12px 16px; }
-    .marca { font-size: 17px; gap: 10px; }
-    .marca .logo { height: 24px; }
-    .entrar { font-size: 13px; padding: 10px 14px; }
-    .hero { margin: 10px; height: auto; min-height: 0; max-height: none; }
-    .hero > img { position: relative; width: 100%; height: 300px; object-position: 50% 60%; }
-    .hero::after { display: none; }
-    .hero .texto { position: relative; left: auto; bottom: auto; padding: 26px 22px 34px; }
-    .hero h1 { font-size: 36px; }
-    .hero p { font-size: 17px; }
-    .prova-principal { grid-template-columns: 1fr; margin-top: 18px; }
-    .prova-principal > div { border-left: 0; border-top: 1px solid var(--linha); padding: 18px 0; }
-    .prova-principal > div:first-child { border-top: 0; }
-    .bloco { margin-top: 88px; padding-top: 30px; }
-    .texto-corrido p { font-size: 17px; }
-    .frentes, .prints-prova, .lado-a-lado, .quem { grid-template-columns: 1fr; }
-    .frentes .cartao { padding: 26px; }
-    .numeros > div { padding: 20px 18px; }
-    .numeros b { font-size: 38px; }
-    .galeria { grid-template-columns: 1fr 1fr; align-items: stretch; }
-    .galeria img:nth-child(1), .galeria img:nth-child(3) { transform: none; }
-    .galeria img:nth-child(2) { grid-column: 1 / -1; order: -1; aspect-ratio: 4 / 3; }
-    .retrato { max-width: 420px; }
-    .video { aspect-ratio: 4 / 5; }
-    .video > img { object-position: 78% center; }
-    .video .legenda { left: 20px; right: 20px; bottom: 88px; }
-    .play { left: 20px; right: auto; bottom: 26px; }
-    .fim { display: block; margin: 96px 10px 0; padding: 0 22px 40px; }
-    .fim-foto { width: calc(100% + 44px); height: 340px; min-height: 0; margin: 0 -22px 28px; -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 40%); mask-image: linear-gradient(0deg, transparent 0%, #000 40%); }
-    .form-lista .botao { width: 100%; }
-  }
-
-  /* blocos de texto com algo ao lado, sem vão à direita */
-  .com-lado { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 400px); column-gap: clamp(40px, 6vw, 96px); align-items: start; }
-  .com-lado > h2, .com-lado > .texto-corrido { grid-column: 1; }
-  .com-lado > .caminho-planta, .com-lado > .lado-foto { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
-  .caminho-planta { list-style: none; position: relative; padding: 8px 0 8px 28px; border-left: 1px solid var(--linha-forte); }
-  .caminho-planta li { position: relative; display: flex; align-items: baseline; gap: 14px; padding: 13px 0; font-size: 18px; color: var(--texto); }
-  .caminho-planta li + li { border-top: 1px dashed var(--linha); }
-  .caminho-planta li::before { content: ""; position: absolute; left: -33px; top: 50%; width: 9px; height: 9px; transform: translateY(-50%) rotate(45deg); border: 1px solid var(--azul-claro); background: var(--fundo); }
-  .caminho-planta li:first-child::before, .caminho-planta li:last-child::before { background: var(--acento); border-color: var(--acento); }
-  .caminho-planta span { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--azul-claro); }
-  .lado-foto { max-width: 400px; }
-  .sistemas { margin-top: 32px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; align-items: stretch; }
-  .sistemas .print img { padding: 0; }
-  .sistemas .print:last-child { background: #f5f5f0; }
-  .sistemas .print:last-child img { margin: auto; padding: 24px 0; }
-  .galeria { grid-template-columns: 1fr 1.8fr 1fr; }
-  .galeria img:nth-child(2) { aspect-ratio: 4 / 3; }
-  @media (max-width: 1000px) { .com-lado { grid-template-columns: 1fr; } .com-lado > .caminho-planta, .com-lado > .lado-foto { grid-column: 1; grid-row: auto; margin-top: 32px; } }
-  @media (max-width: 760px) { .sistemas { grid-template-columns: 1fr; } .lado-foto { max-width: 340px; } }
-
-  .numeros b { white-space: nowrap; font-size: clamp(36px, 3.4vw, 56px); }
-  .bloco-duvidas { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(0, 1.7fr); column-gap: clamp(40px, 6vw, 96px); align-items: start; }
-  .bloco-duvidas > h2 { position: sticky; top: 100px; }
-  .bloco-duvidas .duvidas { margin-top: 0; max-width: none; }
-  @media (max-width: 1000px) { .bloco-duvidas { display: block; } .bloco-duvidas > h2 { position: static; } .bloco-duvidas .duvidas { margin-top: 26px; } }
-
-  /* fechamento: foto encostada nas bordas do cartão */
-  @media (min-width: 761px) {
-    .fim { display: block; padding-right: calc(44% + 32px); }
-    .fim-foto { position: absolute; top: 0; right: 0; bottom: 0; width: 44%; height: 100%; min-height: 0; margin: 0; }
-  }
-  .form-lista label:not(.opcao):not(.aceite) { grid-template-columns: auto 1fr; column-gap: 6px; justify-content: start; }
-  .form-lista label:not(.opcao):not(.aceite) > input { grid-column: 1 / -1; }
-  .form-lista .opcional { align-self: end; }
-
-  footer a { color: var(--suave); text-decoration: none; border-bottom: 1px solid var(--linha-forte); }
-  footer a:hover { color: var(--texto); }
-
-  .sistemas { grid-template-columns: 1fr 1fr; align-items: start; }
-  .sistemas .print:last-child img { padding: 0; margin: 0; }
+  footer{padding:36px 0 44px;font-size:14px;color:var(--cinza)}
+  footer a{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+  @media(max-width:600px){.form-lista .botao,.feito .botao{width:100%}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-  <header><span class="marca"><img class="logo" src="../img/logo-er-white.png" alt="" width="22" height="28">Eduardo Rodrigues</span><a class="entrar" href="#lista">Garantir vaga na imersão</a></header>
-  <main>
-  <section class="hero" aria-labelledby="titulo"><span class="cantos" aria-hidden="true"></span>
-    <img src="img/foto5.png" alt="Eduardo Rodrigues durante uma entrevista" fetchpriority="high">
-    <div class="texto">
-      <h1 class="serif" id="titulo">Tenha um escritório automatizado e sob controle.</h1>
-      <p>Marketing, tráfego pago, vendas e automação funcionando juntos no escritório, pra uma equipe enxuta dar conta de muito trabalho.</p>
-      <p class="quem-sou">Sou Eduardo Rodrigues, advogado previdenciarista apaixonado por tecnologia.</p>
-      <a class="botao" href="#lista">Quero minha vaga na imersão</a>
-      <div class="sob-botao">Imersão online, 24 e 25 de novembro, das 20h às 21h, por R$ 47.</div>
-    </div>
-  </section>
-  <div class="prova-principal" aria-label="Minha experiência">
-    <div><b>Mais de 700 contratos</b><span>fechados em seis meses, com uma equipe enxuta, em um sistema que eu mesmo montei</span></div>
-    <div><b>Mais de 1.500 clientes</b><span>cadastrados no meu sistema de gestão processual</span></div>
-    <div><b>Mais de 500 horas</b><span>usando o Claude Code para desenvolver minhas ferramentas</span></div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#topo"><img src="../img/logo-er.png" alt="" width="19" height="24">Eduardo Rodrigues</a>
+    <a class="botao" href="#lista">Garantir vaga</a>
   </div>
-  <section class="bloco" id="imersao">
-    <h2 class="serif">Primeiro vem a imersão, duas noites dentro do meu escritório.</h2>
-    <div class="texto-corrido"><p>Online e ao vivo, terça 24 e quarta 25 de novembro, das 20h às 21h, por R$ 47. Não tem slide. Você acompanha o escritório funcionando na minha tela. No fim da segunda noite eu abro a mentoria pra quem quiser continuar comigo.</p></div>
-    <div class="modulos">
-      <div class="modulo"><span>01</span><div><h3>Noite 1: Claude Code no escritório</h3><p>Como eu uso o Claude Code pra automatizar tarefas e criar processos, modelos de documento e mini sistemas pro escritório, no Notion, no WhatsApp e nas ferramentas que você já usa. Ao vivo, na minha tela, eu peço o que preciso, ele monta e eu testo até ficar do jeito certo. Você sai sabendo por onde começar no seu.</p></div></div>
-      <div class="modulo"><span>02</span><div><h3>Noite 2: de onde vem o cliente</h3><p>O que acontece com o cliente depois que ele clica no anúncio, até assinar o contrato. Como o atendimento segura quem chegou e os erros que eu cometi no começo.</p></div></div>
-    </div>
-    <p class="nota">Quem entrar na mentoria durante a imersão abate os R$ 47 e tem a condição da primeira turma.</p>
-    <a class="botao cta-meio" href="#lista">Quero minha vaga na imersão</a>
-  </section>
-  <section class="bloco com-lado">
-    <h2 class="serif">O anúncio trouxe o cliente. O que acontece depois?</h2>
-    <div class="texto-corrido">
-      <p>Ele chama no WhatsApp, pergunta, manda documento e às vezes precisa de um retorno antes de contratar. Depois que assina, vem o resto: acompanhar o caso, dar notícia pro cliente e cobrar os honorários.</p>
-      <p>Na mentoria eu mostro como faço isso no meu escritório, dos anúncios ao comercial, e onde a automação ajuda a equipe.</p>
-    </div>
-    <ol class="caminho-planta" aria-label="O caminho do cliente">
-      <li><span>01</span>Anúncio</li>
-      <li><span>02</span>Conversa no WhatsApp</li>
-      <li><span>03</span>Retorno</li>
-      <li><span>04</span>Contrato assinado</li>
-      <li><span>05</span>Acompanhamento do caso</li>
-      <li><span>06</span>Cobrança dos honorários</li>
-    </ol>
-  </section>
-  <section class="bloco">
-    <h2 class="serif">As quatro frentes da mentoria.</h2>
-    <div class="frentes">
-      <article class="cartao"><h3>Marketing</h3><p>Como eu apresento o escritório pro público que quero atender, e o que a pessoa precisa entender antes de puxar conversa.</p></article>
-      <article class="cartao"><h3>Tráfego pago</h3><p>Como eu monto, acompanho e ajusto os anúncios, e o que eu olho pra saber o que está chegando no comercial.</p></article>
-      <article class="cartao"><h3>Vendas</h3><p>Como organizo o atendimento e os retornos até o contrato. Onde a IA entra e quando a conversa passa pra equipe.</p></article>
-      <article class="cartao"><h3>Automação</h3><p>As ferramentas que cuidam de cobrança, acompanhamento de processo e aviso, e as regras que eu coloco antes de deixar qualquer coisa rodar sozinha.</p></article>
-    </div>
-  </section>
-  <section class="bloco">
-    <h2 class="serif">O que eu fiz em dois anos de advocacia.</h2>
-    <div class="texto-corrido"><p>Fechei mais de 700 contratos em seis meses, com uma equipe enxuta, num sistema que eu mesmo montei. Hoje o sistema de gestão processual tem mais de 1.500 clientes cadastrados. Os exemplos da mentoria saem dessa rotina.</p></div>
-    <div class="numeros">
-      <div><b>700+</b><span>contratos fechados em seis meses, com uma equipe enxuta</span></div>
-      <div><b>1.500+</b><span>clientes cadastrados no sistema de gestão processual</span></div>
-      <div><b>2 anos</b><span>de advocacia</span></div>
-      <div><b>R$ 77 mi</b><span>em valor da causa cadastrado no sistema</span></div>
-    </div>
-    <p class="nota">São registros da minha operação. Clientes cadastrados não equivalem ao número de contratos desse período. O valor da causa é a soma cadastrada nos processos, não faturamento ou honorários recebidos.</p>
-    <div class="prints-prova">
-      <figure class="print"><img src="img/print-clientes.png" alt="Painel de clientes e processos do escritório" loading="lazy"><figcaption>Recorte de 01/10/2024 a 25/10/2026: 1.362 clientes novos e 1.072 processos novos.</figcaption></figure>
-      <figure class="print"><img src="img/print-causa.png" alt="Soma do valor da causa: R$ 77.005.546,56" loading="lazy"><figcaption>Valor da causa, conforme o painel do sistema.</figcaption></figure>
-    </div>
-<div class="galeria" aria-label="Fotos do escritório">
-<img src="img/escritorio-porta.webp" alt="Porta do escritório Eduardo Rodrigues Advogado" loading="lazy">
-<img src="img/escritorio-minha-sala.webp" alt="Sala de Eduardo Rodrigues no escritório" loading="lazy">
-<img src="img/escritorio-detalhe.webp" alt="Detalhe da sala do escritório" loading="lazy">
-</div>
-  </section>
-  <section class="bloco">
-    <h2 class="serif">Eu também construí as ferramentas que uso.</h2>
-    <div class="lado-a-lado">
-    <div class="texto-corrido">
-      <p>Já são mais de 500 horas no Claude Code montando e ajustando o meu sistema de atendimento e o de gestão de processos.</p>
-      <p>O de atendimento organiza o comercial. O de gestão acompanha os casos e o trabalho de cada setor. Na mentoria eu mostro como uso os dois e como uma necessidade do escritório vira um pedido pra IA construir.</p>
-    </div>
-    <figure class="retrato"><span class="cantos" aria-hidden="true"></span><img src="img/ensaio-lapela.webp" alt="Eduardo Rodrigues de paletó cinza" loading="lazy"></figure>
-    </div>
-    <div class="sistemas">
-      <figure class="print"><img src="img/sistema-crm.webp" width="2000" height="1064" alt="Tela do sistema de atendimento em que cada pessoa escolhe o setor: Comercial, Triagem, Administrativo, Judicial, Financeiro e Gestão" loading="lazy"><figcaption>O sistema de atendimento que construí pra organizar o comercial e o trabalho da equipe.</figcaption></figure>
-      <figure class="print"><img src="img/sistema-lex.webp" width="1886" height="936" alt="Tela de entrada do Deferi Lex, o sistema de gestão processual" loading="lazy"><figcaption>Deferi Lex, o sistema de gestão de processos.</figcaption></figure>
-    </div>
-    <p class="nota">Os sistemas entram como exemplo, sem acesso nem licença.</p>
-  </section>
-  <section class="bloco">
-    <h2 class="serif">As decisões por trás de cada ferramenta.</h2>
-    <div class="modulos">
-      <div class="modulo"><span>01</span><div><h3>Por onde começar no seu escritório</h3><p>Como olhar uma rotina do escritório, achar o que precisa melhorar e escolher por onde começar.</p></div></div>
-      <div class="modulo"><span>02</span><div><h3>Como acompanho o caminho até a contratação</h3><p>O que eu olho no anúncio, no atendimento e nos retornos pra saber como o comercial está indo.</p></div></div>
-      <div class="modulo"><span>03</span><div><h3>Como aplico IA e automação</h3><p>Exemplos do atendimento e da gestão, e as regras que eu confiro antes de colocar uma ferramenta pra rodar.</p></div></div>
-      <div class="modulo"><span>04</span><div><h3>Como desenvolvo com o Claude Code</h3><p>Como eu explico o que preciso, testo o que veio e peço ajuste. Foi assim que construí os meus sistemas.</p></div></div>
-    </div>
-    <a class="botao cta-meio" href="#lista">Quero minha vaga na imersão</a>
-  </section>
-  <section class="bloco com-lado">
-    <h2 class="serif">Pra quem é.</h2>
-    <div class="texto-corrido">
-      <p>Pra advogado autônomo que quer crescer e pra quem já tem escritório com equipe, anunciando ou não. Quem trabalha sozinho vê como usar IA pra tirar serviço da mão e dar conta de mais cliente. Quem tem equipe vê como organizar o acompanhamento dos clientes.</p>
-      <p>Os exemplos são do meu escritório, que é previdenciário, e servem pra outras áreas com adaptação. O conteúdo completo e o que você precisa saber antes eu apresento junto com a proposta da mentoria.</p>
-    </div>
-    <figure class="retrato lado-foto"><span class="cantos" aria-hidden="true"></span><img src="img/ensaio-pensando.webp" alt="Eduardo Rodrigues" loading="lazy"></figure>
-  </section>
-  <section class="bloco">
-    <h2 class="serif">Quem vai estar com você.</h2>
-    <div class="quem">
-      <div class="foto"><span class="cantos" aria-hidden="true"></span><img src="img/ensaio-sentado-blazer.webp" alt="Eduardo Rodrigues" loading="lazy"></div>
-      <div class="texto-corrido">
-        <p>Sou Eduardo Rodrigues, advogado previdenciarista. Mexo com tecnologia desde criança.</p>
-        <p>Em dois anos de advocacia cuidei do marketing, do tráfego pago e das vendas do escritório, e no meio disso fui construindo com IA as ferramentas que a gente usa hoje.</p>
-        <p>Na mentoria eu passo isso com exemplos do meu escritório, da comunicação e do atendimento até os sistemas e os ajustes do dia a dia.</p>
+</header>
+
+<main>
+<section id="topo" class="dobra" aria-labelledby="titulo">
+  <div class="wrap">
+    <div class="foto-dobra"><img src="img/foto5.webp" alt="Eduardo Rodrigues durante uma entrevista" width="737" height="553" fetchpriority="high"></div>
+    <div class="texto">
+      <h1 id="titulo">Como eu automatizei o meu escritório <em class="s">com IA.</em></h1>
+      <p class="sub">Duas noites online, ao vivo, com a minha tela aberta. Você vê o escritório funcionando e sai sabendo por onde começar no seu.</p>
+      <div class="acao">
+        <a class="botao" href="#lista">Quero minha vaga na imersão</a>
+        <span class="quando">24 e 25 de novembro, das 20h às 21h, por R$ 47.</span>
       </div>
+      <p class="quem-sou">Sou Eduardo Rodrigues, advogado previdenciarista. Mexo com tecnologia desde criança.</p>
     </div>
-    <figure class="video" data-video="HY4MyoM7K-4" data-inicio="384"><span class="cantos" aria-hidden="true"></span>
-      <img src="img/estudio.webp" alt="Eduardo Rodrigues em entrevista no Visão Empreender" loading="lazy">
-      <figcaption class="legenda"><span>Entrevista no Visão Empreender, com João Guerra</span><strong>Uma conversa sobre automação e produtividade na advocacia.</strong></figcaption>
-      <button class="play" type="button" aria-label="Assistir a entrevista no Visão Empreender"><i></i>Assistir</button>
+  </div>
+</section>
+
+<section id="noites">
+  <div class="wrap">
+    <h2>Duas noites dentro do meu <em class="s">escritório.</em></h2>
+    <p class="suave" style="margin-top:18px">Não tem slide. Eu abro a tela e o escritório aparece do jeito que funciona todo dia.</p>
+    <div class="noites">
+      <article class="noite">
+        <p class="dia">Terça, 24 de novembro, 20h</p>
+        <h3>O escritório rodando com IA</h3>
+        <p>Eu peço em português o que o escritório precisa, a IA monta e eu testo ali na hora. Um modelo de documento, um aviso que sai sozinho no WhatsApp, um mini sistema pra uma rotina que hoje é feita na mão. Você vê como eu explico, o que vem de volta e o que eu ajusto.</p>
+      </article>
+      <article class="noite">
+        <p class="dia">Quarta, 25 de novembro, 20h</p>
+        <h3>De onde vem o cliente</h3>
+        <p>O que acontece depois que a pessoa clica no anúncio: a conversa no WhatsApp, o retorno, o contrato assinado e o acompanhamento do caso. Como o atendimento segura quem chegou e os erros que eu cometi no começo.</p>
+      </article>
+    </div>
+    <p class="mentoria">No fim da segunda noite eu abro a mentoria pra quem quiser continuar comigo. Quem entrar ali abate os R$ 47 e tem 40% de desconto na primeira turma.</p>
+    <a class="botao cta-meio" href="#lista">Quero minha vaga na imersão</a>
+  </div>
+</section>
+
+<section id="roda" class="roda">
+  <div class="wrap">
+    <h2>O que já roda no meu escritório <em class="s">hoje.</em></h2>
+    <p class="intro">Dois sistemas que eu mesmo montei com IA, sem saber programar quando comecei. Um cuida do atendimento e do comercial. O outro acompanha os processos e o trabalho de cada setor.</p>
+    <div class="telas">
+      <figure class="tela">
+        <div class="moldura"><img src="img/sistema-crm.webp" width="2000" height="1064" alt="Tela do sistema de atendimento em que cada pessoa escolhe o setor: Comercial, Triagem, Administrativo, Judicial, Financeiro e Gestão" loading="lazy"></div>
+        <figcaption>O sistema de atendimento. A equipe entra pelo setor e cada conversa de WhatsApp cai no lugar certo.</figcaption>
+      </figure>
+      <figure class="tela">
+        <div class="moldura"><img src="img/sistema-lex.webp" width="1886" height="936" alt="Tela de entrada do Deferi Lex, o sistema de gestão processual" loading="lazy"></div>
+        <figcaption>O Deferi Lex, de gestão de processos. Prazos, perícias e o que falta em cada caso.</figcaption>
+      </figure>
+    </div>
+    <ul class="registros">
+      <li><b>Mais de 700 contratos</b><span>fechados em seis meses, com uma equipe enxuta.</span></li>
+      <li><b>Mais de 1.500 clientes</b><span>cadastrados no sistema de gestão processual.</span></li>
+      <li><b>Mais de 500 horas</b><span>de Claude Code e Codex montando e ajustando as ferramentas.</span></li>
+      <li class="nota">São registros do meu sistema. Os dois entram na imersão como exemplo, sem acesso nem licença.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="quem" class="quem">
+  <div class="wrap lado">
+    <div class="foto"><img src="img/ensaio-sentado-blazer.webp" alt="Eduardo Rodrigues sentado, de blazer" width="1067" height="1600" loading="lazy"></div>
+    <div>
+      <h2>Eu não sabia <em class="s">programar.</em></h2>
+      <p>Sou advogado previdenciarista e mexo com tecnologia desde criança, mas código eu nunca tinha escrito.</p>
+      <p>Em dois anos de advocacia cuidei do marketing, do tráfego pago e das vendas do escritório. No meio disso, fui pedindo pra IA as ferramentas que a gente usa hoje, uma de cada vez, do jeito que eu pediria a alguém da equipe.</p>
+      <p>Na imersão eu mostro isso acontecendo, com o escritório de verdade na tela.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <figure class="video" data-video="HY4MyoM7K-4" data-inicio="384">
+      <img src="img/estudio.webp" alt="Eduardo Rodrigues em entrevista no Visão Empreender" width="1027" height="779" loading="lazy">
+      <figcaption class="legenda"><span>Entrevista no Visão Empreender, com João Guerra, sobre automação e produtividade na advocacia.</span><button class="play" type="button" aria-label="Assistir a entrevista no Visão Empreender"><i></i>Assistir</button></figcaption>
     </figure>
-  </section>
-  <section class="bloco bloco-duvidas">
-    <h2 class="serif">Antes de garantir a vaga.</h2>
+  </div>
+</section>
+
+<section id="praquem" class="praquem">
+  <div class="wrap">
+    <h2>Pra quem <em class="s">é.</em></h2>
+    <p>Pra advogado de qualquer área. Quem trabalha sozinho e quer crescer, e quem já tem escritório com equipe, anunciando ou não.</p>
+    <p>Quem está sozinho vê como usar IA pra tirar serviço da mão e dar conta de mais cliente. Quem tem equipe vê como organizar o acompanhamento dos clientes. Os exemplos são do meu escritório, que é previdenciário, e servem pra outras áreas com adaptação.</p>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="wrap">
+    <h2>Antes de garantir a <em class="s">vaga.</em></h2>
     <div class="duvidas">
-      <details><summary>É só pra quem atua no previdenciário?</summary><p>Não. A mentoria é pra advogado de qualquer área. Os exemplos vêm do meu escritório, que é previdenciário, e cada um adapta pra rotina do seu.</p></details>
-      <details><summary>A mentoria é só sobre inteligência artificial?</summary><p>Não. Ela junta marketing, tráfego pago, vendas e automação, e a IA aparece nos sistemas que eu uso de exemplo.</p></details>
-      <details><summary>Preciso saber programar?</summary><p>Não precisa. Eu peço ao Claude Code em português, do mesmo jeito que peço a alguém da equipe, e mostro como testo e ajusto o que ele entrega.</p></details>
-      <details><summary>Vou receber seus sistemas?</summary><p>Não. Eles entram como exemplo, sem licença nem acesso. O que a mentoria entrega eu apresento junto com a proposta.</p></details>
-      <details><summary>Já faço anúncios. O que vou encontrar?</summary><p>Eu mostro o que vem depois do clique, do atendimento e dos retornos até o contrato, do jeito que acompanho no meu escritório.</p></details>
-      <details><summary>Como funciona a imersão?</summary><p>Duas noites seguidas, 24 e 25 de novembro, online e ao vivo, das 20h às 21h, com a gravação liberada pra quem está inscrito. Custa R$ 47. Você deixa seu contato aqui e já paga na hora, no Pix, no cartão ou no boleto.</p></details>
-      <details><summary>E a mentoria, quando começa e quanto custa?</summary><p>Ela abre no fim da segunda noite da imersão, e lá eu apresento formato, calendário e valor. Quem entrar ali abate os R$ 47 da imersão e tem 40% de desconto na primeira turma.</p></details>
+      <details><summary>Preciso saber programar?</summary><p>Não precisa. Eu peço em português, do mesmo jeito que peço a alguém da equipe, e mostro como testo e ajusto o que vem.</p></details>
+      <details><summary>É só pra quem atua no previdenciário?</summary><p>Não. É pra advogado de qualquer área. Os exemplos vêm do meu escritório, que é previdenciário, e cada um adapta pra rotina do seu.</p></details>
+      <details><summary>Como funciona a imersão?</summary><p>Duas noites seguidas, 24 e 25 de novembro, online e ao vivo, das 20h às 21h, no Zoom. A gravação fica liberada pra quem está inscrito. Custa R$ 47. Você deixa seu contato aqui e já paga na hora, no Pix, no cartão ou no boleto.</p></details>
+      <details><summary>Vou receber seus sistemas?</summary><p>Não. Eles entram como exemplo, sem licença nem acesso.</p></details>
+      <details><summary>Já faço anúncios. O que vou encontrar?</summary><p>O que vem depois do clique, do atendimento e dos retornos até o contrato, do jeito que acompanho no meu escritório.</p></details>
+      <details><summary>E a mentoria?</summary><p>Ela abre no fim da segunda noite, e lá eu apresento formato, calendário e valor. Quem entrar ali abate os R$ 47 da imersão e tem 40% de desconto na primeira turma.</p></details>
     </div>
-  </section>
-  <section class="fim com-foto" id="lista"><img class="fim-foto" src="img/ensaio-oculos.webp" alt="Eduardo Rodrigues" loading="lazy">
-    <h2 class="serif">Garanta sua vaga na imersão.</h2>
-    <p>24 e 25 de novembro, das 20h às 21h, online e ao vivo, por R$ 47. Deixa seu contato e paga na hora, no Pix, no cartão ou no boleto.</p>
-    <p>Quem entrar na mentoria durante a imersão abate os R$ 47 e tem a condição da primeira turma, com 40% de desconto.</p>
+  </div>
+</section>
+
+<section class="vaga" id="lista">
+  <div class="wrap">
+    <div>
+      <h2>Garanta sua vaga na <em class="s">imersão.</em></h2>
+      <p class="sub">24 e 25 de novembro, das 20h às 21h, online e ao vivo, por R$ 47. Deixa seu contato e paga na hora, no Pix, no cartão ou no boleto.</p>
+    </div>
+    <div>
     <form id="form-lista" class="form-lista" novalidate>
       <label>Seu nome<input name="nome" autocomplete="name" required></label>
       <label>WhatsApp com DDD<input name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(81) 99999-9999" required></label>
@@ -512,20 +318,17 @@
       <p class="aviso" role="status" aria-live="polite"></p>
     </form>
     <div class="feito" hidden>
-      <h3 class="serif">Falta só o pagamento.</h3>
+      <h3>Falta só o pagamento.</h3>
       <p>R$ 47, no Pix, no cartão ou no boleto. Assim que cair, eu te mando o link da sala do Zoom pelo WhatsApp. A imersão é 24 e 25 de novembro, às 20h.</p>
       <a class="botao pagar" target="_blank" rel="noopener">Pagar R$ 47</a>
     </div>
-  </section>
-  </main>
-  <footer>Eduardo Rodrigues · OAB/PE 64.717 · <a href="mailto:mentoria@adveduardorodrigues.com.br">mentoria@adveduardorodrigues.com.br</a></footer>
-<script>
-  document.documentElement.classList.add('js')
-  const alvos = document.querySelectorAll('.bloco > *, .prova-principal, .galeria, .fim')
-  alvos.forEach(el => el.classList.add('revela'))
-  const olho = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); olho.unobserve(e.target) } }), { rootMargin: '0px 0px -8% 0px' })
-  alvos.forEach(el => olho.observe(el))
-</script>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Eduardo Rodrigues · OAB/PE 64.717 · <a href="mailto:mentoria@adveduardorodrigues.com.br">mentoria@adveduardorodrigues.com.br</a></div></footer>
+
 <script>
   const DESTINO_LISTA = 'https://crm-production-0006.up.railway.app/api/mentoria/lista'
   // Link de pagamento do Asaas (R$ 47, Pix, cartão ou boleto).
@@ -538,32 +341,44 @@
     formLista.hidden = true
     feito.hidden = false
     feito.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    feito.querySelector('.pagar').focus({ preventScroll: true })
+  }
+  function marcaErro(campo, texto) {
+    formLista.querySelectorAll('[aria-invalid]').forEach(i => i.removeAttribute('aria-invalid'))
+    formLista.querySelector('.aviso').textContent = texto
+    if (!campo) return
+    const alvo = formLista.querySelector(`[name="${campo}"]`)
+    if (!alvo) return
+    if (alvo.type !== 'radio' && alvo.type !== 'checkbox') alvo.setAttribute('aria-invalid', 'true')
+    alvo.focus()
   }
   formLista.addEventListener('submit', async e => {
     e.preventDefault()
     const d = Object.fromEntries(new FormData(formLista))
-    const aviso = formLista.querySelector('.aviso')
     const fone = String(d.whatsapp || '').replace(/\D/g, '')
     const nome = String(d.nome || '').trim()
-    aviso.textContent =
-      nome.length < 2 ? 'Escreva seu nome.' :
-      (fone.length < 10 || fone.length > 13) ? 'Confira o WhatsApp com DDD.' :
-      (d.email && !/^\S+@\S+\.\S+$/.test(d.email)) ? 'Confira o e-mail.' :
-      !d.area ? 'Marque sua área.' :
-      !d.anuncia ? 'Diga se o escritório já faz anúncio.' :
-      !d.equipe ? 'Marque quantas pessoas trabalham no escritório.' :
-      !d.aceite ? 'Marque que aceita receber as mensagens.' : ''
-    if (aviso.textContent) return
+    const erro =
+      nome.length < 2 ? ['nome', 'Escreva seu nome.'] :
+      (fone.length < 10 || fone.length > 13) ? ['whatsapp', 'Confira o WhatsApp com DDD.'] :
+      (d.email && !/^\S+@\S+\.\S+$/.test(d.email)) ? ['email', 'Confira o e-mail.'] :
+      !d.area ? ['area', 'Marque sua área.'] :
+      !d.anuncia ? ['anuncia', 'Diga se o escritório já faz anúncio.'] :
+      !d.equipe ? ['equipe', 'Marque quantas pessoas trabalham no escritório.'] :
+      !d.aceite ? ['aceite', 'Marque que aceita receber as mensagens.'] : null
+    if (erro) { marcaErro(erro[0], erro[1]); return }
+    marcaErro(null, '')
     const botao = formLista.querySelector('button')
     botao.disabled = true
+    botao.textContent = 'Enviando…'
     try {
       const r = await fetch(DESTINO_LISTA, { method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, whatsapp: fone, email: d.email || '', area: d.area, anuncia: d.anuncia, equipe: d.equipe, aceite: true, site: d.site || '', origem: 'site-mentoria' }) })
       const j = await r.json().catch(() => ({}))
       // Só erro de preenchimento volta pro formulário. Qualquer outra falha segue pro pagamento.
       if ((r.status === 400 || r.status === 422) && j.error) {
-        aviso.textContent = j.error
+        marcaErro(null, j.error)
         botao.disabled = false
+        botao.textContent = 'Quero minha vaga'
         return
       }
       mostraPagamento()
