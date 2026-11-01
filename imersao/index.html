@@ -104,8 +104,7 @@
   .casos{margin-top:44px;border-top:1px solid var(--linha-forte)}
   .caso{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;padding:26px 0;border-bottom:1px solid var(--linha)}
   .caso .hora{color:var(--acento);padding-top:3px}
-  .caso h3{font-size:18px}
-  .caso p{margin-top:6px;color:var(--suave)}
+  .caso p{color:var(--texto)}
   @media(max-width:560px){.caso{grid-template-columns:1fr;gap:8px}}
   .telas{margin-top:56px;display:grid;gap:40px}
   .tela{margin:0}
@@ -113,7 +112,7 @@
   .tela img{width:100%}
   .tela figcaption{margin-top:12px;font-size:15px;color:var(--suave);max-width:52ch}
   @media(min-width:760px){.telas{grid-template-columns:1.25fr 1fr;align-items:start}}
-  .registros{margin-top:48px;display:grid;gap:0;border-top:1px solid var(--linha)}
+  .registros{margin-top:48px;font-size:19px;line-height:1.6;max-width:56ch}
   .registros li{list-style:none;display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;padding:16px 0;border-bottom:1px solid var(--linha);align-items:baseline}
   .registros b{font-family:var(--mono);font-weight:500;font-size:20px;color:var(--texto)}
   .registros span{color:var(--suave)}
@@ -126,7 +125,7 @@
   .noite p{margin-top:10px;color:var(--suave)}
   @media(min-width:760px){.noites{grid-template-columns:1fr 1fr;gap:56px}}
   .vaga-inclui{margin-top:56px;padding:32px;background:var(--sup);border:1px solid var(--linha)}
-  .vaga-inclui ul{margin-top:16px;display:grid;gap:10px}
+  .vaga-inclui .inclui{margin-top:12px;color:var(--suave)}
   .vaga-inclui li{list-style:none;position:relative;padding-left:22px;color:var(--suave)}
   .vaga-inclui li::before{content:"";position:absolute;left:0;top:.8em;width:10px;height:1px;background:var(--acento)}
   .vaga-inclui .preco{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
@@ -208,12 +207,12 @@
   <div class="wrap">
     <div class="texto">
       <h1 id="titulo">Como eu automatizei o meu escritório com IA.</h1>
-      <p class="sub">Duas noites no Zoom, uma hora cada. Eu abro a minha tela e você vê o que eu peço pra IA e o que sai de lá.</p>
+      <p class="sub">São duas noites no Zoom, uma hora cada. Eu abro minha tela e vou fazendo as coisas do escritório com a IA na sua frente.</p>
       <div class="acao">
         <a class="botao" href="#lista">Quero minha vaga</a>
         <span class="quando mono">24 e 25 nov · 20h · R$ 47</span>
       </div>
-      <p class="quem-sou">Sou Eduardo Rodrigues, advogado previdenciarista. Montei os sistemas do meu escritório pedindo pra IA, sem saber programar.</p>
+      <p class="quem-sou">Sou Eduardo Rodrigues, advogado previdenciarista. Os sistemas do meu escritório fui eu que montei, pedindo pra IA.</p>
     </div>
     <div class="midia">
       <div class="foto"><img src="img/foto5.webp" alt="Eduardo Rodrigues durante uma entrevista" width="737" height="553" fetchpriority="high"></div>
@@ -238,15 +237,15 @@
     <div class="casos">
       <article class="caso">
         <span class="hora mono">23:00</span>
-        <div><h3>Quem chama de madrugada é atendido</h3><p>Quem vê o anúncio às 23h manda mensagem às 23h. A IA responde na hora e entende o caso. Quando chega a hora do contrato, ela passa a conversa pra equipe.</p></div>
+        <div><p>Muita gente vê o anúncio de noite e chama na hora. A IA responde, entende o caso e, quando é pra fechar o contrato, passa a conversa pra equipe.</p></div>
       </article>
       <article class="caso">
         <span class="hora mono">15:00</span>
-        <div><h3>Boleto nenhum sai sem eu ver</h3><p>O sistema monta os boletos de honorário com o que vence nos próximos dias. Às 15h chega no meu WhatsApp a lista do que sai amanhã.</p></div>
+        <div><p>Chega no meu WhatsApp a lista dos boletos de honorário que saem no dia seguinte. Nenhum vai pro cliente sem passar por esse aviso.</p></div>
       </article>
       <article class="caso">
         <span class="hora mono">todo dia</span>
-        <div><h3>Movimentação chega sozinha</h3><p>O sistema de gestão consulta os processos e avisa a equipe quando tem movimentação. Ninguém precisa abrir tribunal por tribunal.</p></div>
+        <div><p>O sistema de gestão olha os processos e avisa a equipe quando tem movimentação. Ninguém fica abrindo tribunal por tribunal.</p></div>
       </article>
     </div>
     <div class="telas">
@@ -259,12 +258,8 @@
         <figcaption>O Deferi Lex, que acompanha os processos e o que falta em cada caso.</figcaption>
       </figure>
     </div>
-    <ul class="registros">
-      <li><b>700+</b><span>contratos fechados em seis meses, com uma equipe enxuta</span></li>
-      <li><b>1.500+</b><span>clientes cadastrados no sistema de gestão</span></li>
-      <li><b>500+</b><span>horas de Claude Code e Codex montando essas ferramentas</span></li>
-    </ul>
-    <p class="registros-nota">Registros do meu sistema. Os dois sistemas aparecem na imersão como exemplo, sem acesso nem licença.</p>
+    <p class="registros">Em seis meses a gente fechou mais de 700 contratos, com uma equipe enxuta. O sistema de gestão já passou de 1.500 clientes cadastrados, e eu já tenho mais de 500 horas de Claude Code e Codex montando isso tudo.</p>
+    <p class="registros-nota">Os números são do meu sistema. Os dois sistemas aparecem na imersão como exemplo, ninguém recebe acesso nem licença.</p>
   </div>
 </section>
 
@@ -275,21 +270,17 @@
       <article class="noite">
         <p class="dia mono">ter 24 nov · 20h</p>
         <h3>O escritório rodando com IA</h3>
-        <p>Eu pego uma rotina que hoje é feita na mão e peço pra IA resolver ali na hora, tipo um modelo de documento ou um aviso que sai sozinho no WhatsApp. Você vê o pedido e cada ajuste até ficar bom, e sai sabendo qual rotina do seu escritório dá pra começar.</p>
+        <p>Eu pego alguma coisa que hoje a gente faz na mão e peço pra IA resolver ali, ao vivo, tipo um modelo de documento ou um aviso que sai sozinho no WhatsApp. Você acompanha o pedido e os ajustes até ficar bom, e sai sabendo por onde começar no seu escritório.</p>
       </article>
       <article class="noite">
         <p class="dia mono">qua 25 nov · 20h</p>
         <h3>De onde vem o cliente</h3>
-        <p>O caminho de quem clica no anúncio até assinar o contrato, passando pela conversa no WhatsApp e pelo retorno. Eu mostro como o atendimento segura quem chegou e os erros que eu cometi no começo.</p>
+        <p>É o caminho do cliente. Clicou no anúncio, chamou no WhatsApp, recebeu retorno, assinou. Eu mostro como o atendimento segura quem chegou e os erros que eu cometi no começo.</p>
       </article>
     </div>
     <div class="vaga-inclui">
       <h3>O que entra na vaga</h3>
-      <ul>
-        <li>As duas noites ao vivo, no Zoom.</li>
-        <li>A gravação, se você não puder assistir na hora.</li>
-        <li>Se quiser continuar comigo na mentoria, os R$ 47 viram desconto e a primeira turma tem 40% a menos.</li>
-      </ul>
+      <p class="inclui">Você assiste as duas noites ao vivo no Zoom e fica com a gravação, caso não consiga ver na hora. Se depois quiser seguir comigo na mentoria, os R$ 47 viram desconto e a primeira turma sai com 40% a menos.</p>
       <div class="preco">
         <a class="botao" href="#lista">Quero minha vaga</a>
         <span>R$ 47 no Pix, no cartão ou no boleto.</span>
@@ -303,8 +294,8 @@
     <div class="retrato"><img src="img/ensaio-sentado-blazer.webp" alt="Eduardo Rodrigues sentado, de blazer" width="1067" height="1600" loading="lazy"></div>
     <div>
       <h2>Eu não sabia programar</h2>
-      <p>Mexo com tecnologia desde criança, mas código eu nunca tinha escrito.</p>
-      <p>Nos dois anos de advocacia cuidei do marketing, dos anúncios e das vendas do escritório. As ferramentas que a gente usa hoje eu fui pedindo pra IA, uma de cada vez, do mesmo jeito que peço coisa pra equipe.</p>
+      <p>Sempre mexi com tecnologia, desde criança, mas nunca tinha escrito uma linha de código.</p>
+      <p>Nesses dois anos de advocacia eu cuidei do marketing, dos anúncios e das vendas do escritório. As ferramentas que a gente usa hoje eu fui pedindo pra IA, uma por vez, do jeito que eu peço as coisas pra equipe.</p>
     </div>
   </div>
   <div class="wrap">
@@ -318,7 +309,7 @@
 <section id="praquem" class="praquem">
   <div class="wrap">
     <h2>Pra quem é</h2>
-    <p>Pra advogado de qualquer área, sozinho ou com equipe, anunciando ou não. Os meus exemplos são do previdenciário, mas a rotina de escritório se parece em todo canto.</p>
+    <p>Serve pra advogado de qualquer área, que trabalha sozinho ou com equipe, anunciando ou não. Meus exemplos são do previdenciário, mas rotina de escritório é parecida em todo canto.</p>
   </div>
 </section>
 
@@ -327,10 +318,10 @@
     <h2>Antes de garantir a vaga</h2>
     <div class="duvidas">
       <details><summary>Preciso saber programar?</summary><p>Não. Eu peço em português, do mesmo jeito que peço a alguém da equipe.</p></details>
-      <details><summary>Não vou conseguir assistir ao vivo.</summary><p>A gravação fica liberada pra quem está inscrito.</p></details>
+      <details><summary>E se eu não conseguir assistir ao vivo?</summary><p>Fica a gravação pra quem se inscreveu.</p></details>
       <details><summary>É só pra quem é do previdenciário?</summary><p>Não. Os exemplos são do meu escritório e cada um adapta pra rotina do seu.</p></details>
       <details><summary>Vou receber seus sistemas?</summary><p>Não. Eles aparecem como exemplo, sem acesso nem licença.</p></details>
-      <details><summary>Já faço anúncio. O que eu vejo de novo?</summary><p>O que vem depois do clique, do atendimento até o contrato, do jeito que eu acompanho no meu escritório.</p></details>
+      <details><summary>Já faço anúncio. Vou ver alguma coisa nova?</summary><p>A segunda noite é sobre o que acontece depois do clique, do atendimento até o contrato, do jeito que eu acompanho aqui.</p></details>
       <details><summary>E a mentoria?</summary><p>Eu apresento no fim da segunda noite, com formato, calendário e valor. Quem entrar ali abate os R$ 47 e tem 40% de desconto na primeira turma.</p></details>
     </div>
   </div>
@@ -340,7 +331,7 @@
   <div class="wrap">
     <div>
       <h2>Garanta sua vaga</h2>
-      <p class="sub">24 e 25 de novembro, das 20h às 21h, no Zoom. R$ 47. Você deixa o contato, paga e eu mando o link da sala no seu WhatsApp.</p>
+      <p class="sub">24 e 25 de novembro, das 20h às 21h, no Zoom, por R$ 47. Você deixa seu contato, paga, e eu mando o link da sala no seu WhatsApp.</p>
     </div>
     <div>
     <form id="form-lista" class="form-lista" novalidate>
